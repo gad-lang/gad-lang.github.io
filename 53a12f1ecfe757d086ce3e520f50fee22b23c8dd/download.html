@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.1</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Tasks</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="values-and-types.html">Values and Types</a><a class="nav-link" href="variables-and-scopes.html">Variables and Scopes</a><a class="nav-link" href="operators.html">Operators</a><a class="nav-link" href="control-flow.html">Control Flow</a><a class="nav-link" href="functions.html">Functions</a><a class="nav-link" href="collections.html">Collections</a><a class="nav-link" href="strings-bytes-regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="error-handling.html">Error Handling</a><a class="nav-link" href="modules.html">Modules</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="templates.html">Templates (mixed mode)</a><a class="nav-link" href="formatting.html">Formatting with gad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-stdlib-strings.html">strings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmt module</a><a class="nav-link" href="ref-stdlib-json.html">json module</a><a class="nav-link" href="ref-stdlib-time.html">time module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link active" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><div class="rel-hero"><div class="rel-badge">Release</div><h1 class="rel-name"><a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.1">v0.1.0-rc.1</a></h1><div class="rel-date">2026-08-05T23:53:16Z</div></div><section class="rel-notes"><h2>Release notes</h2><h2 id="changelog">Changelog</h2>
+<ul>
+<li>d0e9195bdb428c51b9c7154608315385eceba80b Add Class; fixes and more</li>
+<li>66c55304a4bea5af35a91b614be0d463d1f4f16b Add custom mixed delimiters</li>
+<li>742d950871849298db1f1d736ac0fbcf5b4ad510 Create test.yml</li>
+<li>8588e226b7ad1b8371a0cf877a39aa6d023d649a Fixes #2 With minor breaking changes, optimizer now adds shadowed builtins to disabled builtins before evaluating. Optimizer creates scopes for only functions, so shadowed builtins in blocks is disabled in upper blocks within a function for performance reasons.</li>
+<li>67bf442073e3b2c04f6dcf1863b80153a271ee37 Merge branch 'feat/with-block-expr'</li>
+<li>00202f329be9625e4ca555964f70c6e531414610 Merge branch 'main' into destructuring</li>
+<li>7ced6943884ffcffd676d29810076c3becfdcf55 Merge branch 'main' of github.com:ozanh/ugo into main</li>
+<li>add162a166f1b53c01fa6c2bb5697d0c82913cb3 Merge pull request #1 from ozanh/ozanh-patch-1</li>
+<li>65095315d9077178b373f0d66da8ac10da8e59df Merge pull request #14 from ozanh/release/0.2.0-rc</li>
+<li>f98842aa9537f96573b9b665cff60f09c96d96ac Merge remote-tracking branch 'origin/code<em>format' into code</em>format</li>
+<li>9efac98b64653d0cfb6193b9614edc0439627fbf Repl (#15)</li>
+<li>3c25f937242f8d3761be47806e08babd2e571d9a Revert "update test script"</li>
+<li>0c1609e6bcfd246782a3cad90129c744143a1cd4 Version 0.4.0 (#26)</li>
+<li>9a35a40f7c80608a2086c6c5b66d406cc961ff89 add CallableFunc type alias</li>
+<li>f7335ba9ac731b2ec7af294373a678d6533a64c5 add Playground link to README.md</li>
+<li>2fc51d01bf547e8f1f43385ccd6e46692b691b12 add array destructuring tests</li>
+<li>0e6a858c463d17f497be99b70e9a40bf0d628d86 add benchmark link to readme</li>
+<li>bc17734a373adfa5cf0fcc5857b81b342c1ef4a3 add compiler tests</li>
+<li>7b335e2d6daa837a88fee0a8603cde7e66fea40d add const declaration to parser</li>
+<li>877380a8a5613f6ee6d7585861d25a67d70ebc6a add const tests change checking constant symbol</li>
+<li>df138622a74041a52dfce952f15870707585a0b1 add destructuring tests</li>
+<li>d4ad06b0a6d2fb2bab8340fa277930fed2290a4f add destructuring tests</li>
+<li>c3c5014e94b2f4402e544979b4e44b09dcd6ec56 add error-handling.md link to README</li>
+<li>b0f58b8e82e5e7b16fb7aea9ff26f47baae63a8c add eval tests</li>
+<li>13b118e1828ae69120c19a2275b0bdce5fca680d add fmt module</li>
+<li>bc4496be812fb1a240085ca57699ff72a16d9574 add global Gosched to CLI scripts</li>
+<li>5e4c8de2b6d42d8ef2367b3c54216e8ee080c353 add godoc badge</li>
+<li>fd1914eb3f47334639161044efb6a2d7a36cdfcc add new badges</li>
+<li>2d6d1167916faf26d324d1ed43616bb0fbc9636c add nil checks to optimizer</li>
+<li>fc92c01b99aac8773c34c7055b72013a7baef58c add optimizer documentation</li>
+<li>014dec1eef1656ddd8bd817d20640689beee80b8 add optimizer tests</li>
+<li>915c91349ab59685ce58a8df94447c1b3246d1dc add optimizer tests</li>
+<li>21552492dae1ab5c52c23b230517e077dc7d03b2 add parser tests</li>
+<li>327198495df066c2d4e9e59f59630c8ce0240ff3 add parser tests</li>
+<li>c72dfda53662559bbb9613e5b5ded8f89b06467b add staticchek linter</li>
+<li>cf7837a4d41adb9592d9495c65aba9ebf26f489a add stdlib doc link to README</li>
+<li>5a4644567813cd4ab1edb7eff795f5b818294d7c add strings module</li>
+<li>ca7314633f2e73733d18d67f6194465ad69e6571 add time module</li>
+<li>990fa9d4e2c0582d278565a978e5dd67a77df779 add ugodev badge</li>
+<li>12166ba8d50a93a44abfa1f11ebbcf0418890a6b add workflow test badge</li>
+<li>645c2c21e3d5dd9a72b4f03e3518f1b0673d2ec1 break long lines</li>
+<li>a2a5f6f499f993156d765eb8d44d1e0e7ac6c65c build constraint for terminal app</li>
+<li>0875c6384fdd7069eab11ae80314007d538eaa12 build(giom): vendor giom as real files instead of git submodule</li>
+<li>7752b8fbcf85220f016221dc49d9e6c07ca7eb5c build(plugins): make codemirror-gad and prism-gad npm-publish-ready</li>
+<li>2ad52092183b2e76993099305fd4a49751c0247c build: <code>make webide</code> runs the server-less IDE dev server (no Go backend)</li>
+<li>79f4dc5f815fa0c20cbfb8ee68e3ff844ba4fe47 build: add <code>make ide-vuetify-demo</code> for the Vuetify IDE demo</li>
+<li>8653f86381c46dbade31182f6561665003bd1f0a build: add <code>make webide</code> to preview the embeddable server-less IDE page</li>
+<li>57a7fcf2e4555bf2f860d6a74305829b0a333ac0 build: add <code>make website</code> and <code>make website-fast</code> targets</li>
+<li>5a90f8f69d86fb00c2a35f3090bc2ff21697f2d1 build: add prod build tag to build-cli target</li>
+<li>00ab422d38e369fc5c22b474b15776d1a64a0afc build: drop NVM_USE from the Makefile</li>
+<li>d8423eb464182535bab0ad049943ea8d0cd555a0 build: rename build-prod to dist; add build-vscode-plugin</li>
+<li>327792d1d863d1d19ea64271619507a312144df9 builtion(map): add "nokey" named param where map only values.</li>
+<li>6c9e1a11c8c5e7370fe5b5e7c974e86b147b55ef change(doc-comments): new markers /// , /<strong> … </strong>/ , /<strong>* … </strong>*/</li>
+<li>c4c406659a378ddcc910357cfcaab0df8ce21798 change(transpile): default RawStrFuncStart to "raw " (operator form)</li>
+<li>9ca22b54cd613082740f8b80d3373a45168cc560 check context done before run in Eval.run</li>
+<li>d25027080e3351007076000cc0b4faba4246fe00 chore!: refactory object caller api</li>
+<li>faca1466176f675aa2340d42d18fd320f19aadc6 chore!: replaces 'undefined' keyword to 'nil'</li>
+<li>e7520915065838fd54c47162cd55ca2f28c50ca2 chore(deps): update command-context to 46d8492; apply Patterns</li>
+<li>707c2cc32ca1dc7e00906a76644dc198d968cd50 chore(js): replace pnpm with bun across all web/js projects</li>
+<li>4acc6521a781ccdf9ada7a541e17da952b77073a chore(samples): drop the ide section from .gad/gad.yaml</li>
+<li>0dbe405a674604f3119e285a486121b6036cad66 chore(samples): move giom/samples to samples/giom</li>
+<li>f723b4d0caaebce90f2a7284c6b7ec9ddf56fcc3 chore(samples): restore clean .gad.yaml starter config</li>
+<li>a37d0e27f94a3b41a97e44a4e92cfb36ce436e76 ci(website): publish docs to gad-lang.github.io (org root site)</li>
+<li>db94310c937ad62151f864c88cda5a35abff009e clean code</li>
+<li>aea12780a4dfbbcc0de1156ef4829e5e82ed9c09 cli!: update program args and kwargs receiver</li>
+<li>a32d9a851629001063abbfc509b1c51334a58cfc cli!: update usage message</li>
+<li>a4b81efb77a276fd1d79915af952bb3d84a81409 cmd: fix tests</li>
+<li>18719a933857f25d35afe1646a11d819f41fbe33 compiled function copy respects nil fields</li>
+<li>6f1f84ab611d16e0d92f0cbf0d313458cd9ac948 compiler: expose FallBack function and Errorf</li>
+<li>ac25992c0e0cc99f81f8b060709a8af0568efb43 compiler: fix fallbackFunction on forked compiler</li>
+<li>b97779d78c2f7a2d91c7ac03cb445da39e1fc5f2 const declaration implementation</li>
+<li>4f38a258b90086638cc32fc6bd471eef067e59dc core!: (1) add new special bool value (<code>yes</code>/<code>no</code>); 2) add <code>repr</code> builtin function; 3) Add *VM arg.</li>
+<li>9dbacdcc8b591cbba3d06429fb58a8a61c5b2879 core!: 1) add Pipe expression; 2) Converters at VM level; 3) IndexGet Proxy</li>
+<li>ca00916e886c8e46b81a1f92ebc9af4318272db9 core!: 1) add context to Importable API; 2) more iterators changes.</li>
+<li>67685faaa1615743465385755b473f922d32d01e core!: 1) add file refer to module; 3) instroduce to transpiler; 2) other changes</li>
+<li>3d48cebe21f8022832bd0c251a491d1e5369a5fc core!: 1) add negative index get for slices; cli!: 2) pass named args to script.</li>
+<li>b36dcfacd3a3deb99b696aa038b47c8e13cc4676 core!: 1) builtin <code>each</code> function now hadles without callback; 2) builtin <code>items</code> function now return array of <code>keyValue</code> instead of <code>keyValueArray</code>; 3) builtin <code>collect</code> function now returns <code>array</code> and default mode is <code>values</code>; 4) Add <code>Context</code> field to <code>CompilerOptions</code>; 5) Add <code>Context</code> as first argument to <code>Import</code> method of <code>FileImporter</code>. 6) Iterator forever loop fix; 7) More helper functions.</li>
+<li>f2d940063244adbee32fddf28306e0b2e13afe24 core!: 1) changes var params and named params specs similar to Python. 2) changes lambda functions type def.</li>
+<li>50e3d49884799d318d74321ef727e095608acd0a core!: 1) improve buffer helper functions: <code>obstart</code>, <code>obend</code> and <code>flush</code>; 2) improve mixed <code>Text</code> type as safe string value; 3) improve custom non <code>Text</code> object write handler.</li>
+<li>26250826c4d7cd56fe5e82600a9cd0e3e8e1533f core!: 1) optimize args validation; 2) fix pipe call</li>
+<li>13baca105f9727819824a11f1739f244c480c70f core!: 1) optimize call yielder</li>
+<li>02881b95d92c9241a810b19676439c8574551a97 core!: 1) perform constructor of structs; 2) yield caller to dedent stack caller</li>
+<li>7dab523f401b1b8cf3f9d4b6244de8f67946b0b6 core!: 1) publish parser Api; 2) implementes ForInElse statement; 3) other changes</li>
+<li>993e9e90b75ccc00048a157e405513fbbfd234e2 core!: Rename Map type do Dict</li>
+<li>4bfbcad21bdc6f4b37b1fa6832ad610e530f0947 core!: add builtin functions map, reduce and foreach</li>
+<li>989213dd1d46fe86f5460b6e495bca4f0f45b454 core!: add methods to CallerObject</li>
+<li>7ba056ada62ad4035ebba52034d0a0b3ab6455b5 core!: add methods to types constructor</li>
+<li>3954567a519a3f54c421cf7f605bdebd51b33db6 core!: add named args type check</li>
+<li>1ca31309148e290d1f4eeb045f3d1ba55edc9c97 core!: add repr helper and add helper functions and structs</li>
+<li>3c87a40fcba4ed92aaeacf48796736cb262d04b3 core!: add special field do call as ident</li>
+<li>884d7cbf4766c1bb030709bf37b4375bf5a2f9c0 core!: changes of filter, map and reduce api</li>
+<li>24c0415aab339fa4250fd130d27f83801e2614e1 core!: clean iterations and key/value pairs</li>
+<li>51739e20c1074716bc2b9fa99bb8d44164bc6ad4 core!: custom writeTo handlers</li>
+<li>e9989c1674b8f872990d9c00a8b0171ab934b1ac core!: fix iterator of nil value</li>
+<li>29f7bdec37635913d91509750a2eb9c5c44c9e86 core!: fix mixed scanner</li>
+<li>ae1bb5786f6717b12ce5b724a2ad45922b16a195 core!: fix reflect map get over nil</li>
+<li>361fe2b1103531b2540995c78a2a228470059a6e core!: implement iterators</li>
+<li>4b5adc8b972a3e1022987c79691f4b500d5d5fa5 core!: implemented go reflect objects</li>
+<li>fbb14a6275afa82c6555b4259e95d26577bb891a core!: implemented user objects and many internal features.</li>
+<li>7966c8acf1fcf7fe97034b713d1694224421ec35 core!: publish builtins api</li>
+<li>06af041b290bf95a17f072ad40e8623357ef0260 core: 1) Add Symbol as unquoted String value; 2) Dict now allow any expressions.</li>
+<li>44130bab8bbe8c3569a59cc85ff05adc5d43ff3d core: 1) add MixedParams object to represents multiparen; 2) fix tests</li>
+<li>3245973cf31b9729bf6fbc3b5dd693ed123cb61a core: 1) add options on builtin str function; 2) fix tests;</li>
+<li>9328ed1fa778e13becaf8f9d3470fcede84bcd01 core: 1) add pow operator; 2) add mixed params object</li>
+<li>41563cdf67f5e668c1f668ec371c48be8d4aa596 core: Add custom print handler to ReflectType</li>
+<li>f05fdaacc50f555ed9ead00c274d87ddcfacd88b core: NamedArgs and KeyValueArray now supports KeyValue with Key is a expression</li>
+<li>0cd29148e932087b4533601661a080889adc7901 core: add default printer implementation to go values.</li>
+<li>d81f9be152639511ee9b758515cffc36355fa971 core: add define handler for class definition</li>
+<li>6d7d0214b0dbed4000fd3bbfb5d3f422ee8c51af core: add export keyword for export module properties</li>
+<li>b0d0d3ac6977ee24829b9ccabd3a8f02e5abf6d5 core: fix PrintPairs on zero values</li>
+<li>0224046c392cc051113a11d16b1575197b83ae6b core: fix ReflectValue.Print</li>
+<li>a462b65409835b50ce1a4a82298e85263f6ca8b9 core: implemented template strings</li>
+<li>3321d3cad5dce668a49a6768b3e7a0486e91dc61 core: improve api</li>
+<li>9f7e2f806e548dd1c2d237653f4023b12430d860 core: simplify dict element value as func or closure value</li>
+<li>5fddabb35a9ec08fe77181bae224950ddf487623 core: string converter with more then one arguments</li>
+<li>4ee9d06f264b87de16d37f71c0b8c03c67f474d2 core: take self assign as builtin function allowing user methods</li>
+<li>a692ad2f4e8c59995e98b45d4c57e1f9143357b3 core: tests for keyValueArray with keyValue expr and keyValue with dynamic key expr</li>
+<li>0ee4784ab8370ade55a76a97896ca386f1b8c454 docs(builtins): document builtin modules; time constants stay PascalCase</li>
+<li>267fd13a04a7efd2a86418db955923d8c5bd089c docs(class): class syntax sample and documentation</li>
+<li>2c7eae1281de975dc5806a3d229eebd03e895ffe docs(class): godoc for Class and ClassInstance types and members</li>
+<li>ae38bbb68e2021d7a3376c3b2add93eb78746428 docs(claude): add Go format+test pipeline guidance</li>
+<li>440f70da9d4355dc3ecfe405588d9f6c3b03880f docs(config): clarify .gadide.yaml is not variable-expanded</li>
+<li>78e6b39c1b2e6fa5cbaab5620ea5a318f2bab470 docs(config): document bash-style variable expansion in workspace config</li>
+<li>28717f72e011738dd962e157f3692c0547422df7 docs(conventions): add Idioms section recommending property <code>.v</code> access</li>
+<li>261b925ed35c47a42a4589689f2793b2331f297e docs(conventions): add code-conventions doc; fix decl formatter</li>
+<li>38f3c3f01ff2987e5bf52ea43c3d72a592804fb0 docs(conventions): tight <code>::</code> and no redundant chain parens</li>
+<li>977e7c9ffa29a270c5a0f9ef4e15d1e2c3bd1463 docs(doc-comments): document the <code>gad doc</code> subcommand</li>
+<li>0158f3fd9a83fa5b1c6ebdbfb99dcdedf61e6ca6 docs(embedding): document VM-stack aliasing hazards for args</li>
+<li>c8246abb5bb3e7ca0c734e7093aa3f5223ac6965 docs(embedding): document the AddMethod typed-overload pattern</li>
+<li>afad444765121d1c6834e1f7b89918fda084e7e8 docs(functions): named funcs, met, and computed values</li>
+<li>fd0b05e5e77e218f0c905e4f2e1cdc53a48dded5 docs(gaddoc): document converters and type-method overrides</li>
+<li>d836310a4837dc104be5f5871f9811c95842f995 docs(gaddoc): new function-header syntax + fix module data extraction</li>
+<li>f7196c27d601dfe5e2e060068a9718874022f885 docs(gaddoc): use gad variadic syntax (*args) in function headers</li>
+<li>9635476d004d1454eda10f7fcb402d148304caea docs(giom): document comments (//, //-, /* */, /<strong> </strong>/)</li>
+<li>db30844717ac0cb6178f0d15c9f6c4e249ac9ba1 docs(giom): simplify giom.Tag(nil) to giom.Tag() in examples and docs</li>
+<li>c6a4e93db7ab09a0f51036cbd54e63abac6eba7b docs(giom): update for native compilation and samples move</li>
+<li>550745b3b4be929aa9e17282ee114c056efb64f7 docs(heredoc): heredoc sample and expanded documentation</li>
+<li>516a2f0477dd9ac4b764cb788f1a785253eafebe docs(interface): FullName doc; record TypeAssigner design for the param-type follow-up</li>
+<li>109f99f200f4fdb6d64a6156b021bd4172786f91 docs(interface): document + example context-function members</li>
+<li>3fbfc25e69aee5168ac6691b4e0f2b18209a60a9 docs(interface): sample + doc for the interface construct (stage 5)</li>
+<li>0c51b90e566d8acf460e14bab77a31116b31c3f7 docs(keyvaluearray): keyValueArray sample and expanded documentation</li>
+<li>c4e8f8d6f592f0c3f12feabd63fa7b053ea739b3 docs(objects): expand godoc for Function and BuiltinFunction</li>
+<li>c164569bae4b5106ede2b8c22392beb91524d2c0 docs(operators): add examples to the precedence table</li>
+<li>20af5223346ecc9f4906fb1a1a7296ec8677ab28 docs(operators): document the per-operator Go API (phase 4)</li>
+<li>828d4c8855e40ef6d5877aa4985cafd723c78b70 docs(properties): recommend .v with a measured cost comparison</li>
+<li>9f058dfed917769af4845feb6bbf764b3801bb11 docs(range): document the <code>..</code> operator and add a ranges sample</li>
+<li>160d72e6c5fcc862d112a7d35b66a211a9bab77c docs(readme): add Go Dev Conventions — builtin registration rule</li>
+<li>418d7a9c3b25102a648bcdb70099d71d903a03ca docs(readme): document new language features</li>
+<li>c007b4bce2b8b1192c075097d235eae8e96a5458 docs(readme): expand title and project description</li>
+<li>dd68ad56cae62f60aa202fa1418b93b5cd88399e docs(readme): fix the Go-embedding and Fibonacci examples</li>
+<li>1f42ba0aeb597026c2831292d76f6acb7db37451 docs(readme): remove stale benchmark and playground links</li>
+<li>66d8a89e1b05213424e7f91f551e0ea011e814c2 docs(readme): type the mapEach seq param as array</li>
+<li>52f1287f5b5230bfd552fab4e714ef07df0591a5 docs(samples): <code>::</code> with the <code>or</code> fallback in 24_interfaces.gad</li>
+<li>ec65fd329533b7a995cb66a95e7e4d4a60c9df92 docs(samples): add 23_template.gadt template-mode sample</li>
+<li>d5cdc95aacc57edb1e060fa7b0203b35d3e0c287 docs(samples): add defer/deferb section to 03_functions</li>
+<li>c1f10e3c8af9adcb1be38c6cd6c6a987ae622217 docs(samples): add functions-with-methods/prop sample</li>
+<li>61fbc35e606afe637388ed40b6770e6d86712fdd docs(samples): consolidate property examples into 31_properties.gad</li>
+<li>694eb87d2da2bca60fc320c4c25fefa3a4ae4243 docs(samples): convert declaration comments to doc comments</li>
+<li>99b3fabe73b4f61f7bfea964ed299ee92cbecbd8 docs(samples): dict interface satisfaction in 24_interfaces.gad</li>
+<li>2edbdc89b45c0f6c4e98f16fe24a28148535a4e2 docs(samples): interface structural satisfaction in 24_interfaces.gad</li>
+<li>5d3f193e46addee8dbbefe347a24ad520cb30bc8 docs(samples): tighten <code>::</code> spacing in 24_interfaces.gad</li>
+<li>9f53697553c4cab8544b60ced2b44453c3a4e24e docs(task): /gad/ retire deferred to manual UI disable</li>
+<li>96352f0b518bf09c0eb2a9a0f0974b921c18713d docs(task): @main consistency fix</li>
+<li>2e2375e73431364aaccb78953a2e95126ba27702 docs(task): add current-state summary to TASK.md</li>
+<li>d48c9113612e25b8fbee600393a63f46e62d1109 docs(task): ide-react parity + hybrid gad ide complete</li>
+<li>5ce22e90da9362f8c51eadffd6bc4302f3f3f910 docs(task): log ModuleSpec.Flags + raw argv feature</li>
+<li>b17193f6959b93f9ab4c55c08090fcf0b9879403 docs(task): log Prism highlighting + fence sourceType pass</li>
+<li>e81fd60985f3e59b6c5dc79adf14edda5c627a34 docs(task): log WASM split + Download page work</li>
+<li>6fee39cd3dd546a671f29be82d992a65f58af8b8 docs(task): log completed IDE icon + .gadt template work</li>
+<li>6698a8eeff7a0096a0584c259233211a6d564025 docs(task): log gadx tag-encode feature + render fix</li>
+<li>9f54519d676919d14dedbf450774d62629de5bc4 docs(task): log ide-react parity progress + remaining work</li>
+<li>8c6824f48e73e0a99558b30f9d746d0db8a95562 docs(task): log ide-react upload/readonly parity milestone</li>
+<li>0fb794d67f8d5966b5dd76dc2658df2558ee964f docs(task): log interface satisfaction cache + gadx wiring + plugins verified</li>
+<li>31ffd4216738fbeffdd2244bc7ccd93a82b93ab9 docs(task): log website/wasm overhaul + docs API refresh</li>
+<li>5c8ad51ba866320dbeed039a04bdaae565d3e7c7 docs(task): mark 2026-06-30 IDE tasks done; update handoff</li>
+<li>cfca422f4e0f08fa98b4e9feaf4e1c9f48e23d41 docs(task): mark Language tasks done; update handoff</li>
+<li>9e044b7da9ad9cac7718901626e7bf7975544813 docs(task): mark all IDE epic items done; update handoff</li>
+<li>53b2d76eede15bd3aac68fdd1cb6d3db5e6799fc docs(task): mark interface construct done</li>
+<li>6619f2dc0f905c62997fa408b4077c9ee6569e9c docs(task): mark met&lt;...&gt; multi-header done; note follow-up 2 staging</li>
+<li>2d4875240db4054ccd8ebb809df19281d90a04ff docs(task): mark met&lt;...&gt; shortcut done</li>
+<li>e51562faa0a4d0756c7d03a8bfc4d026322dec3f docs(task): mark new doc-comment markers done</li>
+<li>eb3afa0b8a71e18a304609739622ea082710dde5 docs(task): record @param directive</li>
+<li>4585a3c8379c3f51d8ad9acc4442c90e2dda90d0 docs(task): record CI fully green after Windows fixes</li>
+<li>41c588bb9f3717e2a5b1b14b7d69a129dbf4a265 docs(task): record Pages migration to gad-lang.github.io root</li>
+<li>fce85f1fc08fa3f69963bf9f3c0d661811a2838c docs(task): record compiler warnings + export handling; note open export-lowering</li>
+<li>962eef39da826006b7082b407827ad5abeb8467c docs(task): record export lowering to single dict + OpExtendModule</li>
+<li>fc03e635e627c335422c959a16b527d48de92ad7 docs(task): record giom comments, gad doc, @export</li>
+<li>679a50862044259e8f513b9d752fe040a1731cc8 docs(task): record giom inline-HTML compiler rewrite in TASK.md</li>
+<li>55503157a032f0cddb49522299ea9cc4b1a75307 docs(task): record goreleaser check pass</li>
+<li>b986e6c56739f793a6d7a0656ca337d6d7c5730a docs(task): record goreleaser snapshot success + doc-glob finding</li>
+<li>ddddab9694fa1c7fb91bd3b7ea537a873051f292 docs(task): record hybrid gad ide --serverless done</li>
+<li>12ddf160eccb4b9ed19a2355a85ce652d7fbc5f5 docs(task): record operator-check cache investigation and safe-scope status</li>
+<li>50da0b96cf5b0120ccd957233241c4c8b6981b1c docs(task): record prop .v, read-only prop, and module live bindings</li>
+<li>8d19dd0ee7776e825c0663be5f39d2a646e9b211 docs(task): record prop delegation, VM.Call and reflect module</li>
+<li>bc6c1d02d57a18a51e708c5293a265cc8dfdfc03 docs(task): record release footer + live-site (prism/demo) fixes</li>
+<li>23f6948768543954fddd7388f3e6e9164c563bc3 docs(task): record successful test release v0.0.4-test1</li>
+<li>4bceca09360ef73a7acb523f6c37c42ffa095b7f docs(task): remove completed ===/!== operator task</li>
+<li>bb6ecd4459fccbfd6ec530c9b63cd44feebc3a84 docs(task): remove completed op_api.go binary-operator task</li>
+<li>1ad335eed4fcf99681985d8fffdb24c12e038217 docs(time): document date/time arithmetic and .trunc(); extend sample</li>
+<li>69c66a9f85886b07103fba7b58f187b8c81da04e docs(todo): remove completed core-module task</li>
+<li>9e587fc245ae637bd21b6ff17d9dee8b2f028687 docs(todo): remove completed doc-comments, doctest and defer-sample tasks</li>
+<li>72afabf43eda01343992bac762d180f1c58a9adb docs(todo): remove completed fmt comment-preservation task</li>
+<li>9429a065c54c2643b63f1ce2776a87f517a1dc23 docs(todo): remove completed in-operator task</li>
+<li>43c310a8ef58211f5f95d618baaf230dd8168fd8 docs(todo): remove completed match and code-conventions tasks</li>
+<li>0a1a18e4957eb5e7674bdffcf6038083fb913122 docs(todo): remove completed range operator task</li>
+<li>fbdbb30213b8eac897f690f0e6707886afb174c9 docs(todo): remove completed user-operators task</li>
+<li>6779e88398b948e8c210522073c8994a11eaf9da docs(types): explain type constructors and their typed methods</li>
+<li>307b3e10cd01c5636be34c8bf786978f90b8fb9a docs(website): use gad/gadt/gadx fence names + add Templates to the nav</li>
+<li>2ce7f04f2c6c78ff46f496056cbc7558437d085a docs(with): document and sample the block-expression form</li>
+<li>cc1110c156f5cdf1ed6d27f13d23357bba93f59c dot import ugo in time module tests</li>
+<li>642da55f7a0651cc9578b917223e7213a8fd7879 enable terminal app to execute uGO script files</li>
+<li>4cd6d8b51858240a62d09a1fa7c90bd7ed9ad5bf encoder: fix code</li>
+<li>07de4e940968d41c34d5f3e0a414e4f6949c51a9 experimental array destructuring</li>
+<li>292f1e8f902da1c3b8df9bafdc4e5a0db9ee6bec feat!: 1) vm IO; 2) mixed code; 3) builtin write and buffer.</li>
+<li>6a8c59dd538a597b8f4c553fccdde06de55ea599 feat!: add decimal type</li>
+<li>04e5ab9c2e4fb71e292e8786db3c3f7804f4703a feat!: implemented named params</li>
+<li>124f7b6b4e89ae77f893c4c0fac291fd63e23962 feat!: improve BinaryOperatorHandler api</li>
+<li>77652c422084a56069d61e6e5202b479596b16df feat!: improve Index api</li>
+<li>80c25fdffdc6a851f24fe2e249f8ff68e5d3c0a5 feat!: improve Iterable api</li>
+<li>d9369da8fbdf89df0de08437bb6a9f6714d1eaea feat!: keywords alias of block braces</li>
+<li>8127f43ac0e33e255d333f8d9d02e54c39ec1c4e feat!: new opcodes</li>
+<li>238fd9818f0e54d30f9d1dd9b98a470abe1581bf feat(app): WASM Web Worker backends + embeddable server-less IDE page</li>
+<li>9e5deca2c0cd7a9871d9514e5d5b6be54f6832b4 feat(app): WASM Web Worker client + LocalStorage filesystem (web IDE infra)</li>
+<li>19d3a7a463c7156c1388e5eeca3b4388ba3c4625 feat(app): link the playground header to the server-less IDE (/webide)</li>
+<li>a676f692705a8209d71da7427f4ccfc0fc62ea65 feat(app): run args + webide run profiles/runMode; guard null diagnostics</li>
+<li>e7a836b7f1e6841a58438fb51a377796346e86a2 feat(builtins): builtin module namespaces; base64 as builtin</li>
+<li>4fa634ab2baa4b8ed1584fa15d192db0e06271c7 feat(builtins): expose BinaryOp/SelfAssignOp as @binaryOperator methods</li>
+<li>4a82dd360c76b5e9ada1e9434368361b9adf2c7f feat(builtins): fmt as builtin module; module.NAME -&gt; OpGetBuiltin</li>
+<li>8aedc67817dd4229acba31d726a60b0ae33d75f1 feat(builtins): strings as builtin module; members carry module spec</li>
+<li>e9ef527f0f846f2d1ee307fe966671e8d8010221 feat(builtins): time as builtin module; camelCase members; global converters</li>
+<li>7cf306b7de812fccb97289b0e0dda2966f839628 feat(builtins): typed AddMethod overloads for value-type constructors</li>
+<li>e686ee49d6e82ce1ef6ee4d7fba0005932ace930 feat(chore): ident with type now acceppt type as expr</li>
+<li>6f55ea8e3585d9ab555265f28f834daaeb78e6c7 feat(class): $old override for class methods, constructors and property setters</li>
+<li>c587c1e894032faaab4b6e86d6144dab03560865 feat(class): class expression and statement syntax</li>
+<li>c8e2f1e2ac7b2d0a0c55a9947016c287dea85702 feat(class): extends-block syntax, positional define handler, cls/new construction</li>
+<li>7067dcb058474237a496de515622f0686a34cd0a feat(class): formatter for class expressions and statements</li>
+<li>97fa0f9eeca32e6c3157ea3c19929f9dee783d24 feat(class): multiple inheritance + Go-style promoted fields</li>
+<li>5f4aa8518b28bb8ef940fafc534fa8a4f847ddf7 feat(class): preserve class-body doc comments; doc-comment the sample</li>
+<li>0fd192468e8fae032662311a54e2410311311ad1 feat(cli): add GADPATH as module source paths.</li>
+<li>5eea5107ee359a5312ce0b143286d044133552ea feat(cli): add <code>http</code> module and <code>-safe</code> and <code>-disabled-modules</code> flags to to disable external access modules.</li>
+<li>9da7a4fed99c98d80ac60c3c9797c8d0a0520bf0 feat(cli): add <code>stdlib/encoding/base64</code> module.</li>
+<li>fa58a3ef1b11ff2a1c7263232a6cbfa82ee0339a feat(cli): build tags to exclude ide/debug subcommands</li>
+<li>f2fd8926159d4e6aa4cd74d8a44c65b49732f228 feat(cli): gad run --template + template delimiters; godoc for mixed nodes</li>
+<li>ad9d22fc8d4c847b6fe61b6033871c65f6fd1764 feat(cmd): doc subcommand scaffold — config, flags, output tree (stage 5a)</li>
+<li>051e18a24d3aeaa2dfb6bade75f7fce3857d1b6e feat(cmd): doctest — run embedded <code></code><code>gad examples + </code>&gt;&gt;&gt;` checks (stage 5c)</li>
+<li>4ba9f2d667b24049884a2f949c0a82360f0c796b feat(cmd): godoc-style doc generator for exported symbols (stage 5b)</li>
+<li>96b7a1b4edc4f348e29718c72fb5ed48c8919f12 feat(cmd): update-codemirror-plugin / update-prism-plugin language sync</li>
+<li>aa926a93314c48ce6ebff6ca86bb3b9f9d70ba54 feat(cmd/gad): portable OS path-list join for env array values</li>
+<li>74ec7bf8e955800d953255bf4e7aebe11b85a9eb feat(cmd/gad): seed the <code>env</code> keyword from the workspace <code>.gad.yaml</code></li>
+<li>7db3b181c9544ac483a9465121d2d86c604106fd feat(cmd/gad): subcommands + gad fmt formatter</li>
+<li>fd79720d94101b7d3986fbeb8ae41b5979d8decc feat(codemirror-gad): template string interpolation highlighting</li>
+<li>23bb607444b8acb7c34b375fb5b0307a5f36c58e feat(compiler): compile a structural type literal to a ScopeConstant reference</li>
+<li>ba1c4512ee9b5b54ceb995559d5516a565578e74 feat(compiler): compile func-header to a FuncHeaderObject constant</li>
+<li>b7c307efb452df1b3242a30307a8a3bd5efe9e3d feat(compiler): compiler warnings + main-module export handling; return CompileResult</li>
+<li>9671f106ee1fe9eaf74a9edc8fb83de7d91357c3 feat(compiler): lower interface to a *Interface constant (stage 3)</li>
+<li>f6b215991de098dec9fd37e397185f6f5ff80f27 feat(compiler): thread import node and parent stack into module compilation</li>
+<li>8cf228bdf113795c54aaeac7d1e3db5b9ce8d74d feat(compiler,bridge): always lower Gadx nodes + dialect-aware format/run</li>
+<li>541419cb92cafb8a77dc7fe5749e4d190bec811f feat(core)!: update methods.</li>
+<li>c002f3c844b2ce2daaf6b441ef6f44c96790c808 feat(core): 1) add <code>read</code> builtin function; 2) initialize <code>Bytes</code> by length; 3) builtin <code>copy</code> function new copies from <code>Reader</code> to <code>Writer</code>.</li>
+<li>b29dee0faab7811a916f5f60f7c6a7f201c7108c feat(core): add builtin <code>close</code> function.</li>
+<li>a82c10cbb8c44d723d5a07ef01e38bc1c2601c1e feat(core): add helper <code>ModuleMapBuilder</code>.</li>
+<li>b3fc1287282049888da4d7858768bb2fc4f79b2e feat(core): add helper for test.</li>
+<li>dfc2f2e1d216ee27f7b2e03636d73e4cb678352e feat(core): add return expr.</li>
+<li>1f176734dbf41675df9e5d21ed713d31a5367af5 feat(core): add special attribute <code>__methods__</code> for reflect objects and <code>Obj</code>.</li>
+<li>5199943c79ac7a6e3ba7c72059b4ebb0c9f092d3 feat(core): format code.</li>
+<li>abff37ce9ceed9ab8ab8e70690833daf0b5f82b0 feat(core): implements <code>throw</code> expression</li>
+<li>583711bcf5a7b875226c8fc2830121b88c860bb3 feat(core): move @binaryOperator/@selfAssignOperator to core namespace</li>
+<li>afb8c20837d29263a5cb6626f45aae596a9563bf feat(core): supports binary operator overrides.</li>
+<li>4d2a152bdc71aa307ace7ca53df4d2b7ab2cc37d feat(core): supports of Regexp.</li>
+<li>6fe9080265566140c4e287a1913fbcecdb3ec34d feat(core): update tests and more fixes.</li>
+<li>30dcfad19afd669b7005172d88072737b223c458 feat(core, cli): add <code>compress/flate</code> stdlib.</li>
+<li>b7eaf0d9ba7aeac5c08b5a543b56a80816f778c5 feat(dap): expression evaluation + conditional breakpoints (VS Code)</li>
+<li>a7d8be1f19e0606bf09276214a8f6c9c31d2b8e3 feat(debug): DAP server (<code>gad debug --dap</code>) for editor integration</li>
+<li>e9182df3cce289a83b5307e9f2e5b8d5cb4195c0 feat(debug): conditional + disabled breakpoints (engine, API, IDE dialog)</li>
+<li>b9940348dff9c7755d1c16385ef6bdfe6ef4cb67 feat(debug): debugger engine + <code>gad debug</code> subcommand</li>
+<li>a4df4f753d8b66552bc23ddf9f98ca7336e04e49 feat(debug): named local variables and per-frame locals</li>
+<li>3095329423d4c3130ab83966bf5af488324e4a70 feat(defer): shortcut form accepts assignments; samples, docs, tests</li>
+<li>6ae4a379f3f278fae2379efaff3491b21f738278 feat(dispatch): $old override param captures the overridden method</li>
+<li>1cd3d9e7a8ee2c31d85b12dd18a172deb1bfd72a feat(dispatch): structural meti params dispatch by value; method-resolution sample</li>
+<li>c6aa777e390da655a348794c7ca0d42b6837095a feat(doc): --must-exported flag + Exported/Internal sections</li>
+<li>59fdfadafdf749be27b37ffcdb7f6222229c46d4 feat(doc): gad doc documents .giom templates with source positions</li>
+<li>ea62dcbe9ec3a408ae5074bf5887a4b2f6b0af7a feat(doc): group Types section into kind subsections</li>
+<li>5dc2cf1b82c81a81d4a6b4ad24a7b324a2644243 feat(doc): meti per-header docs, plus doc-comment sample and docs (stage 4d)</li>
+<li>7ba61706bcbe3bf11991f5c89a3c30bbeee9c9e1 feat(doc): per-method, prop/meti and func-with-methods docs (stage 4c)</li>
+<li>45977f32e481415fb9159e086e835d99b942195a feat(doc): render signature code as <code></code>`gad fenced blocks</li>
+<li>b4b10465fc8e207ab267166788f612226c2d8057 feat(doc): split variables into a Variables section</li>
+<li>f44b6f0e91ea732c878fbdaadd7eb6eaa29b4ff4 feat(doc): structured JSON docs + giom doc templates; relocate config to .gad/</li>
+<li>b9e47a0f95a5dc2fa9207cbce8f2f81c816f4fdc feat(doc-comments): highlight embedded code + result lines in doc comments</li>
+<li>744c3741a46f4856d666593d7dffad65a822ba28 feat(editors): VS Code extension for Gad (language + debugger)</li>
+<li>2b8446c1ad94a0e71381065045209a285dc46d29 feat(embed): CLI file/dir embedding, <code>.isDir</code>, sample, tests, docs</li>
+<li>bb1333546b9f0eb9d463a7e8b58609e011b14325 feat(encoder): encode/decode interface constants (stage 4)</li>
+<li>048b5dc02a163fe139f0c9cfb584633c5616819d feat(encoder): rename DateV1-&gt;CalendarDateV1, add CalendarTime encoder</li>
+<li>58255e43cc5a94bd1a7c3b0f4b9b07f9ff97b95b feat(enum): EnumValue.ToString returns the value; repr keeps detailed form</li>
+<li>eb0864694362001eca1d320b4b71097b13f03613 feat(enum): add @names/@values/@dict/@pairs accessors; dict yields values</li>
+<li>578994344740f6a81ae150c9d83548e582489293 feat(enum): encoder/decoder for the Enum constant</li>
+<li>5683ec9d0ca92bdc121600c2de25115349e50be2 feat(enum): enum expression and statement syntax</li>
+<li>29fdc2145ee5e1ab411eca4be665f5bf8485b9c9 feat(enum): formatter doc-claiming, godoc, sample and docs</li>
+<li>7a36d9e4aadc088aa7858335f5e07ff12c0db6fa feat(fmt): --transpile flag converts templates to write() calls</li>
+<li>d2699730272a3fc3c2554ffad458bfd115956d5a feat(fmt): NEW<em>LINE</em>CALC column-aware wrapping; drop commas on wrap</li>
+<li>bb056020388bec9d52238712b2679d8d5442c065 feat(fmt): apply union spacing to function return types</li>
+<li>ae91721cb6e57150b03be9317ebe9d7dc7184bcb feat(fmt): column-aware (NEW<em>LINE</em>CALC) wrapping for match arms</li>
+<li>dff55dc38ba6828b59c2796981f44cc41192c43c feat(fmt): column-aware type-union wrapping for func params</li>
+<li>950724f35cad71ae04d5755772a316a63f3802f0 feat(fmt): emit lead doc comments from their AST node (stage 4a)</li>
+<li>e803495cd49dfa1181d8129fcb00baf1337cbb41 feat(fmt): greedy match-arm wrapping + primitive arm sorting</li>
+<li>a65baaa1eea756b9a328c6ab749b9263c2e1f158 feat(fmt): greedy overflow wrapping for func/call params and named args</li>
+<li>d6c2a6da2520a6271305a0eaa1337eb3949f9750 feat(fmt): greedy overflow wrapping for unions, decls, arrays, kv-arrays</li>
+<li>ed73d1dac918a326b104122555812c5aa73074ae feat(fmt): mixed/template-mode formatting; simplify block keyword to begin/end</li>
+<li>a2f478765d384d3338ff953883d8b0411a7f08aa feat(fmt): per-file NDJSON report + --to-stdout streaming</li>
+<li>99e4374c863c62aedecdf18854e704a712e2862f feat(fmt): preserve // and /* */ comments</li>
+<li>43d7a756bb8625878361a09f555abe3da1dac549 feat(fmt): reflow doc comments, SINGLE&lt;-&gt;BLOCK and inline trailing (stage 4b)</li>
+<li>b834d48d96c71ec9b249acac970da2195ab1b5d9 feat(fmt): rework gad fmt reporting</li>
+<li>65f87eb37a576c480bd3ed9a5cfd6763f82be628 feat(fmt): route func/closure params through WriteCode formatter</li>
+<li>0aecef18fa7cc9c5d76d5896b7e817908e9beef5 feat(fmt): space type-union <code>|</code> in formatter output</li>
+<li>1525cedad382c28c67a65b70b995c1ef76977fac feat(func): return-type annotations, Property type, typed caller methods</li>
+<li>ec62dc03a249f76b554c441f898f9f41c96c84c8 feat(func-header): <code>&lt;…&gt;</code> func-header values + FunctionHeader type</li>
+<li>1c88ae9d0efa01399b979637a7c2d2698ecfa95d feat(gad ide): --serverless hybrid (files via server, compute via WASM)</li>
+<li>6fc92c0801d13f609a69c3141ec4bf5cd7893cdd feat(gad): public ParseArgs — typed run/debug argument parsing</li>
+<li>1ebbc6f1f54d66174f38d7ff5fa674ca5b804121 feat(gaddoc): add Classes/Enums/Methods/Properties sections and table of contents</li>
+<li>287c002a8f31405111e6c1d63d7b54b07a5e85e6 feat(gaddoc): derive function signature/doc from gad.Function metadata</li>
+<li>5dd478fc8e4aeadf88bab6b6d8cd3aa093ef5848 feat(gaddoc): derive signature/doc from gad.BuiltinFunction too</li>
+<li>b344b67a9321efdd2b22dcd642cd1af8f75276e5 feat(gadx): reuse the interface-satisfaction cache per compiled template</li>
+<li>32487edf6740018005728c251c3d90b69cc6b325 feat(gadx): tag-encode JSON/YAML + render gadx return in the CLI</li>
+<li>4ff82c475535a8103be98cbefa5c3c9eb374bdfd feat(giom): @export like gad (expression value + doc); gad /<strong> </strong>/ convention</li>
+<li>f20c7417326a7f3d3f8aeed1f2564f15db2cbed8 feat(giom): add @param directive (compiles to Gad <code>param</code>)</li>
+<li>8a2df65afff3883eef77c1ab4035083a33f49a86 feat(giom): block comments /* */ and /** */ doc comments</li>
+<li>598bd0d26d5bb30963e55dd1afd37decd5304758 feat(giom): compile inline HTML to giom Tag/Text instead of raw string</li>
+<li>db2a4588cb98f3b8500d7e6f70c997f0ef1b9062 feat(giom): doc comments + gad doc for @param/@var/@const/@enum</li>
+<li>6c43239864b83c251a40ad430b00a594c0ff9416 feat(giom): interleave giom statements inside inline HTML by indentation</li>
+<li>dc5681dd2e8176960334a8a2e945fbef2537d222 feat(giom): native Giom compilation + gad.parse/parseFile/eval</li>
+<li>2f7bd35542f8b295354c9afd6e6f20825c21e862 feat(giom): vendor giom as ./giom submodule with full tooling support</li>
+<li>e8e06d0eba256ade81470bc69ab3c983133437cb feat(helper): add helper module with NamedArgVar helpers. .</li>
+<li>3c85e8dbbd7868412ad6672b4f9fd469b901cf11 feat(ide): CodeMirror inputs for evaluate expressions and breakpoint conditions</li>
+<li>81220403567f4dd0a7b26a4626eb92b37f8159c7 feat(ide): CodeMirror-based JSON/HTML/Markdown output views with folding</li>
+<li>623e48528051ddccbd57834e2c79b43224cf2c70 feat(ide): React/MUI IDE — breakpoints, keys, debug highlights, call stack, prod embed</li>
+<li>83ef2d27fae6f57684a338cf7d825ac4945e3280 feat(ide): <code>gad ide</code> web IDE + reusable backend + samples workspace</li>
+<li>e8668390bfa5d873913a4310a26846dc446d251e feat(ide): breakpoints panel double-click to navigate to location</li>
+<li>893a9ac5c3a10b8f888b735e24f7d35f9549fecf feat(ide): builtin hover tooltips + copy-to-clipboard on locals tooltip</li>
+<li>6ad6fe4cc53197e4b7dac19b141d09a66e704df6 feat(ide): debug-session-aware evaluate (eval in the paused frame)</li>
+<li>b498160dd8afe34d9253e66402f82d95ce94bd27 feat(ide): direct run/debug buttons + combined settings dialog via Tune icon</li>
+<li>b3024ed80db15b834c3e3dca18ee30949a9e88e0 feat(ide): doc-comments side panel</li>
+<li>4507994ad2238ae94d1c28a6bea16fc22d12389b feat(ide): dockview-react layout + markdown editor/preview</li>
+<li>b4d2c1be333254a2623a1b700c06eec7f0e05773 feat(ide): editor reload/undo/redo + backend-error dialog; split TASK, update handoff</li>
+<li>fb04908d22efb11b323007c8c5c297ae41826162 feat(ide): evaluate panel + /api/ide/eval endpoint</li>
+<li>52bb55a5a757372da8b57a8def4f3404b962afb7 feat(ide): explorer header "get file from web" dialog</li>
+<li>9dfff0ce7f1e9a1a310087be9db3c6922e570d9c feat(ide): extension-based file icons in explorer</li>
+<li>412c704bd947beca783d81314648f86fdec85c74 feat(ide): file-tree rename/context-menu, split run output, fetch-from-web</li>
+<li>9c5eb3dbf0aecc538c284d4f48e809fc8b607587 feat(ide): icon toolbar, panel show/hide settings, output toolbar right-align</li>
+<li>557cd0dd7e2bcc3c7664385f02d09c813aea68d7 feat(ide): inspect endpoint for the value tree-navigator (backend)</li>
+<li>cb84475c24a57acbd11a25d6c00950ec85e751da feat(ide): multi-format editor — JSON, YAML, HTML, CSS/SCSS, JS/TS/JSX/TSX</li>
+<li>0e86d0be491ee323b114ee795407c516380c4ade feat(ide): panel tree show/hide, Docs button removed, icon-only AppBar, fluid toolbar</li>
+<li>54071b4f6975fc0ef176ba1f16196a173f55cac9 feat(ide): proportional layout restore, icon step buttons, sticky MD preview</li>
+<li>46fdb0395fa48c1e391d1f5c8451f3921e9d5a7d feat(ide): render Output stdout as JSON, HTML or Markdown</li>
+<li>9d6b4771098aa123f0bf5cfd5d5f1df43bf8e988 feat(ide): render doc-comments panel as Markdown with gad highlighting</li>
+<li>750c602ae5d9d53f49bbe1121723b7f6f47af215 feat(ide): render module/function paths relative to the workspace</li>
+<li>608968c797ea1bdf2bd317127fd8a0f62ec27e18 feat(ide): run/debug settings as one tabbed dialog with stdout/stderr fields</li>
+<li>b56b4ac6e8c5d7c74633cf268f29c31383ca7b37 feat(ide): seed the Notebook with one example per source type (GAD/GADt/GADx)</li>
+<li>b7b19492bc1775d7a8ce3979fc7003684e543330 feat(ide): show/hide hidden files toggle and locals copy-to-clipboard</li>
+<li>c6a780662a1613d151d1ea10993adb3a249ac418 feat(ide): single-click gutter toggles the breakpoint (React + Vuetify)</li>
+<li>d27ed9d5032c5d1bf58b9fb1b36b79f9266af785 feat(ide): split output tabs into separate dockview panels; set explorer default width to 200px</li>
+<li>3eec59f17935ef23d77129b87a7f31ac3a45f731 feat(ide): split stdout/stderr output with combined/split modes</li>
+<li>e4930c204ab2d72683f0d9c0755c687f08f2d0ad feat(ide): step-into an imported module opens its file in the debugger</li>
+<li>07eea2112364a2a817fbdfbc83cf9f88f01a38a0 feat(ide): transpile support + transpile options in settings dialog</li>
+<li>78e942eaae1a31f60f88967bc380090618c93c84 feat(ide): tree navigator hover inspect + goto-source buttons</li>
+<li>a782e7718fecb1652dccb6f720663b1325cdd92a feat(ide): use samples/.gad.yaml panel layout as the reset default</li>
+<li>dcc50b9bb384be1f58f0b44c01339af9b0408dae feat(ide): value inspector + hover locals + reworked Vuetify layout</li>
+<li>418aa5e408e6ba980f607af50eeda0e1e4fa1a61 feat(ide): value tree-navigator (locals + evaluate + inspect dialog)</li>
+<li>bbe37ba9ea17090b815bd2a64b04ceecc720379d feat(ide,identity): add gad/gadt SVG icon set and wire into README, IDE header, explorer, favicon</li>
+<li>3b369682d4e894bdb24cc95a295c423b0c9cfe38 feat(ide,plugins): .gadt template highlighting with configurable delimiters</li>
+<li>0500e4bea4e5a0109485d28b0ba817bc381f6f18 feat(ide-react): GADX tag-output selector (Render/JSON/YAML)</li>
+<li>70cce4fca295caa84b8fb96176fc365e45b4470d feat(ide-react): add reusable GadPlayground + GadNotebook components</li>
+<li>9772d45c730d3d9d7dd75edc1d10940258cf331b feat(ide-react): add reusable upload/prompt dialogs (MUI)</li>
+<li>82aa9316fec1e3fa172bf0d210522e0f248f88c5 feat(ide-react): add upload + file-type reusable foundations</li>
+<li>5733ab6ee3c4014db29de58f0e5867a1de92b2af feat(ide-react): autosave, tabNameMax, editor status bar + readonly tree gating</li>
+<li>906907748e6187146608e60664073f970ae61fe8 feat(ide-react): editor read-only when the workspace is readonly</li>
+<li>0f242c8358000fd7b66eae5c99908f8ea36777c3 feat(ide-react): extract the IDE into @gad-lang/ide-react with an injectable API</li>
+<li>9703d9594c2e44cdddd1e75cd81ba52ea7b5b3de feat(ide-react): layoutConfig + inspect + run profiles + runMode</li>
+<li>e43091bb902c4c72e65d248c3c718801c83eb8df feat(ide-react): wire upload + import + in-app prompt into &lt;Ide&gt;</li>
+<li>3666c2743fd4d5dd9b074d36ace50838689a8f7b feat(ide-vuetify): Breakpoints panel with conditions (parity with React)</li>
+<li>bf1937c0d2a68ea1ca2f5f9c43947923cec6f3f8 feat(ide-vuetify): GADX tag-output selector (Render/JSON/YAML)</li>
+<li>f4d74740047cff9b0b6ccf7ad3f26e95719a0da7 feat(ide-vuetify): Playground and Notebook components + demo tabs</li>
+<li>4ab6a67b74e0e73facb802027cd2321ad838bbd0 feat(ide-vuetify): Playground dialect selector (GAD / GAD Template / GADx)</li>
+<li>49492b8ca15a3e24e7a347dc8ec9af785d0b0dc7 feat(ide-vuetify): TSX rewrite — dockview panels, profiles, settings, docs</li>
+<li>3962102e1bb412a7fa3ab6363bd86a26e5f42399 feat(ide-vuetify): configurable tab-name truncation (default 25)</li>
+<li>019b524009afc3755771b364ecbc8f15e829193a feat(ide-vuetify): dirty tabs + optional/interval autosave + active-file highlight</li>
+<li>de87d28831aa8ea02f516a0e478da06baf318f44 feat(ide-vuetify): editor font-size controls + gad icon in demo app bar</li>
+<li>eda9c8a087818545d4cda8779936bfc467c27b31 feat(ide-vuetify): editor-panel control toolbar (parity with React)</li>
+<li>e240befc0f83ad7e9039f47f9ab7c326487c4d27 feat(ide-vuetify): hide (not just disable) editing buttons in read-only mode</li>
+<li>b52f421c68903c884002c20977cf0f382ace4ef0 feat(ide-vuetify): in-app dialogs, file upload (button + drag-drop), URL import</li>
+<li>36367531b92b0c52d2b82d58aa508422d3598dfe feat(ide-vuetify): multi-file editor tabs + a path status bar</li>
+<li>3c1ba1ffadd152dc3b1d918ccf39877295c27096 feat(ide-vuetify): per-cell dialect selector in the Notebook</li>
+<li>f68b9822f48aa869e4855a783140cf78567f7c90 feat(ide-vuetify): per-extension file icons + editor language extensibility</li>
+<li>593b2166eef7a39ab5710ac53fd9c73ed20f56ad feat(ide-vuetify): put the Playground Output pane on the right</li>
+<li>de26d1eb5223da58b0ef5fbad9274fee6c95483f feat(ide-vuetify): reusable Vuetify 3 IDE component + server-less demo</li>
+<li>fa61a5628f7cde03d79a9646117a07adce363efa feat(ide-vuetify): upload review dialog before onUpload runs</li>
+<li>fc4357171733910822f7caa9f2f888c17053bf29 feat(ide-vuetify): upload target dir, dir picker, onUpload gating, v-model:readonly</li>
+<li>282ecefccea93e1cf91f0a6e6f5a8892ca0f422a feat(in): string substring membership (<code>'e' in "hello"</code>)</li>
+<li>5daabb825930e64048518dd5273a78f7ef3e21c1 feat(interface): context-function members runtime + check (@self)</li>
+<li>9a08c13eee5fb78e309bdd3751b6183f98524a5c feat(interface): parse context-function members <code>:Expr &lt;header&gt;</code> (AST + parser)</li>
+<li>456626f690a36a7ec45045865e06b5883e6a270f feat(interface): satisfaction for dicts, IndexGetters and NameCallers</li>
+<li>ea4abfdeb3368ba647196a6d5029fc7b4485fa7b feat(interface): structural satisfaction for <code>::</code> and interface params</li>
+<li>b9782c2e8c044cdfa20acc49e3bd93554227261b feat(invoker): prepare handler callbacks.</li>
+<li>4e406d468d04cee00216215c115e64c888a660c6 feat(lang): add <code>env</code> keyword, <code>gad.Env</code> type and <code>delete</code> statement</li>
+<li>d0d97ee704ab8d1f7235b9f4f76735a86c5d8cfa feat(lang): code … end code-string literal</li>
+<li>1a514f0d3cc6adb350eb38b593f64b8d187c9156 feat(lang): comma-separated right-hand side becomes an array</li>
+<li>587113c63da1e358c93792d226ac0b7264cd7b47 feat(match): no-parens subject, multi-cond arms, no-match→nil</li>
+<li>6b0730ee351c5d723329006cbe217dd9ea53ed4d feat(meti): method interfaces + implements</li>
+<li>cfbf6f84a01f44c069d8e97bdfafd84d8a4fe74a feat(module): ModuleSpec.Flags bitmask (ModuleMain/ModuleRawArgv) + raw argv</li>
+<li>f938f8e4f81e71423dd395f09bc055ec3f00cd64 feat(objects): Interface, InterfaceField/Prop/Method object types (stage 2)</li>
+<li>c15017e675cbe0098596db2c9cc943d9e622007c feat(objects): array/bytes/meti/keyValueArray append operators</li>
+<li>c40da942be3f088b70eb23db032d9316d63313e2 feat(objects): make all ToDictConverter implement IndexSetterUpdater</li>
+<li>6c129e3fc55954303ee7234ffe401801b44b88d4 feat(operator): assign-to-type operator <code>obj :: Type</code></li>
+<li>ef5311f7504a6dd8becbc191d39d1db035431361 feat(operator): binary ++ / -- operators (overridable)</li>
+<li>7dbc987d91a80a21cac17cdabfb63be3747a03d2 feat(operator): prefix ++/-- as unary operators on numerics</li>
+<li>51ec48106dfd8eaf320ca0e8f758246dc2a18cfb feat(operators): <code>in</code> membership binary operator</li>
+<li>75c5166ce0d30cffc34da447f18fe2cf57e0b70c feat(operators): add === (Same) and !== (NotSame) strict-equality operators</li>
+<li>87ee3ab58344677e3c534cf6c93515c1a6d43cb5 feat(operators): ain array-membership binary operator</li>
+<li>0f8017175bfb2b7ae164daf11832d06287c3600d feat(operators): generate op_api.go per-operator interfaces (phase 1)</li>
+<li>32117701f62db49c567208420f29e83d5f93dbc6 feat(operators): per-op builtins + <code>met ~</code> override modifier</li>
+<li>e5b5ab49e69bf0ffdb1bedfa11bbe2dca644efed feat(operators): per-operator self-assign op_api interfaces</li>
+<li>c5adfd6bcaefe922838f0e20557f76c8eee8ff1e feat(operators): replace Container/OpIn with ObjectWithInBinOperator (phase 3)</li>
+<li>f7fecf44b043e6d6557dd3136fc8d91920fb7360 feat(operators): unary op_api + core.unOp, temporal ++/--</li>
+<li>eefb51a1fac4994e893482ccb76f30163291d238 feat(operators): user binary operators &lt;&lt;&lt;, &gt;&gt;&gt;, %% (+ assign forms)</li>
+<li>f0208b1e22ec4f750b5a50b15009d689429759c3 feat(parser)!: remove the <code>.(expr)</code> / <code>?.(expr)</code> computed selector</li>
+<li>bb196afbd5f90bd34f061e46137a99e05ea6fd52 feat(parser): TypeScript-style { … } destructuring; unify key-on-the-left</li>
+<li>d09329f2c42589870d891bb67233cb8378b110a4 feat(parser): add nullish call <code>x?.(args)</code></li>
+<li>ebc58a505f910d76763906dc85af4f4fe3dae2cf feat(parser): add source file to Error</li>
+<li>acda7d7e841cf821f354df0d2f65d3d7c9fc87f6 feat(parser): allow Transpile.RawStrFunc by format expression</li>
+<li>0da55e7598fb3237d590ba313727f7ca25e850bb feat(parser): allow keywords as bare keys in key positions</li>
+<li>feec3aaf7241d7b64279d2c6a7ee714cccb56ba1 feat(parser): attach doc comments to AST Doc fields (stage 3)</li>
+<li>efc68685bcf4afbfdd60eda6abc5c4bc0517cc34 feat(parser): bytes literals h"..." (hex) and b"..." (raw)</li>
+<li>7d2fac5ce03a6b40c51d4348e700adfad6a1e2a9 feat(parser): const/var destructuring and <code>[a, b]</code> bracket array destructure</li>
+<li>763a5eeb8ef1a698040a0cb8990c223818252562 feat(parser): interface Expr and Stmt (stage 1: parser)</li>
+<li>983d018acc4786b5d9c10943e13d65a3ef132a87 feat(parser): met&lt;...&gt; multiple headers, newline-separated + multiline format</li>
+<li>1ce093b9f6396bc8d0de3fbfe36c75265903c22c feat(parser): met&lt;...&gt; single-method MethodInterface shortcut</li>
+<li>a95881c98dc38ae98914e0f357781ed61e8d5373 feat(parser): meti/interface/met&lt;...&gt; literals as param types (follow-up 2, stage 1: parser)</li>
+<li>724e138c83665f26ee9dcaa84ef499d39bcd1d44 feat(parser): newline-separated func params and call args</li>
+<li>6f0abee54ab2266df563e6ed081a1bfcea303d24 feat(parser): provide helper for parser</li>
+<li>a59fffae39293d79a11b6633ed9d8b7a1dd7b8a0 feat(parser): replace class/interface <code>extends {}</code> with <code>*Parent</code> spread</li>
+<li>6646e2d4d2e63bade399eea8265cbe8315eec78c feat(parser): scan <code>/??</code>/<code>/???</code> block doc comments</li>
+<li>5aae9151094ccaa69152e982d15db6f3648789ce feat(parser): scan <code>/?</code> single doc comments</li>
+<li>9759719084c42e179400776ca45107450bb8bdfd feat(parser): scan and parse the range operator <code>..</code></li>
+<li>50f352ee14c2b52792643a12a3f329dd45b42767 feat(parser): support export prop in modules</li>
+<li>c85a3960d454039f650a1b274407561f811579a1 feat(parser,compiler): meti header type-params + compile to constant</li>
+<li>d66077f110d36c86d20a6ea11e385cf28bd0675c feat(plugins): colorize gad doc comments (/?, /??…??, /???…???)</li>
+<li>7921b4c44623aa77bc9f4a77d11fb686cdcf9609 feat(plugins): demo browses the samples/ tree from the filesystem</li>
+<li>f75bd79250f2729f7baf643d1f45c7da6ec5b5eb feat(plugins): highlight <code>env</code>/<code>delete</code>, drop <code>append</code>, add config schemas</li>
+<li>5a470708ea4f9e3a461acaf0f5c0d99e2aa24ec7 feat(plugins): highlight giom block/doc comments</li>
+<li>b9b8f50e9ebf8ca45da9abdadddb9e88cfb4016d feat(plugins): select dialect via sourceType (gad|template|giom)</li>
+<li>a2744b424fdd19dd251082883e78a99b41e06c81 feat(plugins): sync language changes, vscode run/debug + config, demo pages</li>
+<li>b9c9ea361c4a862e3c628ae412c93bcf94e12cb8 feat(prop): add virtual .v field for call-less get/set</li>
+<li>63dba59e9db022666f0c36fb53aed1ca8e0e1c61 feat(prop): prop keyword + Prop type, parser/compiler/VM and docs</li>
+<li>a0f6e66d1310b604db5bc0b1303f4e62ebe9471a feat(prop): read-only <code>prop =&gt; expr</code> and live-binding <code>export prop x = init</code></li>
+<li>1d8f6512c53f2609cf623bce7dcd3fe018903abf feat(range): Range builtin type + <code>..</code> operator for int and char</li>
+<li>e19eb315af3002f661ceba10785859332c2e98ac feat(range): generalize Range to all numeric and temporal types</li>
+<li>88c47abaa1e7f8d936621a65c4f413c5d840ac7e feat(reflect): add reflect builtin module (raw get/set, no Prop delegation)</li>
+<li>6836a4797720b8f6a129cedf580b607f27213cea feat(regexp): indexable submatches, group-aware replace callables</li>
+<li>1f50e44a595c7b66989a70b545f1821ffd8fc6ec feat(scanner): add new tokens <code>StringTemplate</code>, <code>RawStringTemplate</code>, <code>RawHeredoc</code> and <code>RawHeredocTemplate</code></li>
+<li>d1f7ea6c28b214bd04569bb75fac3d0720c7ee7c feat(shellexpand): bash-style parameter expansion for config values</li>
+<li>e1e69da46f2b7c33459a984f2ac5ff5b07abfbca feat(source): split reader from parser to sourcer.Reader</li>
+<li>2a675cfbd59c2ae40823271df02261eb2de10ee9 feat(stdlib): add <code>filepath</code> module.</li>
+<li>9e52dc225612d399051639dda67300fcf3e25dc0 feat(stdlib): add <code>path</code> and <code>encoding/base64</code> modules.</li>
+<li>a59d202e829685ef03f48cdc0e0f1d9d03401d95 feat(stdlib/os): add more file functions.</li>
+<li>46cfb8c288231288f23f4c8d2a50885e20551477 feat(template): {%--/--%} trim markers, .gadt files, delimiter config, docs</li>
+<li>ef3b9703141825472c36f7f0c9a414c4b89ec066 feat(test): add <code>test</code> builtin module and <code>gad test</code> command</li>
+<li>9581ec7843c4427b782eab19ba19479893b3537d feat(test): nested subtests (test NAME { test SUB … }) and t.helper()</li>
+<li>8dfafff1f4ab8fc542c075fe20099bc6a00db070 feat(test): show a unified line diff when t.equal fails on two strings</li>
+<li>60ecb9b9dc9daac07eb83b1ad8e8cb70d01fc9c4 feat(time): JSON-marshal calendarDate/calendarTime/duration as strings</li>
+<li>3149bd29f432e68d9c532dd3d80ef2d4eeb2a7f9 feat(time): add CalendarTime (zone-less, nanosecond) + <code>t</code> literal</li>
+<li>87c73798acffb02d7ca855bde9deb44c584f4ba2 feat(time): add unit-based .round() companion to .trunc()</li>
+<li>2fb35c14f2a5b8ddc7f9328023944e1f89f5024c feat(time): add unit-based .trunc() to time/calendar*/duration</li>
+<li>aacdd5e83da7467f3a53003f109d88f62eed4be5 feat(time): add weekday/addDate/format methods; fix addDate arg binding</li>
+<li>3dd28baad739a21e9373a0c15cf3c12de2881322 feat(time): arithmetic for duration and date/time + duration</li>
+<li>7fd174a90e90f8bbd18524d7066f5051d40acb10 feat(time): date/duration value types + d"…" duration literal</li>
+<li>4c7c6f7f770eb813f4aec070987204d2aaedfb08 feat(time): digit-suffix date/time literals (20260131D, 235955T, 1781609136U)</li>
+<li>ebd0db38c97050f59c714c9f66ae2e3d85ca1ad2 feat(time): strToTime/strToLocation parsers, str constructors, camelCase methods</li>
+<li>c9cc874e6f2f7a9f3fef8aacb816fcaf6ba761cb feat(time): support _ separator and Z&lt;location&gt; in date/time literals</li>
+<li>ea48bcc1787aaeb4b828a86fc2ec4587694ff5dc feat(time): treat date/time/duration as primitive value types</li>
+<li>e5a9851925c9c40bddbe510cdb38a48fed9dfbb7 feat(time): typed constructor methods for time module types</li>
+<li>647c574c9ec87fb0c6b3ee9c57b92ea1860c65a6 feat(vm): VM.Call runs compiled functions on the same VM (no fork)</li>
+<li>8c058414e59b7acc5292a712a1783eb4dd81cfb9 feat(vm): add Context field to VM. .</li>
+<li>87bfa9cc6dd500a52edb224687b3f0f87af89795 feat(vm): cache interface satisfaction on the root VM (shared, injectable)</li>
+<li>05aadb735d901f5ad142aa0ff731c9e84e2671f8 feat(vm): context cancellation for Invoker (abort invoked functions on timeout)</li>
+<li>a4bb4f3e35689f14f502aa3e0d98c9d68d899ac1 feat(vm): context cancellation for Invoker.Caller path and per-test gad test timeout</li>
+<li>47e768e4ae23035db7266f58708e756cd8af9354 feat(vm): debug VM loop + cmd/update-delve sync tool</li>
+<li>83fcb059273cc2a51c32c4c2ed4518bbd46a75d7 feat(vm): delegate index get/set to a stored Prop's getter/setter</li>
+<li>d827dd89a42b658d1fbb5dc97fc2a60c6d17fc36 feat(vscode): TextMate grammar + cmd/update-vscode-plugin</li>
+<li>66725bb1edf4dacd5c937f526a09862407aee291 feat(vscode): format-on-save via gad fmt stdin/stdout</li>
+<li>70361e83e6c2840a29ff49815119073d026be0de feat(wasm): in-browser debugger + doc, no Go web server</li>
+<li>2940bba24c09c8b509e0048f7a5b06d4acbaaca8 feat(wasm,release): two WASM builds + Download page, release assets &amp; banner</li>
+<li>e1f4e60c1edcbc74137c281ab125b3e361e45a3c feat(wasm,website): single WASM, modern logo-based site, home quickstart</li>
+<li>662e0fde3fff6b2da1c9c70b071f867ab0df1667 feat(web): CodeMirror 6 Gad plugin + example web app</li>
+<li>26619442bdb0c9c80bdbd26db75c29ea7e1e325a feat(web): PrismJS Gad grammar, Highlight page, light/dark theme</li>
+<li>c91402492b2ca07a04a9dbbc97bee75aa147fa5c feat(web): cmd/build-website static site generator + GitHub Pages CI</li>
+<li>cd81cdde2686f1a75219005d79d2fa0e17680d67 feat(web): server debug backend + React Debug page; vsix package script</li>
+<li>bb55845f6200b35593020fd5fa0bd48dbfab53c0 feat(web/ide): store IDE layout in .gadide.yaml, split from .gad.yaml</li>
+<li>9aac99d2359fcc4cec49f9743eace58d31e7a242 feat(webide): open 01_hello.gad by default (React + Vuetify demos)</li>
+<li>67ebd7527231c9ce63875c11641eb9696aefa15f feat(webide): server-less IDE via @gad-lang/ide-react + in-browser localIdeApi</li>
+<li>6771dac2110418292912a5a76255c62262ae9fa8 feat(website): PrismJS syntax highlighting (gad/gad-gadt/gad-gadx + common)</li>
+<li>644e58f9e30b92fb3bddb976fb2eba609fb2f47f feat(website): add Playground to the header nav (before Download)</li>
+<li>0072096ffc687ef9802bd3bcd4e75b135d631195 feat(website): add typescript/tsx/jsx/ini to the Prism bundle</li>
+<li>aac456df338d91c4919121fc5ab068563c89b3f1 feat(with): add block-body with expression <code>with R as f { body }</code></li>
+<li>8756c17c752f9b5fc327092352f667d5c6e87095 feat(with): context-manager statement and expression</li>
+<li>29d3389134bbed2ebcad7213883a327ac787de50 feat: 'or' error-fallback expression</li>
+<li>cd5c34fb261f9e92bd0fb43d8422abda480f159b feat: /regex/ literal compiled to a Regexp constant</li>
+<li>1f96dda494bd184bb0bc295eee88c201f1605417 feat: 1) call of ReflectStruct; 2) parses int as dict key; 3) convert RawStr to go string.</li>
+<li>69da92fd88d1b861c7136986ce957ffeeb650a02 feat: Coder (gofmt-like WriteCode) for match and comprehension nodes</li>
+<li>9077862fee1ae58ab51e8922034deea25fc205a2 feat: MixedParams destructuring</li>
+<li>0c2ac2716076f8bf87cd45e22e6cced84f22b498 feat: VM implements io.Reader and io.Writer</li>
+<li>2f00817a41cf91130d63bc96a81cdf63dcb45b7c feat: <code>test</code>/<code>bench</code> statements with doc-generator support</li>
+<li>a5fa3369e006a869c5209b650443c330c6fa6109 feat: add <code>@g</code> globals keyword and OpGlobals; remove <code>globals()</code> builtin</li>
+<li>e955521e71c461944a4e9b33ee379a15c7f2342d feat: add absent-coalescing operators <code>!?</code> and <code>!?=</code></li>
+<li>62109872e167110dd94a0ce4b238e0919a2b74ae feat: add embed</li>
+<li>a22f501cf681360e91a695f485a725ebd75bca5f feat: add embedded support, encoder/decoder v1 rework, and new object types</li>
+<li>46542f9522152ac5d6b55bc0459145366b386446 feat: add includes<em>re, excludes</em>re, config_file to embed expressions</li>
+<li>f32e0b5e9ceb160a5cd9a5dcac36927d6a6a59a4 feat: add json module to ugo cli</li>
+<li>44bb4f483f271f30d83e14d87fb1c355b57cffaa feat: add non-raw Heredoc literal and template support</li>
+<li>fc4d2933162aafc629d9828c835bfbd426542741 feat: add scan float as decimal</li>
+<li>6ff38a9e8c3987a138713a53089ff23b2f269631 feat: add to rawStr converter</li>
+<li>236a6456292b9c4963bac83e780a91b7425a130a feat: array and dict comprehensions (Python-like)</li>
+<li>700def9bdff49cfbb1c86460152fffe78e740e22 feat: array and dict spread/merge literals</li>
+<li>914b4517be9bf2154f2e3c8b8afc377bb83d5601 feat: array destructuring with a trailing <code>*rest</code> target</li>
+<li>d86678a7cc230fa279f230aa8c8326c82de25be7 feat: continue implementation of json module - add module functions - provide encoding options helper</li>
+<li>6628074818ceb42592bba9442693163cfc38d19f feat: create mkcallable to generate function helpers</li>
+<li>3b4232e6fe284c9e9a65d7d6bb0dfe51e6d30889 feat: defer / defer<em>ok / defer</em>err for functions</li>
+<li>ebf99127698206fa1e68bc316e511a0027b5847b feat: deferb / deferb<em>ok / deferb</em>err (block-scoped defer)</li>
+<li>5d519fe64544bc18ed62538818c9d2f7bcf84d91 feat: dict destructuring assignment</li>
+<li>bccd9fb380d364d9ed7d7834a0176b18263e9b49 feat: fix Upload Artifact github action</li>
+<li>736b7011a77f2f83a88c221af6d171bf90f073ae feat: fix govulncheck github action</li>
+<li>f946ab2e4d3ff6cecd9701ba9c8d16e55add17fc feat: function return-type annotations (&lt;...&gt;) through the full pipeline</li>
+<li>a160f75fb18b6fa004a77fa71a2ad425a15887f1 feat: global declaration defaults (<code>= v</code> and <code>!?= v</code>)</li>
+<li>9cdba88b5a9154ed7c5041c5a31ef2fec41206f7 feat: implemented closure</li>
+<li>61daf1ac60552b7eb3656538a01750e3b9606d4a feat: implemented simple if else mode</li>
+<li>26c85e4b4f0f89cceadbed960a477ac20c0293f5 feat: implemented: (1) nullisch coalescing, (2) nullisch coalescing assign, (3) selector with nullisch jump, (4) LOR coalescing assign.</li>
+<li>c7b506d02ad0cb8113d6ae754d6779879bf9c5b3 feat: initial implementation of json module - port Go's json package - export Undefined's type for type switches - minor changes</li>
+<li>7042fdc658cc1afe10710b790e54893a2ab08b9d feat: initial invoker implementation</li>
+<li>d99826ba20efa9b263b4680180cffbf1147bddaa feat: interleaved/multiple spreads at call sites (<code>x(1, *a, 2, *b; k=1, **d1, **d2)</code>)</li>
+<li>7539b614fdc7e3cb479346ff48f0af607019e801 feat: match expression and statement (PHP8-like)</li>
+<li>27f5a11fbfae61f03b51fdbf3253b9ebeced7e2d feat: new features and major refactoring for next version - feat: method call using new interface extension NameCallerObject - feat: new interface ExCallerObject  for extended calls - feat: new type registry for object conversions - feat: added stdlib/time methods - refactor: deprecated stdlib/time.Time getters - refactor: added UTC &amp; Local functions to stdlib/time - refactor: updated copyright year</li>
+<li>4d94735284737cc43043068c9c82db0a23748197 feat: parallel multi-value assignment (<code>a, b = 1, 2</code>)</li>
+<li>872f513da711953ccf266c94dcdca4c2d87dc385 feat: parse and scan char as string</li>
+<li>7959e025231f4592bdbb35f510fb49374c34cadc feat: regexp replace method and | (replace) operator</li>
+<li>82bf16c99ff6c2665278a539e5746d3d67d2c950 feat: return types for closure shorthands</li>
+<li>446337832a87856208ad9d7547a1b36b8ef917b9 feat: return types for shorthand func syntaxes</li>
+<li>dd44c16e098f03d50c7d9ae8dd7c1043252373eb feat: richer dict comprehension keys (multi-key, computed, _ accumulator)</li>
+<li>dea97246de321878ecad6832637f5cd64388859f feat: set DOLLAR char as valid char of identifier</li>
+<li>281c00c4d2eb256a4fa19f49c548c9c6023402f6 feat: support heredoc templates with source-mapped interpolation</li>
+<li>970b4b7959d8dc4129b37df5672a14acf53183d2 feat: update go version</li>
+<li>5087a939a8aca7f87e04066421684cc18588ce38 feate(stdlib): add <code>os</code> and <code>http</code> module.</li>
+<li>cdaab9747d3b0922045c3b845cd91b71827196c6 first commit</li>
+<li>8cee815a347c3f3759f5f0db3788e502bc99014f fix OpCall stack pointer</li>
+<li>f987a9891dc1bdaa2353f86da0ff56add9fcbfc2 fix compiler cache to handle hashable types</li>
+<li>cb62980aa695287759d7131471dae021ecf8d444 fix doc links</li>
+<li>bf2e488c9ebdc788d5c687eeccd03c77bd51546a fix flaky test</li>
+<li>e702994a17155697de82e11317103edf89370487 fix source map positions for IncDecStmt and FinallyStmt</li>
+<li>178d38a954010d5ae593a903832a5ac653afa1fa fix staticcheck lint warnings</li>
+<li>d82e2527dd1e542b8484055ccffed1d85516bc7b fix symbol resolution and add tests</li>
+<li>9bc8d722f6ed82014afe508d942a9e9e969010ac fix tests</li>
+<li>06965b2a6ef147badc908d4b2c1a6ded40151e13 fix typos</li>
+<li>c2cc410ae3e30ef98f4cbded84f18aafb8fc38a3 fix(app): dedupe @codemirror in dev so debug line highlight works</li>
+<li>bd736bcb60a37d82ac4d7d876234f2212823aafb fix(app): quiet the dev proxy when the /api backend is down</li>
+<li>12a657a03ef4673d474d9d9481a27c4ecd3c134e fix(app): resolve workspace plugins from source in vite dev</li>
+<li>79d90347b2c6aeb98dda43806f360f66f5b9ad56 fix(build): build web workspace packages + samples before the app</li>
+<li>690cde9436c55c1cbc07fdd8de995650a9f630bb fix(build): make test green after the builtin-module move</li>
+<li>9965b09399c6fed92a2a71677fcee86abca0bb10 fix(builtins): toArray copies iterator entries instead of aliasing</li>
+<li>77846b68de69dd1383456f87e83237b50329693f fix(chore): use colon instead of assign on dict element func or closure</li>
+<li>b80946d5d2f8e4c574af80777f4a4731fb9924fd fix(ci): bump Go 1.26.4 -&gt; 1.26.5 to resolve GO-2026-5856</li>
+<li>5b1f12e8bf51d1281f0bc7c8c46096f0cdfa136a fix(class): Class(...; fields=...) rejected the fields named arg</li>
+<li>7f802bde71b732e2b095561ef8551ce931c92c79 fix(cli): disabled os.</li>
+<li>d26246c1c7e64e4df91bae16c22f315271d5413a fix(codemirror-gad): update keyword list to begin/end (drop do/then/done)</li>
+<li>172de86ac3c5402aea9c66031b7f46c168104515 fix(compiler): @main folds to the real ModuleMain flag under the optimizer</li>
+<li>e1e1f893b00f297f47a9e440169e43eeebe32746 fix(compiler): guard the correct value in <code>arr[i]?.sel</code>; expand <code>?.</code> tests</li>
+<li>76fd370e39226a9a8798f4ecd336a76c75426d1e fix(compiler): mixed-destructure positional rest uses <code>*rest</code> (single star)</li>
+<li>550a28db69fb4a7aa674929e1cc07e7dda365a48 fix(compiler): point unresolved param-type errors at the type identifier</li>
+<li>1581fbb9a9a6073053399a0ddf3e2c29d76f0fa6 fix(core)!: New instance with namedArg as invalid field do not raises error, but return nil instance.</li>
+<li>4bd4a21feea7e9399dea9723eeb96f9c92794ec6 fix(core)!: convert RawStr to Bytes.</li>
+<li>8d05747f84f02cf6efbeb31d7c46249256d859ae fix(core): add WriterFrom and WriterTo helpers.</li>
+<li>0e72ae25e1c6263cfbaff24b76730f744ca4f33e fix(debug): <code>gad debug --dap</code> failed to start (zero-arg parse rejected)</li>
+<li>0400d50cbb4ef8e0f5c6159e3eedb1e67496e059 fix(deferb): shadow $ret and capture handler throws into $err</li>
+<li>32702b73028071bc3ee86b663b68527ff7e7b8b1 fix(doc): default to recursive current-dir when no PATH args given</li>
+<li>b2c4add2082f0308cb5a5ff98072b13e8ac5b461 fix(doc): preserve subdirectory tree; add samples-doc make target</li>
+<li>cf0ede666becfda00ee93205191b065cb8ec8b2a fix(doc): trim padding spaces from single-line block doc render</li>
+<li>e2002fd7482faf94f0efc9875cd70716eb917152 fix(fmt): drop extra indent on value-less decl group wrapping</li>
+<li>1869dccdbc87652e4c64d40e473d1c1ca0834c0f fix(fmt): parenthesize a <code>::</code> base in postfix positions</li>
+<li>3422950a308821cdd675db4e3e7687aab007226b fix(format): preserve comments and doc comments</li>
+<li>6a98dcb2602db2ec619efc01d711eeda39ac16d4 fix(gitignore): ignore hidden files</li>
+<li>76d46d071ef10dacac62c6ebad8276cf85333369 fix(helper.namedArg): bad reader and writer type check. .</li>
+<li>e40f7f6f2bad273ccfadbae0f206e1a77039c76b fix(ide): collapse explorer directories by default on open</li>
+<li>04f0a6c49698a62f819072c79f148281eb41bf9d fix(ide): evaluate panel ignored result when the file ends with <code>return</code></li>
+<li>de1b9f3581a4ac6576cb47944c3625cc31beec8f fix(ide): load CodeMirror + gad language in the build-free IDE editor</li>
+<li>450ca0068415900489771c078a2be67cd1f2370a fix(ide): persist panel layout on resize drags and page unload</li>
+<li>2abdf582575e3e016123b4f0888d35176437d7e5 fix(ide): render/encode gadx tag in the server run (not "⇦ gadx.Tag()")</li>
+<li>29341b71c229dc0b6ed9838a4958f234f568aa7f fix(ide): replace TuneIcon with labelled Settings button next to Run/Debug</li>
+<li>31d5e5758def11bba6d669f8fac45c6641688567 fix(ide): resolve stdlib/local imports when debugging</li>
+<li>7fbbd828ec14b325986d52d976985a02c1f402d5 fix(ide): restore saved panel layout reliably by gating dockview on config load</li>
+<li>041a7d2009165ca5a12900689ea10c43f5f14eed fix(ide): run/debug .gadt files in template mode with configurable delimiters</li>
+<li>641759731bee476b5e405e81603bbb61cc169f24 fix(ide-vuetify): use the Gad language in Playground/Notebook editors</li>
+<li>313bb9593e70c37d0e345c5eb26e9ddc2008eb90 fix(io): fix copy from <code>Reader</code> to <code>Writer</code>.</li>
+<li>3d0e4d43e261b2e5e0951df35aff775d25acfbe4 fix(lint): staticcheck issues in Property type (ST1022, S1040)</li>
+<li>0093a7f3b237e9d96de26385de085ebac91c771b fix(node): correct MultiParenExpr formatting (mixed <code>( pos ; named )</code> form)</li>
+<li>de88614261d04f157f64e46187a4f0c0239ae7c4 fix(node): write code</li>
+<li>4115250e6488b2c77acb884493eda965a364024b fix(numeric): fractional exponent on decimal <code>**</code> falls back to float</li>
+<li>7fadef9b3ff200de8132e7deb64e5e0ab0306638 fix(optimizer): exclude env/delete opcodes from constant folding</li>
+<li>5175f101406cada9755c20691a91c0b214619106 fix(plugins): block doc comments end only at a fence-only line</li>
+<li>8b56cdfe697428b8cdd9dd49efb4b12a53ebcf7e fix(prism-gad): break template/giom ↔ index import cycle</li>
+<li>bd9a53bb833feff8d2b4e5d89dc662b16343b9e6 fix(prop): do not run the getter when assigning a Prop's .v field</li>
+<li>af4fadc3e8c82124b243dce9c3fc3a4894f78580 fix(reflect): fix call of reflect struct type returning non ptr value.</li>
+<li>a01abce0e14dd1416df63bf770e8a979c4e1dc5e fix(scanner): backslash breaks single-line raw heredoc</li>
+<li>8ee8cad619a580fffaa57e873299ec15293ba825 fix(scanner): config directive after a skipped comment mis-ordered tokens</li>
+<li>458a7206c43d2d4ebe0ec60e6e38f52cad378be3 fix(stdlib/http): fix function names.</li>
+<li>0be04254dc307950e19ea516eeb2ec9187d1eeb6 fix(stdlib/os): 1) exec args; 2) <code>uid</code> and <code>gid</code> funcs.</li>
+<li>6cb1c2faac6c06e327cc480f77500872ae6a7e02 fix(stdlib/os): update file flag names.</li>
+<li>b78fedd06fc66dee53efeb86214c97986922755c fix(update-delve): normalise CRLF so gen works on Windows checkouts</li>
+<li>c009e48d253cbfc526a1403587cd173f7da04a29 fix(vm): create and cache module on OpExtendModule when absent</li>
+<li>7964f844b5cc8220efb3eb95902eb5281cdc0b5a fix(vm): guard ParamTypes against non-type and cross-frame free symbols</li>
+<li>3b1793d04f36ff8a995ba4d0fb50e0481b55ad09 fix(vm): preserve return value through a finally containing a nested try</li>
+<li>ac692f69cfdf4fff9592e80c9d5b2dbc067fcb5b fix(webide): honor the show-hidden-files toggle in the in-browser backend</li>
+<li>a3b9cbb1343bf976fcf14a2e91bd3b5d56a59bd0 fix(webide): run/diagnose/debug .gadt and .giom in their own dialect</li>
+<li>4ea2616e9a6e0806547ab90bd76fd1bad5f37aae fix(website): bun install so Prism highlighting + the demo Playground build</li>
+<li>f3bf123b26876c06279749c5e909e409233f68e6 fix(website): generate the demo's samples.gen before building the Playground</li>
+<li>57f37404d5ea7e829d701b28a7271b62c4b17dca fix(website): point the header "Tasks" link at the repo issues page</li>
+<li>b0f289a67aa4517bd9e5306a8761780f250dc7ed fix(website,release): docs link uses the tag path (published on push too)</li>
+<li>7758acceb64b9cddf1e449448a838e0464982a20 fix(website,release): keep /latest current + link docs in release notes</li>
+<li>afa330c92330feb8d35f967b803d070f024e9289 fix: StringLit value with char quote</li>
+<li>44c26bea4b9fa52beb89e3e309daf1f3ae869812 fix: TestParserMixed</li>
+<li>f4898fea3658b0eebf69e60b7b26d3f19356d4d9 fix: call position with function enter for RuntimeError tracing</li>
+<li>c39c1b5fe42b27189487696550adf3f871923448 fix: code format</li>
+<li>fcc1e8a0c0c7802546da4c8fbf33531af9b59bfe fix: correct template literal interpolation compilation</li>
+<li>a167ff75777e2db5a781cc2d4c151df7eb40d615 fix: fix EmbeddedV1 encode/decode bugs and add comprehensive tests</li>
+<li>2238c1a799f31946da9d3856cf898eef6071e29c fix: fix compiler bug New Opcode is introduced OpDefineLocal to fix the bug. Variables are not set to undefined after block. Symbol table is simplified.</li>
+<li>23e6e7f36d0b4031267be1ead4475de2ba0588d8 fix: fix get data of source file by line</li>
+<li>8a247aabde5c2bd8b04b8c7e29940e83db3ca6d4 fix: fixed a parser bug due to unmatched right brace</li>
+<li>5899b8bb2f9845f59f01545cddb2fb5371d6a744 fix: goreleaser before hook should not populate ./dist/</li>
+<li>e17664de45fa67350002a6a9f19cd7473518af91 fix: map template interpolation positions to original source</li>
+<li>e30b07bca6627c30f270f64fe83290d0bca64277 fix: parser CallArgs.ToFuncParams</li>
+<li>7b5edb76d98e552cab8ca0f3d5c3522cab6dbf2e fix: pass obj as builtin replacing to CallerObjectWithMethods</li>
+<li>c24f75006ceccdacea6390f3fd4840e37ef50f49 fix: prevent duplicate method registration panic on module re-init</li>
+<li>49df3e88480741a2b6a59fc743ae29da48525889 fix: raw heredoc value</li>
+<li>0bad5be91967912b12f58a654f4fafda85c10710 fix: render embedded AbsPath with forward slashes in repr</li>
+<li>871e7aa37a72c07fa69d9f8522d389ff91fce008 fix: render gad filesystem paths with forward slashes on Windows</li>
+<li>c28f457a5f77f06c327258768a802980f5c0eae5 fix: repl tests</li>
+<li>bee654bd5c9460605c98f4ca96aac8450141fece fix: resolve Windows-only test failures (handle leaks + path separators)</li>
+<li>58a9f0d9fd2cd590f69bb0c2e94ed36d4a40fb57 fix: resolve lint errors and update test expectations</li>
+<li>1a37faa760b76604150e7fb41dcdfea02e6efa26 fix: tests</li>
+<li>d8c9fe3f34a2dcc413bb56e14a3b5264e91a6418 fix: workaroud to off raw mode for cli app</li>
+<li>b5bbd3c1123883cdb7dc0a5f096302808cf0a902 fixt(test): fix string and bytes with negative index</li>
+<li>c7b10c340b98b0c0fdd99de67531422152ac49da format(stdlib/os)</li>
+<li>11aca03378eed6d35ec6d47875d3ce88b8e4951b ignore markdown linter line length</li>
+<li>0e0d15866280456607e68c26d023974e3c8e4176 improve compiler speed</li>
+<li>7d21b6e27068854f6b6e4511c22f6197d31ac8fc improve docs</li>
+<li>b2c3ed1abfb6baf37908f4d855f040971f6d5feb improve documentation</li>
+<li>c7b82740b0ae94c0356ae54a96a0b033668d625c improve optimizer speed</li>
+<li>fc4737547c246feff80f9ff59e6edbe7d2247887 improve relational operator handling for undefined</li>
+<li>a09c1e5c79bc34c5bd4361823b21e6fa0591d950 improve repl</li>
+<li>e58a51763a8d7df8848d477846de6dd20d136820 initialize code formatter #1</li>
+<li>e7a57ab5fa0093bfa2923e442e26f6363840abd2 iota feature (#20)</li>
+<li>74c3544bb4492a3842c347aba0741bcb9a35ee53 major refactoring terminal app for testing</li>
+<li>342737ce05f7ffdceed5c575ccbda2abf13fc179 methods: improve api and add more test cases</li>
+<li>f1e8c2d1908ec5ec0a14242fdd1d3a7b40ad02a9 minor compiler and optimizer refactoring</li>
+<li>28876d5a2857d9f006181259c23f7b433cc968c5 minor refactoring optimizer</li>
+<li>08136ffd91dac480d63a063aa0a8249b23816ff0 minor refactoring optimizer and its errors OptimizerError struct is updated. Recursively generated errors from same line are ignored. Multi errors returned from optimizer can now be formatted with %+v or %+s to access all errors accumulated before bailout.</li>
+<li>64ae5ed34a9a505d33b639aa2f93fe0348126283 minor refactoring terminal app</li>
+<li>b8c3b8bd2ce3c05aa3a8934c2f9bde27f74c83eb minor refactoring time date func</li>
+<li>b29ca33115aca300885333e1365a05ee0e8afc08 node: update code format</li>
+<li>95432552c83a47e09f1764df8dda23a0b2c9daea objects(Decimal): fix go Decimal to Object converter</li>
+<li>161358575226271a92f3b0d1975760f9d9da1a57 objects(Decimal): implements ToInterfaceConverter</li>
+<li>91595c9a59b19f81c6eeb756553121cf756b5915 objects(Decimal): rename method Go to ToGo</li>
+<li>fc2ae19d669483a1e032c98334ba47c6112dc9d4 open golden file as readonly when no update</li>
+<li>06abd44719617ef466955510f88a353f1087a290 optimize const declaration expressions</li>
+<li>5c3cf9a76785c8474a7776e006735a24652d73e3 optimize more greedily</li>
+<li>03f7c0e198d6ac2858dd15fd4518088a3c68f07b parse comma separated return exprs. as ArrayLit</li>
+<li>51c4a41b93f42f392a64111a35015bbe100f36fd parser(Decl): fix code write</li>
+<li>ab5e5f4dc413775fc0aafb521c0c9c81cb13435e parser: add token buffer on Parser</li>
+<li>e91e259c2f76865c9fe6529e877813dbec14615b parser: change block context statement declaration from ".{" as "{"</li>
+<li>8ad84ce85044f32dc3e0b96bfd58744246e617c3 parser: change block context statement declaration from ".{" as "{"</li>
+<li>0877c489cc087468c6cc917fac0114799a3ba3f0 parser: fix stripcr duplication</li>
+<li>bc7d402527e04d96e3016980cb12b8981b7c1896 pass non nil context for staticcheck warning</li>
+<li>1f3b25fe2f0327d5c76906541ceb5eab4a33f927 perf(iterator): closure-free arrayIterator for for-in over arrays</li>
+<li>5cc40ba9d0d2987d5b73e4ead015ce6224fa6b0e perf(iterator): closure-free dictIterator for for-in over dicts</li>
+<li>f37275dddd68c1756248c77dea0653e9cbb63835 perf(iterator): closure-free iterators for KeyValueArray/KeyValueArrays/Args</li>
+<li>2be8bbb3c74bc21036f8b2f9fadfb7dd2be9bd55 perf(iterator): embed IteratorState in array/dict iterators</li>
+<li>c0bd8e6f182f6c2d4921f938a737683bd32f0929 perf(vm): O(1) HasCallerMethods via a tree-level hasMethod flag</li>
+<li>00689cb2131a6e65ee75cfaca717d90ef923ebd4 perf(vm): cache operator callerMethoded to drop per-op map lookup</li>
+<li>ae673f952ae386c0cd75d55fa15c18ac94388c3c perf(vm): don't allocate dicts for an empty NamedArgs</li>
+<li>0a70aa0a55fa1fda663680641f6b65fdc7415413 perf(vm): eliminate the per-call args-slice allocation</li>
+<li>5ae63954f343c18c2080e92e405dd724084773d4 perf(vm): fused OpSelfAssignN borrows the stack for <code>a ++= x, y, z</code></li>
+<li>d5f62f2541339268db7d6b9382f1b742b851831b perf(vm): inline frame buffers avoid per-call args/NamedArgs allocation</li>
+<li>7e49410da8ce5e8cffc694f614bfdc0554708a5d perf(vm): lazy param-type resolution + builtins read-slice</li>
+<li>fc81ae84f4e1ff13d66773ffbb3f892a08515006 perf(vm): native fast path for built-in operators</li>
+<li>b19251b1f3efb7cf17847af35188d50f9adf6900 perf(vm): pool iterators in the debug loop too</li>
+<li>2f91c95a01fc319a8e0d16ea3c3c618c3c8f9898 perf(vm): pool the concrete for-in iterators (array, dict)</li>
+<li>f46c88fa58e5eb3c15da4a952fd53e903544575d perf(vm): pool the per-loop StateIteratorObject</li>
+<li>67e312c2b30d8631dcd5207d4005d2f1eb1bd72e perf(vm): pool the remaining concrete iterators (kv-array, kv-arrays, args)</li>
+<li>a87b34fe89cab6ff671d3e115174a33c64440894 perf(vm): shared small-int box cache for Int arithmetic</li>
+<li>c5d7bab26940956d1398fa185510bdb686e4958e performance improvements</li>
+<li>141fd62cb585016311abba503666b2b9789204cc readme: update TODO</li>
+<li>94ddd14190786d875f1c42e8310d7758908e1baa readme: update TODO</li>
+<li>fb95f3d55510c04af3d19e84583077e9e3f1efe9 reduce branch</li>
+<li>dffe8934576d42d9b537ee8702040b0002d376f0 reduce branch</li>
+<li>347f98921efb28f00325e16a488ea4d908e7e456 reduce cyclomatic complexity</li>
+<li>9e29c9043a79ce7931fbf38ae163576b5154b7a2 reduce cyclomatic complexity and fix .exit command</li>
+<li>0407c43d803bf6a122c6385259e0a716f857b300 reduce similar code blocks</li>
+<li>9ca1380e3519623bdd26bd62ab1209c11541bb66 refactor!: SyncMap struct</li>
+<li>9aa4b7ab52aaeaf43fea8cf06cf530d3724caa53 refactor!: fmt.Formatter implementation for builtin types</li>
+<li>5f61709f84792f721d4afc4a66be18b85fa01222 refactor!: improve syncMap</li>
+<li>424cf5e4a97a2d8041ccc9e7cdb9f32735f6cd2f refactor!: major refactoring - move ugodoc to under cmd - generate/update stdlib docs - add golangci-lint config yml - fix linter findings - refactor tests due to conversion logic changes - rename kebab-case type names to camelCase names</li>
+<li>39202ba502d4b2a331fcd28535a37bd2c2a9c6b6 refactor!: major refactoring for modules - refactor compiler and module map - add file importer</li>
+<li>6cb3a818ec449b06c6a40912def8bc5b526fe952 refactor!: misc. refactoring - remove context from optimizer - improve make for linter and generates - remove math.IsNan dependency - port debug.Stack to an internal function - misc. minor changes</li>
+<li>8d8a8eea8672f0b34a082d1c04691fe1ae48adb6 refactor!: refactor builtins - generate function helper utils - refactor builtin functions - fix SyncMap</li>
+<li>33e3f5737a61f863d5157200a427081f22fc99af refactor!: refactor encoder and time packages</li>
+<li>e31ed8f48067365884f06baef2a525f63dcbc6ac refactor!: refactor function helper utils - remove futils and use stdlib for helper utils - mkcallable can be used in ugo package</li>
+<li>ca051b20a4a1b49c7408c23fdf70d10930f75084 refactor!: refactor strings module</li>
+<li>18b1786c46f1b3a30539b8f16024a3bd9c35d2cd refactor!: refactoring encoder - move encoder to a separate package - move encoding methods of Bytecode to encoder package - remove golint linter from Makefile - rename snake-case type names to camelCase names</li>
+<li>d502859c834226787bffd89c2c1bd16ec4e0b47d refactor!: take a fork of github.com/ozanh/ugo as a github.com/gad-lang/gad project.</li>
+<li>dc89a993b4dfe3c9bcc863188f347c38bafa8a20 refactor(builtins): int/uint/float/char convert via AddMethod overloads only</li>
+<li>b7785e17b9c061c02e318ec622be28b031437754 refactor(cli): run a script from the root command (drop the <code>run</code> subcommand)</li>
+<li>d1c5f79708fbd960e13e7e86cb938530257c2fc2 refactor(cmd): drop subcommandNames; dispatch via Command.IsSub</li>
+<li>d35c6c1f077f5832bfb6e47a0ecb856f7dca60f4 refactor(compiler): lower module exports to a single dict + one OpExtendModule</li>
+<li>495aaef544afadabb0e0ac749565954f811b367c refactor(doc): DocGenerator reports failures via OnError callback</li>
+<li>92954353084e6805861ba941e9d446591c92eb93 refactor(doc): FromFile returns a FileDocResult struct</li>
+<li>ec2055fadc8a7b2a8d18b00be8d23d74e17ae166 refactor(doc): extract DocGenerator (filesystem-free rendering)</li>
+<li>ccde03aa6bc6b6f4763fbbc5abeabb70129d1f70 refactor(doc): move rendering pipeline into DocGenerator.FromContent</li>
+<li>d8ad38f3aeac97d747dd4d64e4028ce01d97cd60 refactor(gadx): finish giom→gadx in examples/cms + normalize benchmark slugs</li>
+<li>9ee31e29817a6a567a9f52d638735c06948265b8 refactor(giom): emit giom.Tag() instead of giom.Tag(nil) for anonymous roots</li>
+<li>5f4dcf84a22a1db4219b6d383b483f80c0d219e4 refactor(interface): class-instance-specific satisfaction, separate from generic</li>
+<li>20408ea5e36757872d8b0231b013f1a1766b9112 refactor(modules): strings &amp; fmt members to lowerCamelCase</li>
+<li>7a654c92abebbd359f2eec3cc6fe63f6297d68bf refactor(node): extract FuncHeader from FuncType</li>
+<li>6fcb2fdc11e17b1b44c7c18bdb0ffc5c4a991f35 refactor(operators): migrate namedargs/regexp/args types (phase 2b)</li>
+<li>6977e31a2e5cef876350d1dea0316e2dab4cce0a refactor(operators): migrate proxies, remove BinaryOperatorHandler (phase 2f)</li>
+<li>7f1798a7b9ccb81ecb46a2cebf94a30aaa0d1897 refactor(operators): migrate simple types to per-operator API (phase 2a)</li>
+<li>944a3f4e2f2402acc151d1e19da46cc31ec32fe5 refactor(operators): migrate string/collection types (phase 2c)</li>
+<li>6db8160884d191cd7900af257630acec9140f79b refactor(operators): migrate the numeric cluster (phase 2e)</li>
+<li>8177b05ded3b3c99b7fe469c78b9e86506e84aba refactor(operators): migrate time types + route internal callers (phase 2d)</li>
+<li>1f444ea2185a0385fcfe62d4cc0c2a54689dced5 refactor(operators): rename the <code>core</code> builtin namespace to <code>gad</code></li>
+<li>cee7a0f7c503a1c9137623057b3f6e8995e74f05 refactor(time): RFC3339-style date/time literals; drop compact HHMMSS forms</li>
+<li>13117d68d583a7de7fe92645c2296640478eadfa refactor(time): rename Date type to CalendarDate</li>
+<li>04511d22003bdf4bad1a44c25bc71d3b53e6ce7d refactor(time): replace d"…" duration literal with <code>dur …</code> keyword</li>
+<li>ab7b9cf0f99979b61e78c71c29b29d1da79b5b17 refactor(time,range): export constructor handlers + doc comments</li>
+<li>30640182fe701b895fc3cc3366eefffa122247d0 refactor(types): TypeAssigner abstraction for parameter/field type checking</li>
+<li>44ff7c07ac24dcbf4b527d6dc49cdb89a5dcb087 refactor(vm): minor refactoring</li>
+<li>8b9f78ff2432556b0d2099ba3d4e45f0e66f895c refactor(vm): minor refactoring</li>
+<li>c8d442a8404d659d77ce9ee336560e728ac9289b refactor(wasm): Doc takes (content, sourceType) instead of a path</li>
+<li>286932d41d980e9eb95aec2e6dee2760b1e5b017 refactor: add json module function - add Indent function and its tests - add comments for ugo doc</li>
+<li>4795640cdd211fcaacc236f5d54c95df6079013f refactor: add json module tests - fix overlooked function name</li>
+<li>fad71ad6dad9278388d374ce08647610c8ed9c63 refactor: add tests for invoker</li>
+<li>6cfe5a91ef49da966b26ccb7720d6996c1c6c315 refactor: added alternative object converter func (#16)</li>
+<li>027bf14984aabe5ae8dde903f65b9ecdfd668222 refactor: added go1.20 to workflow</li>
+<li>de6d3ee9ce5751811e1365275f8a795da7f33653 refactor: fix functions copy and add tests</li>
+<li>36262fe2d995ea22f20cf74c88d4a6d1a47d50aa refactor: generate function helpers for time module</li>
+<li>a130c0bb9d9106aa17d1abd266b5acbc80e2d740 refactor: improve multi index expr performance</li>
+<li>9619f607a1e3dce67f33ce9172f2f900ed012202 refactor: improved bytes (#23)</li>
+<li>a9dfccb55a29ce9100fb558bc8498f24f97d4ead refactor: introduce new interfaces - new ItemDeleter interface for map like objects - new LengthGetter interface to get length of an object</li>
+<li>9eb5d80b86484022b02b78ae494008f16e7109bd refactor: major refactoring for new API</li>
+<li>3c1495975348be2481dc1e8724523d26acb0b7a2 refactor: minor builtins refactoring (#24)</li>
+<li>d6555512501c88afbd6fb0a5fec6877108f76ca9 refactor: minor changes (#27)</li>
+<li>8f5ec85bf420e5d15135e816c658466701ac3562 refactor: minor json module refactoring - add Unquote module function - Update module function signatures</li>
+<li>83cb39c159c49ad2cd2079dd3ca9eb348d5d50f3 refactor: minor refactoring</li>
+<li>6b754620320e13289ea15dc361e9042d1e8414b3 refactor: minor refactoring</li>
+<li>07c85ac9da0491a0e5352d66074a013f4f06e979 refactor: minor refactoring</li>
+<li>90a125f5dfab0fae00f2f7c5fa2982873dd7e3b9 refactor: minor refactoring - add comments - remove unused function(s)</li>
+<li>3208eaa7eb1cc7e463cb6da057c5822339f0a9bb refactor: minor refactoring numeric binaryops</li>
+<li>b06208d58ff5b44abb9b7b6920b6a2c7ce685229 refactor: minor time module refactoring</li>
+<li>8c9f486acabef0074a97decc95fe9d8a3173bf63 refactor: move GadModule/registerGadModule into module_gad.go</li>
+<li>7eb2d22c50b99e19ca1045eae4635dad20eaae42 refactor: refactor imports for source modules</li>
+<li>df176119d127e2991c923b22877751fb17be1969 refactor: refactoring json module -  add tests for cycle refs - fix cycle check</li>
+<li>3014ac206bd3d76e566c7bd41db4d45e30c942cd refactor: remove the <code>append</code> builtin in favour of operators</li>
+<li>27d20598478c130d08990aa41a2a47704edfa752 refactor: remove unnecessary compiler constant cache element</li>
+<li>2a60fb21573413ca0b2ea35455dbe1cecaf60bd4 refactor: rename FromInterface to ToObject</li>
+<li>58950a9fed5c9c170acee44ecd54932f56fc8810 refactor: rename TemplateString/TemplateLit to InterpolatedString</li>
+<li>33a78ebe42b6bf5bf9c42f2b7b80dd6261a1fe59 refactor: rename giom → gadx (module, package, .gadx extension, docs)</li>
+<li>2afb095645bf20061526354b31c3022aa63d8dba refactor: render function return types as &lt;...&gt;</li>
+<li>a7460abaa8957ea818f0936001993094cf2aa79b refactor: set provided global symbols indexes in compiler</li>
+<li>0c39132da94a707df680afb3cbaf2da95e37a36d refactor: split single version byte into type + version bytes</li>
+<li>67d66e93de8b97bdff9de48214422e7da0f91580 refactor: updated stdlib/time doc</li>
+<li>0440464758ce04ae11b877f681e9e528755c80c8 refactor: updated workflow</li>
+<li>90dbfca90718e5ccc54289228f144a80c2934989 refactor: updated workflow conditions</li>
+<li>fc9e3d44e6b9e920ecd6c3fb7f0e1c2b1a38cd29 refactor: upgrade testify to v1.7.1</li>
+<li>1960b10b969a0074de1e84c832dce10f7f11e464 refactor:improved workflow (#17)</li>
+<li>0fbc8b35f5dc850a800d168ca9fb3f4ef04c13c7 refactor:updated dependencies (#18)</li>
+<li>e03a4ab881beca67aeeb5d7fb4fe341e936c8f74 refactoring compiler</li>
+<li>40b503a8bac3d8331cceb613cd1bff22299af68e refactoring optimizer</li>
+<li>71678b765baa081f27cc9cf78fb112383ad6247c refactoring time module for better performance</li>
+<li>7df1088643484a06d8dc61570392dc267ca22607 remove dot import alias</li>
+<li>f7b790e22fe022d18ac14d14a545a9ec38a0e450 remove pointless assignment</li>
+<li>ba2dc474a63d7cc226048f408b4441f6ed4d3e27 remove redundant bin type</li>
+<li>7629525ea2057d71b519b0ee05a2101b0cf9b5bb remove unnecessary case</li>
+<li>075e3e84ee1f9b1fde981279f61a4f327a73e490 remove unnecessary test</li>
+<li>1dbe3cb63d9bdef71393204aba74e69a5578face remove unused file</li>
+<li>6bb736d2af10a86e336269b34049c52ef6d52125 rename destructring assignment helper builtin</li>
+<li>ac991b9e11eb5d84f652fa020beda50145e7f9ab rename variable</li>
+<li>b9033798a125e17be94b5b95ac6e8acaf7d2d991 require trailing comma</li>
+<li>16e41d27e21ac0f337586296b6cdc9c2c075433b revert(core): removed <code>IterationDone</code>. To handles iteration done, handles callback in <code>iterator(it, state)</code> before returns <code>nil</code> value.</li>
+<li>0dc66cca0ebc491e42b0c247d583833bc440bbcc revise vm comments</li>
+<li>abb65f944116be368fbd36b116935465f6f0a9a2 rewrite VM execOpUnary</li>
+<li>c83c3e8cdd0af11bd90d05e3037a17ca3519693b rewrite module</li>
+<li>ce24c7300e530019bfa8cb73d65d567a51877a87 scanner!: 1) detect line sep by CR and replaces to EOL. 2) remove END spaces.</li>
+<li>818a37fe57e6863e7dd3a258ccb30204ca8268db source: implement slice of SourceFile</li>
+<li>2e83ddc5e0ef0f4610c813424c5d9925e96bf753 stdlib(strings): add JoinAnd function</li>
+<li>ff56c7d43d32ba6178254df047e69577d122b8bc stdlib: fix tests</li>
+<li>f8ba9c0be5ee8309dcee75d0f78b0893ce704536 structs!: 1) custom constructor; 2) operators</li>
+<li>0d42b3405b4cfd6495f4cf47b9211586d4b0f6ce test bytecode modified</li>
+<li>475ca97501a5586e3d8f21ede4dd613c73496e5e test(ain): string substring membership cases</li>
+<li>5382b0b2657d16ab9456a12c3bccbc7af1ec5aac test(compile): fix must dict compile</li>
+<li>aa07e7dc168583294a3b877a2b3e84263c5f754c test(ide): debug samples/modules/main.gad verifies relative imports</li>
+<li>2ddb758f28a6bd0e7852a4cdfb7bcc988fcf40f4 test(stdlib/os): derive file-flag values from constants (Windows)</li>
+<li>a3586c0839c406ef47d3d3563a48f2c1e5a5a181 test(time): repr of all time module types</li>
+<li>f25638c0b263d706a41bc764263a100d1543884f test/doc: reflected Go values satisfy interfaces (structural contract)</li>
+<li>0903889fae81045970d616c8bb2e611ebd9c60e6 tests: add encoder tests</li>
+<li>78801241a01b445f6f3752e42f29168670c0f7b8 tests: add more array tests</li>
+<li>575644a0ee60ba24114f876835b759c3a9597e1c tests: add tests</li>
+<li>775eca1c0dbf365dd730c46e04fd14fb11a6f329 tests: fix parser test for windows</li>
+<li>1e13bab9d7884da5a4fdd2b8af9309fc13481957 tests: publish VM Test API</li>
+<li>48e2a49d2e0d16e96c57477cdde58ef06e8d5d28 tools: add golangci tool</li>
+<li>2956bc9a59d0c7f8849ffdfe84b3caa39c156fd8 update copyrights</li>
+<li>2aa47e51cc327ffa9491d8030bfc3f1dc02c4217 update docs</li>
+<li>af23515f52e19e6cbc7b5db8d30300220c90dd2f update gh action</li>
+<li>cfb58a901a84fe21c832df3d3ca8c0c9aa0136f0 update go.sum</li>
+<li>5d2f364a51e188488b3476168be7d220f9fc702c update parser test</li>
+<li>7c9b4d76feeda6134cbbfd285f2d1aeb5468cb52 update pkg.go.dev badge</li>
+<li>34be9122b0634bf8ade29fc698d8a88bb12026cb update readme</li>
+<li>f5affad9b4958c4c8bdb2b529fc76638de3881ec update terminal app test</li>
+<li>0fcdec8ea1406e4f0f4362b9e99194f44d3c8239 update test script</li>
+<li>65a23e6c016db7d85626f604dccc7747476d5fcc update tests</li>
+<li>de8107ac0273d081faf5c40dec2518ca1a2bcb72 update tests to abort tiny scripts and handle CI</li>
+<li>4cbd63e2e58d80a3055ffe47bfd2e233ee424e5a update to set decl. elided expr to nil</li>
+<li>d028be2da665761e7e6bc5b2fcab6e412143b0f6 update utils</li>
+<li>71f176eadb0699ad9ef40794e31193a78d474c3b update(core): rename opcode <code>OpMap</code> to <code>OpDict</code>.</li>
+<li>1eaa88ead61d0822625133cb616337b5a3f206dd update(core): rename opcode <code>OpNull</code> to <code>OpNil</code>.</li>
+<li>4f36c4dbd74bb399d2ef4652e00d72f160f11c51 use github license template</li>
+</ul>
+<hr>
+<p>📖 <strong>Documentation:</strong> https://gad-lang.github.io/v0.1.0-rc.1/ · <a href="https://gad-lang.github.io/latest/">latest</a></p>
+</section><h2>Assets</h2><div class="dl-table"><table><thead><tr><th>Platform</th><th>File</th><th>Description</th></tr></thead><tbody><tr><td>Linux (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.1/gad_0.1.0-rc.1_linux_amd64.tar.gz"><code>gad_0.1.0-rc.1_linux_amd64.tar.gz</code></a></td><td>64-bit Intel/AMD Linux</td></tr><tr><td>Linux (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.1/gad_0.1.0-rc.1_linux_arm64.tar.gz"><code>gad_0.1.0-rc.1_linux_arm64.tar.gz</code></a></td><td>64-bit ARM Linux</td></tr><tr><td>Windows (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.1/gad_0.1.0-rc.1_windows_amd64.zip"><code>gad_0.1.0-rc.1_windows_amd64.zip</code></a></td><td>64-bit Intel/AMD Windows</td></tr><tr><td>Windows (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.1/gad_0.1.0-rc.1_windows_arm64.zip"><code>gad_0.1.0-rc.1_windows_arm64.zip</code></a></td><td>64-bit ARM Windows</td></tr><tr><td>WebAssembly</td><td><a href="gad.wasm" download><code>gad.wasm</code></a></td><td>Browser/WASM module (run, format, diagnostics and the gadDebug* debugger)</td></tr><tr><td>Checksums</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.1/checksums.txt"><code>checksums.txt</code></a></td><td>SHA-256 checksums of the release assets</td></tr></tbody></table></div><p class="muted">All release assets are on the <a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.1">GitHub releases page</a>.</p></main>
+  
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>
