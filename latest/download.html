@@ -14,7 +14,7 @@
   <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
   <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
   <nav class="header-links">
-    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.2</a>
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.3</a>
     <a href="playground/index.html">Playground</a>
     <a href="download.html">Download</a>
     <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Tasks</a>
@@ -42,42 +42,13 @@
       <a class="nav-link active" href="download.html">Download</a>
     </div>
   </nav>
-  <main class="content"><div class="rel-hero"><div class="rel-badge">Release</div><h1 class="rel-name"><a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.2">v0.1.0-rc.2</a></h1><div class="rel-date">2026-08-07T17:02:01Z</div></div><section class="rel-notes"><h2>Release notes</h2><h2 id="changelog">Changelog</h2>
+  <main class="content"><div class="rel-hero"><div class="rel-badge">Release</div><h1 class="rel-name"><a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.3">v0.1.0-rc.3</a></h1><div class="rel-date">2026-08-07T19:07:26Z</div></div><section class="rel-notes"><h2>Release notes</h2><h2 id="changelog">Changelog</h2>
 <ul>
-<li>53a12f1ecfe757d086ce3e520f50fee22b23c8dd ci(release): dispatch the website workflow after publishing a release</li>
-<li>b70f770cee96489631c4ccb4fee9ad82d71a5249 docs(doc): render snippet results Python-docs style (inline <code>// =&gt;</code> / Output:)</li>
-<li>4e2fbcbc69d2d3f05223ba7435abc16ea6659a52 docs(samples): file-level doc comments use /<strong> </strong>/ (blank-line/EOF rule)</li>
-<li>70fbd98f44cbfee27629059de81af710a9c985d0 docs(samples): finish collections migration (05/22/27); remove collections.md</li>
-<li>2392bea0f2ff101aa9ba24c14c6e68f34761a12b docs(samples): migrate classes into 11 + 19; remove classes.md</li>
-<li>515c81a1894fa55b44ea0cda78bcc1c87e0d3922 docs(samples): migrate collections core into 04_collections.gad</li>
-<li>56ea81e9ccea34a3563808c0352056716482ebea docs(samples): migrate control-flow into 06 + 18; result fences below code</li>
-<li>19b09cb32b69492b5dd83b799d512db8a323c206 docs(samples): migrate doc-comments + special-keywords into the samples</li>
-<li>124501338151548c2dd51ee3616cd78cd5891be5 docs(samples): migrate enums + error-handling into the samples</li>
-<li>4351864d39f7dcac74cbd564e9b25cc1c0e31876 docs(samples): migrate method-interfaces (12) + interfaces (24)</li>
-<li>31d9691679c35dda7fe596d69223911ac51ef22f docs(samples): migrate modules/templates/metaprogramming; last chapters</li>
-<li>5d684e3fc1392e99e003b04e8a78bff36bfe267f docs(samples): migrate operators into 13/14/15/17/28; remove operators.md</li>
-<li>b2ae3c78b47bf3cb089c87c1982466efc0a8232f docs(samples): migrate properties into 31_properties.gad</li>
-<li>ff15c0053956ca045d0d9ca4ce9a1d6869c79af3 docs(samples): migrate strings-bytes-regex into 08 + 21; remove the doc</li>
-<li>e7306e400bca2c7acead783a3dfbba4ba17e7464 docs(samples): migrate values-and-types (02) + variables-and-scopes (new 33)</li>
-<li>94ec3835e3d8ef89c25bb0a5d78f5dfcda6b557d docs(task): log JSON/YAML encode (indexes + --out - tree)</li>
-<li>b0ee7d75a7380be4508099192bd06367be50a6a2 docs(task): log interface funcs { … } section</li>
-<li>b1d4f7c339a9fe49e5bdfb27512a781b9cfe1f1b docs(task): log lint fix, notebook examples, site clean + release automation</li>
-<li>680ef5aa7b5f0a80035e70cf6233d2bcc3bbd75f docs(task): log migration completion + website integration</li>
-<li>6528337b498315ddba1f8dbc9b145fffec3fb1c8 docs(task): log unified /<strong> </strong>/ doc-comment grammar</li>
-<li>c0d8a80a0530c3f59db903536f564a007ffa9985 feat(doc): --json / --yaml encode the doc structure</li>
-<li>328564545d851dc6e69d3af2a83381f590a03270 feat(doc): capture .gadt module prose from the leading code island</li>
-<li>fd0f204f68a612d6261db70aa28a4d86666de041 feat(doc): encoded per-dir indexes + --out - streams the whole tree</li>
-<li>65e5e879008a46da3ae1994677a2eba72cac23dc feat(doc): template-driven <code>gad doc</code> generation from samples</li>
-<li>cab78be857f8d0da8d5078160cd6646575a2d887 feat(editors): unify /<strong> </strong>/ doc comments in prism, codemirror, vscode</li>
-<li>2ee234bf8222821f42bc223f7e5183f25c0bca52 feat(interface): funcs { … } context-function section (replaces : prefix)</li>
-<li>8a47e48d528acd94629ccf1cf7ed11e078cb8816 feat(website): publish the language chapters from doc/samples</li>
-<li>c1cbea4b31e5c5e65ac29785ed0e519712acd926 fix(compiler): bound gadx fallback recursion; migrate functions docs</li>
-<li>b87fdc5abf62557d42dee04d084aed7c87664a04 fix(fmt): round-trip the shebang in every dialect</li>
-<li>84011f6c94ce589d3b447dddeb41cedee6f6bb1b fix(fmt): round-trip the unified /<strong> </strong>/ doc convention</li>
+<li>723d460a2bda17e2eef5135b44dc84b66074f552 fix(doc): widen Markdown fences around embedded backtick runs</li>
 </ul>
 <hr>
-<p>📖 <strong>Documentation:</strong> https://gad-lang.github.io/v0.1.0-rc.2/ · <a href="https://gad-lang.github.io/latest/">latest</a></p>
-</section><h2>Assets</h2><div class="dl-table"><table><thead><tr><th>Platform</th><th>File</th><th>Description</th></tr></thead><tbody><tr><td>Linux (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.2/gad_0.1.0-rc.2_linux_amd64.tar.gz"><code>gad_0.1.0-rc.2_linux_amd64.tar.gz</code></a></td><td>64-bit Intel/AMD Linux</td></tr><tr><td>Linux (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.2/gad_0.1.0-rc.2_linux_arm64.tar.gz"><code>gad_0.1.0-rc.2_linux_arm64.tar.gz</code></a></td><td>64-bit ARM Linux</td></tr><tr><td>Windows (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.2/gad_0.1.0-rc.2_windows_amd64.zip"><code>gad_0.1.0-rc.2_windows_amd64.zip</code></a></td><td>64-bit Intel/AMD Windows</td></tr><tr><td>Windows (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.2/gad_0.1.0-rc.2_windows_arm64.zip"><code>gad_0.1.0-rc.2_windows_arm64.zip</code></a></td><td>64-bit ARM Windows</td></tr><tr><td>WebAssembly</td><td><a href="gad.wasm" download><code>gad.wasm</code></a></td><td>Browser/WASM module (run, format, diagnostics and the gadDebug* debugger)</td></tr><tr><td>Checksums</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.2/checksums.txt"><code>checksums.txt</code></a></td><td>SHA-256 checksums of the release assets</td></tr></tbody></table></div><p class="muted">All release assets are on the <a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.2">GitHub releases page</a>.</p></main>
+<p>📖 <strong>Documentation:</strong> https://gad-lang.github.io/v0.1.0-rc.3/ · <a href="https://gad-lang.github.io/latest/">latest</a></p>
+</section><h2>Assets</h2><div class="dl-table"><table><thead><tr><th>Platform</th><th>File</th><th>Description</th></tr></thead><tbody><tr><td>Linux (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.3/gad_0.1.0-rc.3_linux_amd64.tar.gz"><code>gad_0.1.0-rc.3_linux_amd64.tar.gz</code></a></td><td>64-bit Intel/AMD Linux</td></tr><tr><td>Linux (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.3/gad_0.1.0-rc.3_linux_arm64.tar.gz"><code>gad_0.1.0-rc.3_linux_arm64.tar.gz</code></a></td><td>64-bit ARM Linux</td></tr><tr><td>Windows (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.3/gad_0.1.0-rc.3_windows_amd64.zip"><code>gad_0.1.0-rc.3_windows_amd64.zip</code></a></td><td>64-bit Intel/AMD Windows</td></tr><tr><td>Windows (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.3/gad_0.1.0-rc.3_windows_arm64.zip"><code>gad_0.1.0-rc.3_windows_arm64.zip</code></a></td><td>64-bit ARM Windows</td></tr><tr><td>WebAssembly</td><td><a href="gad.wasm" download><code>gad.wasm</code></a></td><td>Browser/WASM module (run, format, diagnostics and the gadDebug* debugger)</td></tr><tr><td>Checksums</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.3/checksums.txt"><code>checksums.txt</code></a></td><td>SHA-256 checksums of the release assets</td></tr></tbody></table></div><p class="muted">All release assets are on the <a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.3">GitHub releases page</a>.</p></main>
   
 </div>
 <footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
