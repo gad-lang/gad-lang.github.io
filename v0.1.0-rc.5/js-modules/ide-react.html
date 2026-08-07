@@ -11,19 +11,22 @@
 </head>
 <body>
 <header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
   <a class="brand" href="../index.html"><img class="brand-logo" src="../gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
   <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
-  <nav class="header-links">
+  <nav class="header-links" id="headerLinks">
     <a class="rel-chip" href="../download.html" title="Current release">v0.1.0-rc.5</a>
     <a href="../playground/index.html">Playground</a>
     <a href="../download.html">Download</a>
     <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Tasks</a>
     <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
   </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
   <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
 </header>
+<div class="nav-backdrop" id="navBackdrop"></div>
 <div class="layout">
-  <nav class="sidebar">
+  <nav class="sidebar" id="sidebar">
     <div class="nav-group"><div class="nav-title">Guide</div>
       <a class="nav-link" href="../index.html">Gad Language</a><a class="nav-link" href="../getting-started.html">Getting Started</a><a class="nav-link" href="../builtins.html">Builtin Functions</a><a class="nav-link" href="../formatting.html">Formatting with gad fmt</a><a class="nav-link" href="../embedding.html">Embedding Gad in Go</a>
     </div><div class="nav-group"><div class="nav-title">Language</div>
@@ -111,6 +114,7 @@ bun publish              # publishConfig sets the public registry + access</code
 </div>
 <footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
 <script src="../theme.js"></script>
+<script src="../nav.js"></script>
 <script src="../search.js"></script>
 <script src="../prism.js" defer></script>
 </body>
