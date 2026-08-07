@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variables and Scopes · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.2</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Tasks</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link active" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (..)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (in / ain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!? / !?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (prop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The class keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">01_hello</a><a class="nav-link" href="lang-25_method_resolution.html">25methodresolution</a><a class="nav-link" href="lang-30_assign_and_append.html">30assignand_append</a><a class="nav-link" href="lang-32_raw_argv.html">32rawargv</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflect module</a><a class="nav-link" href="ref-stdlib-test.html">test module and gad test</a><a class="nav-link" href="ref-stdlib-strings.html">strings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmt module</a><a class="nav-link" href="ref-stdlib-json.html">json module</a><a class="nav-link" href="ref-stdlib-time.html">time module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="variables-and-scopes">Variables and Scopes</h1>
+<p>Gad has four declaration keywords — <code>param</code>, <code>global</code>, <code>var</code> and <code>const</code> — plus the short declaration operator <code>:=</code>. Identifiers may contain letters, digits, <code>_</code> and <code>$</code>.</p>
+<h2 id="vs"><code>:=</code> vs <code>=</code></h2>
+<p><code>:=</code> declares a <strong>new</strong> local and assigns to it; <code>=</code> assigns to an <strong>existing</strong> variable (or a dict/array element). A variable may be reassigned a value of a different type.</p>
+<pre><code class="language-gad">a := 123      // declare 'a' (int)
+a = "123"     // reassign (str) — a variable may change type
+a = [1, 2, 3] // reassign (array)
+a
+// =&gt; [1, 2, 3]</code></pre>
+<h2 id="param">param</h2>
+<p><code>param</code> declares the parameters of the main script function. It may appear only once, at the top level; initial values are illegal (a variadic <code>*x</code> defaults to <code>[]</code>, everything else to <code>nil</code>). The positional and named lists are separated by <code>;</code>, following the same rules as <a href="lang-03_functions.html">function parameters</a>.</p>
+<pre><code>param (arg0, arg1, *rest)         // positional + variadic
+param (; x, y = 1, **named)        // named only (with defaults)
+param (a, *rest; x, y = 1, **nx)   // mixed</code></pre>
+<h2 id="global">global</h2>
+<p><code>global</code> declares variables backed by the host-provided globals object (<code>@g</code>) — how an embedding Go program exchanges data with a script. A grouped <code>global (…)</code> may give defaults: <code>name = value</code> applies when the global is nil or absent (like <code>??=</code>), <code>name !?= value</code> only when it is absent.</p>
+<pre><code class="language-gad">global (page = 1, limit = 20) // default unless the host set them
+global (user !?= "guest")     // only when "user" is not provided at all
+[page, limit, user]
+// =&gt; [1, 20, "guest"]</code></pre>
+<h2 id="var">var</h2>
+<p><code>var</code> declares one or more locals, optionally initialized (uninitialized ⇒ <code>nil</code>). A self-referential function value must be declared before it is assigned, because the right-hand side is compiled first.</p>
+<pre><code class="language-gad">var foo            // nil
+var (bar, baz = 1) // bar == nil, baz == 1
+[isNil(foo), bar, baz]
+// =&gt; [true, nil, 1]</code></pre>
+<h2 id="const">const</h2>
+<p><code>const</code> declares read-only bindings; an initializer is required and reassignment is a compile error (though the value it refers to may still be mutable). Inside a <code>const</code> block, <code>iota</code> counts declarations from 0 and may appear in any right-hand-side expression.</p>
+<pre><code class="language-gad">const (i0 = iota, i1, i2)         // 0, 1, 2
+const (bit1 = 1 &lt;&lt; iota, bit2, bit4) // 1, 2, 4 (iota resets per block)
+const box = {foo: "bar"}
+box.foo = "baz"                   // ok: the binding is read-only, the dict is not
+[i0, i1, i2, bit1, bit2, bit4, box.foo]
+// =&gt; [0, 1, 2, 1, 2, 4, "baz"]</code></pre>
+<h2 id="scopes-and-capturing">Scopes and capturing</h2>
+<p>Inner functions capture variables from enclosing scopes; re-declaring a name with <code>:=</code> shadows the outer one. Like Go, a loop variable captured by a closure holds its final value unless you bind a fresh copy inside the loop.</p>
+<pre><code class="language-gad">var f
+for i := 0; i &lt; 3; i++ {
+    i := i // fresh binding per iteration
+    f = func() =&gt; i
+}
+f()
+// =&gt; 2</code></pre>
+<h2 id="example--33variablesand-scopesgad">Example — <code>33_variables_and_scopes.gad</code></h2>
+<pre><code class="language-gad">a := 123      // declare 'a' (int)
+a = "123"     // reassign (str) — a variable may change type
+a = [1, 2, 3] // reassign (array)
+a
+
+global (page = 1, limit = 20) // default unless the host set them
+global (user !?= "guest")     // only when "user" is not provided at all
+[page, limit, user]
+
+var foo            // nil
+var (bar, baz = 1) // bar == nil, baz == 1
+[isNil(foo), bar, baz]
+
+const (i0 = iota, i1, i2)         // 0, 1, 2
+const (bit1 = 1 &lt;&lt; iota, bit2, bit4) // 1, 2, 4 (iota resets per block)
+const box = {foo: "bar"}
+box.foo = "baz"                   // ok: the binding is read-only, the dict is not
+[i0, i1, i2, bit1, bit2, bit4, box.foo]
+
+var f
+for i := 0; i &lt; 3; i++ {
+    i := i // fresh binding per iteration
+    f = func() =&gt; i
+}
+f()
+
+return "variables"</code></pre>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#vs">:= vs =</a><a href="#param">param</a><a href="#global">global</a><a href="#var">var</a><a href="#const">const</a><a href="#scopes-and-capturing">Scopes and capturing</a><a href="#example--33variablesand-scopesgad">Example — 33variablesand_scopes.gad</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>

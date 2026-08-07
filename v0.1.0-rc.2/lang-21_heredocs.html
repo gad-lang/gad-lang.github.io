@@ -56,7 +56,7 @@
 <p>A <code>code … end</code> literal captures its body <strong>verbatim</strong> as a plain <code>str</code> — it is not parsed, evaluated or interpolated. The <code>code</code>/<code>end</code> fences signal that the body is Gad source (editors highlight it), handy for embedding snippets or generated code. The block form's closing <code>end</code> is the line at the opening statement's indentation whose only word is <code>end</code>; the body is dedented to its own least-indented line. There is also a single-line form <code>code &lt;body&gt; end</code>. A bare <code>code</code> identifier (no matching <code>end</code>) is unaffected, so <code>code := 1</code> still declares a variable.</p>
 <p>The Example below is a runnable tour of every form.</p>
 <h2 id="example--21-heredocsgad">Example — <code>21_heredocs.gad</code></h2>
-<pre><code class="language-gad">// --- heredoc: single line ---
+<pre><code class="language-`gad">// --- heredoc: single line ---
 // The fence is three quotes, so a doubled quote inside is literal text.
 println("""abc""")          // abc
 println("""abc""de""")      // abc""de

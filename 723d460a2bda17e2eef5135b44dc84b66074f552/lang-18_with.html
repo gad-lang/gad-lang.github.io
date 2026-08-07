@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>With · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.2</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Tasks</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (..)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (in / ain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!? / !?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link active" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (prop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The class keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">01_hello</a><a class="nav-link" href="lang-25_method_resolution.html">25methodresolution</a><a class="nav-link" href="lang-30_assign_and_append.html">30assignand_append</a><a class="nav-link" href="lang-32_raw_argv.html">32rawargv</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflect module</a><a class="nav-link" href="ref-stdlib-test.html">test module and gad test</a><a class="nav-link" href="ref-stdlib-strings.html">strings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmt module</a><a class="nav-link" href="ref-stdlib-json.html">json module</a><a class="nav-link" href="ref-stdlib-time.html">time module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="with">With</h1>
+<p><code>with</code> runs a resource's enter/exit hooks around a block, so cleanup always happens — even on an early return or an error. A resource is any value that provides the hooks: a Gad object with <code>enter()</code> / <code>exit(err)</code> methods, or a Go type implementing the <code>ObjectEnter</code> / <code>ObjectExit</code> interfaces. A value with neither is a silent no-op. <code>exit</code> receives any error raised in the block (<code>nil</code> on normal exit) and the error still propagates after it runs; resources nest and their <code>exit</code> hooks run in reverse order.</p>
+<h2 id="binding-forms">Binding forms</h2>
+<pre><code>with resource { … }         // use an existing value
+with mk() as f { … }        // bind the resource to a block-local `f`
+with x := mk() { … }        // define `x` (visible after the block)
+var x
+with x = mk() { … }         // assign to an existing variable</code></pre>
+<pre><code class="language-gad">// `as` binds the resource to a block-local name.
+println("as:")
+with Res(; name = "a") as f {
+    println("  use  ", f.name, "open =", f.open)
+}
+
+// `:=` defines a variable visible after the block.
+println("define:")
+with r := Res(; name = "b") { println("  use  ", r.name) }
+println("  after, open =", r.open) // false (exit ran)
+
+// An error still runs exit, then propagates; resources nest (reverse-order exit).
+println("error+nested:")
+try {
+    with Res(; name = "outer") {
+        with Res(; name = "inner") { throw "boom" }
+    }
+} catch e {
+    println("  caught:", e)
+}</code></pre>
+<h2 id="expression-forms">Expression forms</h2>
+<p>The <strong>colon</strong> variant, <code>with resource [as name]: value</code>, enters the resource, evaluates <code>value</code>, runs <code>exit</code>, and yields <code>value</code>:</p>
+<pre><code class="language-gad">// Colon form: enter, evaluate, exit, yield the value.
+contents := with Res(; name = "d") as g: g.read()
+println("expr:", contents)</code></pre>
+<p>The <strong>block</strong> variant, <code>with resource [as name] { body }</code>, is an expression too: it enters the resource, runs <code>body</code>, runs <code>exit</code>, and yields <strong>the resource itself</strong> — a build-and-return primitive. <code>as name</code> is optional; bind one only when the body needs to reference the resource.</p>
+<pre><code class="language-gad">// Block form: enter, run the body, exit, yield the RESOURCE (built inside).
+built := with Res(; name = "e") as it {
+    it.add(1)
+    it.add(2)
+}
+println("expr-block:", built.name, "open =", built.open, "items =", built.items)
+
+// Being an expression, a function can build-and-return with it.
+make := func() =&gt; with Res(; name = "f") as it { it.add(9) }
+println("make():", make().items)
+
+// A non-resource value is a silent no-op (the body still runs).
+with 42 as n { println("noop:", n) }</code></pre>
+<p><code>with</code> introduces no new opcode: it desugars to a block that registers <code>gad.exit(resource, $err)</code> as a [<code>deferb</code>](lang-03_functions.html) and then calls <code>gad.enter(resource)</code>, dispatched through the <code>gad.enter</code> / <code>gad.exit</code> functions in the global <code>gad</code> namespace.</p>
+<h2 id="example--18-withgad">Example — <code>18_with.gad</code></h2>
+<pre><code class="language-gad">/// A resource: a class with enter()/exit(err) hooks (plus a little state).
+Res := Class("Res", (cls, define) =&gt; define(; fields = (; name = (= ""), open = (= false), items = (= nil)),
+    methods = [
+        enter(this) { this.open = true; this.items = []; println("  open ", this.name); return this }
+        exit(this, err) { this.open = false; println("  close", this.name, "err =", err) }
+        read(this) =&gt; this.name + "-data"
+        add(this, v) { this.items += v }
+    ]))
+
+// `as` binds the resource to a block-local name.
+println("as:")
+with Res(; name = "a") as f {
+    println("  use  ", f.name, "open =", f.open)
+}
+
+// `:=` defines a variable visible after the block.
+println("define:")
+with r := Res(; name = "b") { println("  use  ", r.name) }
+println("  after, open =", r.open) // false (exit ran)
+
+// An error still runs exit, then propagates; resources nest (reverse-order exit).
+println("error+nested:")
+try {
+    with Res(; name = "outer") {
+        with Res(; name = "inner") { throw "boom" }
+    }
+} catch e {
+    println("  caught:", e)
+}
+
+// Colon form: enter, evaluate, exit, yield the value.
+contents := with Res(; name = "d") as g: g.read()
+println("expr:", contents)
+
+// Block form: enter, run the body, exit, yield the RESOURCE (built inside).
+built := with Res(; name = "e") as it {
+    it.add(1)
+    it.add(2)
+}
+println("expr-block:", built.name, "open =", built.open, "items =", built.items)
+
+// Being an expression, a function can build-and-return with it.
+make := func() =&gt; with Res(; name = "f") as it { it.add(9) }
+println("make():", make().items)
+
+// A non-resource value is a silent no-op (the body still runs).
+with 42 as n { println("noop:", n) }</code></pre>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#binding-forms">Binding forms</a><a href="#expression-forms">Expression forms</a><a href="#example--18-withgad">Example — 18_with.gad</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>

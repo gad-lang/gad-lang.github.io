@@ -56,7 +56,7 @@
 </table>
 <p>The fence of a <code>BLOCK</code> must be on its <strong>own line</strong>; <code>/** text **/</code> on a single line is not a block.</p>
 <p>**File- and section-level docs use the same <code>/** … **/</code> form<strong>, distinguished only by context: a block </strong>directly above<strong> a statement documents that statement, while a block </strong>followed by a blank line (or at the end of the file)<strong> documents the </strong>module/section** — like this header. (The older three-star <code>/*** … ***/</code> root block is still accepted but deprecated; <code>gad fmt</code> rewrites it to <code>/** … **/</code>.)</p>
-<pre><code class="language-gad">/// the service listen address (SINGLE form, on its own line)
+<pre><code class="language-`gad">/// the service listen address (SINGLE form, on its own line)
 const (
     ServerAddr = ":8080"
     /// the greeting prefix (SINGLE, linked to the spec ident)
@@ -110,7 +110,7 @@ meti differ {
 <h2 id="runnable-examples-doctest">Runnable examples (doctest)</h2>
 <p>A <code>BLOCK</code> may embed a runnable example in a <code></code><code></code> <code></code><code>gad </code><code></code><code> fence. Examples are self-contained; a line beginning with </code>&gt;&gt;&gt; <code> asserts that the value produced so far equals the expression after it. </code>gad doctest PATH…<code> runs every embedded example, and </code>gad doc<code> runs them while generating (unless </code>--no-doctest`). See also <a href="lang-conventions.html">Conventions</a>.</p>
 <h2 id="example--16doccommentsgad">Example — <code>16_doc_comments.gad</code></h2>
-<pre><code class="language-gad">/// the service listen address (SINGLE form, on its own line)
+<pre><code class="language-`gad">/// the service listen address (SINGLE form, on its own line)
 const (
     ServerAddr = ":8080"
     /// the greeting prefix (SINGLE, linked to the spec ident)
