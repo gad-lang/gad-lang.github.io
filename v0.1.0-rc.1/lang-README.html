@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Language chapters · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.1</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Tasks</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link active" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (..)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (in / ain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!? / !?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (prop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The class keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">01_hello</a><a class="nav-link" href="lang-25_method_resolution.html">25methodresolution</a><a class="nav-link" href="lang-30_assign_and_append.html">30assignand_append</a><a class="nav-link" href="lang-32_raw_argv.html">32rawargv</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflect module</a><a class="nav-link" href="ref-stdlib-test.html">test module and gad test</a><a class="nav-link" href="ref-stdlib-strings.html">strings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmt module</a><a class="nav-link" href="ref-stdlib-json.html">json module</a><a class="nav-link" href="ref-stdlib-time.html">time module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="samples">samples</h1>
+<h2 id="files">Files</h2>
+<ul>
+<li><a href="lang-01</em>hello.html">01<em>hello</a></li>
+<li><a href="lang-02</em>values<em>and</em>types.html">02<em>values</em>and<em>types</a></li>
+<li><a href="lang-03</em>functions.html">03<em>functions</a></li>
+<li><a href="lang-04</em>collections.html">04<em>collections</a></li>
+<li><a href="lang-05</em>comprehensions.html">05<em>comprehensions</a></li>
+<li><a href="lang-06<em>control</em>flow.html">06<em>control</em>flow</a></li>
+<li><a href="lang-07<em>error</em>handling.html">07<em>error</em>handling</a></li>
+<li><a href="lang-08</em>strings<em>bytes</em>regex.html">08<em>strings</em>bytes<em>regex</a></li>
+<li><a href="lang-09</em>template.html">09<em>template</a></li>
+<li><a href="lang-10</em>functions<em>with</em>methods.html">10<em>functions</em>with<em>methods</a></li>
+<li><a href="lang-11</em>classes.html">11<em>classes</a></li>
+<li><a href="lang-12<em>method</em>interfaces.html">12<em>method</em>interfaces</a></li>
+<li><a href="lang-13</em>ranges.html">13<em>ranges</a></li>
+<li><a href="lang-14<em>user</em>operators.html">14<em>user</em>operators</a></li>
+<li><a href="lang-15<em>in</em>operator.html">15<em>in</em>operator</a></li>
+<li><a href="lang-16<em>doc</em>comments.html">16<em>doc</em>comments</a></li>
+<li><a href="lang-17<em>unary</em>operators.html">17<em>unary</em>operators</a></li>
+<li><a href="lang-18</em>with.html">18<em>with</a></li>
+<li><a href="lang-19<em>class</em>syntax.html">19<em>class</em>syntax</a></li>
+<li><a href="lang-20</em>enum.html">20<em>enum</a></li>
+<li><a href="lang-21</em>heredocs.html">21<em>heredocs</a></li>
+<li><a href="lang-22</em>key<em>value</em>array.html">22<em>key</em>value<em>array</a></li>
+<li><a href="lang-23</em>template.html">23<em>template</a></li>
+<li><a href="lang-24</em>interfaces.html">24<em>interfaces</a></li>
+<li><a href="lang-25<em>method</em>resolution.html">25<em>method</em>resolution</a></li>
+<li><a href="lang-26</em>embed.html">26<em>embed</a></li>
+<li><a href="lang-27</em>destructuring.html">27<em>destructuring</a></li>
+<li><a href="lang-28<em>absent</em>coalescing.html">28<em>absent</em>coalescing</a></li>
+<li><a href="lang-29<em>special</em>keywords.html">29<em>special</em>keywords</a></li>
+<li><a href="lang-30</em>assign<em>and</em>append.html">30<em>assign</em>and<em>append</a></li>
+<li><a href="lang-31</em>properties.html">31<em>properties</a></li>
+<li><a href="lang-32<em>raw</em>argv.html">32<em>raw</em>argv</a></li>
+<li><a href="lang-33</em>variables<em>and</em>scopes.html">33<em>variables</em>and<em>scopes</a></li>
+<li><a href="lang-34</em>metaprogramming.html">34<em>metaprogramming</a></li>
+</ul>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#files">Files</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special @ Keywords · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.1</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Tasks</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (..)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (in / ain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!? / !?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (prop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The class keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link active" href="lang-29_special_keywords.html">Special @ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">01_hello</a><a class="nav-link" href="lang-25_method_resolution.html">25methodresolution</a><a class="nav-link" href="lang-30_assign_and_append.html">30assignand_append</a><a class="nav-link" href="lang-32_raw_argv.html">32rawargv</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflect module</a><a class="nav-link" href="ref-stdlib-test.html">test module and gad test</a><a class="nav-link" href="ref-stdlib-strings.html">strings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmt module</a><a class="nav-link" href="ref-stdlib-json.html">json module</a><a class="nav-link" href="ref-stdlib-time.html">time module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="special--keywords">Special <code>@</code> Keywords</h1>
+<p>Gad has a small set of built-in keywords, all written with a leading <code>@</code>, that expose information about the running function, the current module, and the host globals. Each is an expression that yields a value directly (compiled to a single opcode — no function call), so they are cheap and usable anywhere an expression is allowed.</p>
+<table>
+<thead><tr><th>Keyword</th><th>Yields</th><th>Scope</th></tr></thead>
+<tbody>
+<tr><td><code>@fn</code></td><td>the currently executing function</td><td>inside a function</td></tr>
+<tr><td><code>@args</code></td><td>the call's positional arguments (an array)</td><td>inside a function</td></tr>
+<tr><td><code>@nargs</code></td><td>the call's named arguments</td><td>inside a function</td></tr>
+<tr><td><code>@name</code></td><td>the current module's name (string)</td><td>anywhere</td></tr>
+<tr><td><code>@file</code></td><td>the current module's file path / URL (string)</td><td>anywhere</td></tr>
+<tr><td><code>@main</code></td><td><code>true</code> when the current module is the entry module</td><td>anywhere</td></tr>
+<tr><td><code>@module</code></td><td>the current module object</td><td>anywhere</td></tr>
+<tr><td><code>@g</code></td><td>the host-provided globals object</td><td>anywhere</td></tr>
+</tbody>
+</table>
+<h2 id="function-introspection">Function introspection</h2>
+<p>Inside a function, <code>@fn</code>, <code>@args</code> and <code>@nargs</code> describe the active call: <code>@fn</code> is the running function (use it for anonymous recursion), <code>@args</code> the positional arguments as an array, and <code>@nargs</code> the call's named-argument set (useful for inspecting or forwarding named arguments generically).</p>
+<pre><code class="language-gad">/// @fn — the running function; here used for anonymous recursion.
+fact := func(n) {
+    return n &lt;= 1 ? 1 : n * @fn(n - 1)
+}
+println("5! =", fact(5)) // 120
+
+/// @args — the positional arguments as an array.
+sum := func(*_) {
+    total := 0
+    for v in @args {
+        total += v
+    }
+    return total
+}
+println("sum =", sum(1, 2, 3, 4)) // 10
+
+/// @nargs — the named-argument set of the current call (extra names beyond the
+/// declared parameters).
+forward := func(; **extra) =&gt; @nargs
+println("nargs type =", typeName(forward(; a = 1)))</code></pre>
+<h2 id="module-introspection">Module introspection</h2>
+<p><code>@name</code>, <code>@file</code>, <code>@main</code> and <code>@module</code> describe the module the code runs in: <code>@name</code> is the module name, <code>@file</code> the source path/URL, <code>@main</code> is <code>true</code> in the entry module (guard "run only when executed directly" code with it), and <code>@module</code> is the live module object (its exports, params and metadata).</p>
+<pre><code class="language-gad">/// Module info: @name, @file, @main, @module.
+println("name =", @name, "| main =", @main)</code></pre>
+<h2 id="globals-g">Globals: <code>@g</code></h2>
+<p><code>@g</code> is the host-provided globals object — the channel an embedding Go program uses to exchange data with a script. It is a short form for the whole globals container and can be read, indexed and assigned. It replaces the former <code>globals()</code> builtin and pairs naturally with the absent-coalescing operators and with <code>global</code> declaration defaults (<code>global (user !?= "guest")</code> lowers to <code>@g["user"] !?= "guest"</code>). See <a href="lang-02<em>values</em>and<em>types.html">Variables and Scopes</a> and <a href="lang-17</em>unary_operators.html">Operators</a>.</p>
+<pre><code class="language-gad">/// @g — the host globals object (short form of the old `globals()`).
+@g["hits"] = (@g["hits"] !? 0) + 1
+@g["hits"] = (@g["hits"] !? 0) + 1
+println("hits =", @g["hits"])      // 2
+println("has hits:", "hits" in @g) // true</code></pre>
+<h2 id="example--29specialkeywordsgad">Example — <code>29_special_keywords.gad</code></h2>
+<pre><code class="language-gad">/// @fn — the running function; here used for anonymous recursion.
+fact := func(n) {
+    return n &lt;= 1 ? 1 : n * @fn(n - 1)
+}
+println("5! =", fact(5)) // 120
+
+/// @args — the positional arguments as an array.
+sum := func(*_) {
+    total := 0
+    for v in @args {
+        total += v
+    }
+    return total
+}
+println("sum =", sum(1, 2, 3, 4)) // 10
+
+/// @nargs — the named-argument set of the current call (extra names beyond the
+/// declared parameters).
+forward := func(; **extra) =&gt; @nargs
+println("nargs type =", typeName(forward(; a = 1)))
+
+/// Module info: @name, @file, @main, @module.
+println("name =", @name, "| main =", @main)
+
+/// @g — the host globals object (short form of the old `globals()`).
+@g["hits"] = (@g["hits"] !? 0) + 1
+@g["hits"] = (@g["hits"] !? 0) + 1
+println("hits =", @g["hits"])      // 2
+println("has hits:", "hits" in @g) // true
+
+return @g["hits"]</code></pre>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#function-introspection">Function introspection</a><a href="#module-introspection">Module introspection</a><a href="#globals-g">Globals: @g</a><a href="#example--29specialkeywordsgad">Example — 29specialkeywords.gad</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>
