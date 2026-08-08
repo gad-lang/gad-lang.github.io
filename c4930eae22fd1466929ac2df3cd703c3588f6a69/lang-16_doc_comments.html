@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doc Comments · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links" id="headerLinks">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.6</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (..)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (in / ain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!? / !?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (prop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The class keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt example</a><a class="nav-link active" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">Hello, Gad</a><a class="nav-link" href="lang-25_method_resolution.html">Method Resolution</a><a class="nav-link" href="lang-30_assign_and_append.html">Assignment and Append</a><a class="nav-link" href="lang-32_raw_argv.html">Raw Arguments (argv)</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflect module</a><a class="nav-link" href="ref-stdlib-test.html">test module and gad test</a><a class="nav-link" href="ref-stdlib-strings.html">strings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmt module</a><a class="nav-link" href="ref-stdlib-json.html">json module</a><a class="nav-link" href="ref-stdlib-time.html">time module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-serving-http.html">Serving over HTTP</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="doc-comments">Doc Comments</h1>
+<p>A <strong>doc comment</strong> documents the identifier, declaration, or <code>func</code> / <code>met</code> / <code>meti</code> / <code>prop</code> statement it is attached to. Unlike ordinary <code>//</code> and <code>/* … */</code> comments — which the formatter only preserves as-is — a doc comment is <em>linked to the node it documents</em>, so <code>gad fmt</code> keeps it with that node (even across declaration merges) and reflows its contents. Doc-comment contents are <strong>Markdown</strong> (safe inline HTML is allowed).</p>
+<h2 id="forms">Forms</h2>
+<table>
+<thead><tr><th>Form</th><th>Syntax</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>SINGLE</code></td><td><code>/// text</code> on its own line</td><td><code>/// the pi value</code> above a decl</td></tr>
+<tr><td><code>INLINE</code></td><td><code>IDENT /// text</code> (no value)</td><td><code>var pi /// the pi value</code></td></tr>
+<tr><td><code>INLINE_VALUE</code></td><td><code>IDENT = EXPR /// text</code></td><td><code>const Pi = 3.14 /// the pi value</code></td></tr>
+<tr><td><code>BLOCK</code></td><td><code>/**</code> … <code>**/</code> fenced block</td><td>a <code>/**</code>-fenced block on its own lines</td></tr>
+</tbody>
+</table>
+<p>The fence of a <code>BLOCK</code> must be on its <strong>own line</strong>; <code>/** text **/</code> on a single line is not a block.</p>
+<p>**File- and section-level docs use the same <code>/** … **/</code> form<strong>, distinguished only by context: a block </strong>directly above<strong> a statement documents that statement, while a block </strong>followed by a blank line (or at the end of the file)<strong> documents the </strong>module/section** — like this header. (The older three-star <code>/*** … ***/</code> root block is still accepted but deprecated; <code>gad fmt</code> rewrites it to <code>/** … **/</code>.)</p>
+<pre><code class="language-gad">/// the service listen address (SINGLE form, on its own line)
+const (
+    ServerAddr = ":8080"
+    /// the greeting prefix (SINGLE, linked to the spec ident)
+    Greeting = "hello"
+    Retries = 3 /// how many times to retry (INLINE_VALUE, trailing)
+)
+
+/**
+`sum` returns the sum of `a` and `b`.
+
+A `/**` … `**/` block is the BLOCK form; its lines are reflowed as Markdown. It
+can embed a runnable example that `gad doctest` checks against the `&gt;&gt;&gt;` line:
+
+```gad
+sum := func(a, b) { return a + b }
+sum(2, 3)
+&gt;&gt;&gt; 5
+```
+**/
+func sum(a, b) {
+    return a + b
+}</code></pre>
+<h2 id="what-can-be-documented">What can be documented</h2>
+<p>Declarations (<code>var</code> / <code>const</code>, and each spec inside a <code>( … )</code> group), functions (<code>func</code> / <code>met</code>, including the func-with-methods form and each method), <code>prop</code> statements and their accessors, and <code>meti</code> headers.</p>
+<pre><code class="language-gad">/// a tiny calculator dispatching on argument types
+func calc {
+    /// add two ints
+    (a int, b int) =&gt; a + b
+
+    /// add two floats
+    (a float, b float) =&gt; a + b
+}
+
+/// a difference contract
+meti differ {
+    /// difference of two ints
+    (a int, b int) &lt;int&gt;
+}</code></pre>
+<h2 id="attachment-rules">Attachment rules</h2>
+<ul>
+<li>A <code>SINGLE</code> / <code>BLOCK</code> on the line <strong>directly above</strong> a target is a <em>lead</em> doc and</li>
+</ul>
+<p>  links to it. A <strong>blank line</strong> in between <strong>detaches</strong> it — a detached block (or   a block at end of file) is a module/section doc.</p>
+<ul>
+<li><code>INLINE</code> / <code>INLINE_VALUE</code> docs trail their target on the <strong>same line</strong> and link</li>
+</ul>
+<p>  to its identifier; they apply only when there is no lead doc.</p>
+<ul>
+<li>A doc trailing a comma-separated, value-less identifier (<code>f, g /// …</code>) is</li>
+</ul>
+<p>  ambiguous and is a <strong>parse error</strong>.</p>
+<h2 id="formatting">Formatting</h2>
+<p><code>gad fmt</code> reflows attached doc comments: a <code>SINGLE</code> that grows past the width budget becomes a <code>BLOCK</code>, and an <strong>attached</strong> <code>BLOCK</code> that fits on one line collapses back to <code>SINGLE</code>. A <strong>detached</strong> (module/section) block always stays a <code>/** … **/</code> block, and its blank-line separation is preserved so it keeps documenting the module. Paragraphs are re-wrapped while fenced code, list items, headings, blockquotes and table rows are preserved line-for-line.</p>
+<h2 id="runnable-examples-doctest">Runnable examples (doctest)</h2>
+<p>A <code>BLOCK</code> may embed a runnable example in a <code></code><code></code> <code></code><code>gad </code><code></code><code> fence. Examples are self-contained; a line beginning with </code>&gt;&gt;&gt; <code> asserts that the value produced so far equals the expression after it. </code>gad doctest PATH…<code> runs every embedded example, and </code>gad doc<code> runs them while generating (unless </code>--no-doctest`). See also <a href="lang-conventions.html">Conventions</a>.</p>
+<h2 id="example--16-doc-commentsgad">Example — <code>16_doc_comments.gad</code></h2>
+<pre><code class="language-gad">/// the service listen address (SINGLE form, on its own line)
+const (
+    ServerAddr = ":8080"
+    /// the greeting prefix (SINGLE, linked to the spec ident)
+    Greeting = "hello"
+    Retries = 3 /// how many times to retry (INLINE_VALUE, trailing)
+)
+
+/**
+`sum` returns the sum of `a` and `b`.
+
+A `/**` … `**/` block is the BLOCK form; its lines are reflowed as Markdown. It
+can embed a runnable example that `gad doctest` checks against the `&gt;&gt;&gt;` line:
+
+```gad
+sum := func(a, b) { return a + b }
+sum(2, 3)
+&gt;&gt;&gt; 5
+```
+**/
+func sum(a, b) {
+    return a + b
+}
+
+/// a tiny calculator dispatching on argument types
+func calc {
+    /// add two ints
+    (a int, b int) =&gt; a + b
+
+    /// add two floats
+    (a float, b float) =&gt; a + b
+}
+
+/// a difference contract
+meti differ {
+    /// difference of two ints
+    (a int, b int) &lt;int&gt;
+}
+
+println(Greeting, ServerAddr, "retries:", Retries)
+println("sum:", sum(2, 3))            // sum: 5
+println("calc ints:", calc(2, 3))     // calc ints: 5
+println("calc floats:", calc(2.5, 0.5)) // calc floats: 3
+
+return sum(2, 3)</code></pre>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#forms">Forms</a><a href="#what-can-be-documented">What can be documented</a><a href="#attachment-rules">Attachment rules</a><a href="#formatting">Formatting</a><a href="#runnable-examples-doctest">Runnable examples (doctest)</a><a href="#example--16-doc-commentsgad">Example — 16_doc_comments.gad</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>
