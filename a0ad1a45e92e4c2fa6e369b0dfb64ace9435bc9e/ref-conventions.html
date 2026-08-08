@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conventions · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links" id="headerLinks">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.6</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (..)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (in / ain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!? / !?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (prop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The class keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">Hello, Gad</a><a class="nav-link" href="lang-25_method_resolution.html">Method Resolution</a><a class="nav-link" href="lang-30_assign_and_append.html">Assignment and Append</a><a class="nav-link" href="lang-32_raw_argv.html">Raw Arguments (argv)</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link active" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflect module</a><a class="nav-link" href="ref-stdlib-test.html">test module and gad test</a><a class="nav-link" href="ref-stdlib-strings.html">strings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmt module</a><a class="nav-link" href="ref-stdlib-json.html">json module</a><a class="nav-link" href="ref-stdlib-time.html">time module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-serving-http.html">Serving over HTTP</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="conventions">Conventions</h1>
+<p><a href="index.html">← Back to index</a></p>
+<p>This document covers two things: how identifiers are <strong>named</strong> in Gad's builtins and standard library, and the <strong>code layout</strong> the formatter (<code>gad fmt</code> / the <code>node.Code</code> writer) applies. See <a href="formatting.html">Formatting</a> for the <code>gad fmt</code> command, its flags and the <code>.gad/gad.yaml</code> config.</p>
+<h2 id="naming">Naming</h2>
+<p>These conventions describe how identifiers are named in Gad's builtins and standard library, so that the API reads consistently. "Specific names" that are established acronyms (e.g. <code>URL</code>, <code>ID</code>, <code>HTTP</code>) keep their conventional upper casing, following the Go convention.</p>
+<table>
+<thead><tr><th>Kind</th><th>Case</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td><strong>Primitive type names</strong></td><td>lowerCamelCase (never PascalCase)</td><td><code>int</code>, <code>uint</code>, <code>float</code>, <code>str</code>, <code>rawStr</code>, <code>bytes</code>, <code>char</code>, <code>bool</code>, <code>time</code>, <code>date</code>, <code>duration</code></td></tr>
+<tr><td><strong>Other (non-primitive) type names</strong></td><td>PascalCase (or an upper acronym)</td><td><code>Location</code></td></tr>
+<tr><td><strong>Constant names</strong></td><td>PascalCase (or an upper acronym)</td><td><code>time.Hour</code>, <code>time.January</code>, <code>time.RFC3339</code>, <code>time.Type</code></td></tr>
+<tr><td><strong>Module names</strong></td><td>snake_case</td><td><code>time</code>, <code>strings</code>, <code>fmt</code>, <code>encoding/base64</code></td></tr>
+<tr><td><strong>Function / method / property names</strong></td><td>lowerCamelCase (or an upper acronym)</td><td><code>time.now</code>, <code>time.durationString</code>, <code>t.year()</code>, <code>t.unixNano()</code></td></tr>
+</tbody>
+</table>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>A <strong>primitive type</strong> is a built-in value type (<code>int</code>, <code>str</code>, <code>time</code>, <code>date</code>,</li>
+</ul>
+<p>  <code>duration</code>, …); its name is always lowercase. A non-primitive wrapper type   such as <code>Location</code> is PascalCase.</p>
+<ul>
+<li><strong>Constants</strong> are PascalCase even inside a module whose functions are</li>
+</ul>
+<p>  lowerCamelCase — e.g. the <code>time</code> module exposes <code>time.now()</code> (function) and   <code>time.Hour</code> / <code>time.RFC3339</code> (constants).</p>
+<ul>
+<li><strong>Acronyms</strong> keep their conventional casing as a unit: <code>URL</code>, not <code>Url</code>;</li>
+</ul>
+<p>  <code>RFC3339</code>, not <code>Rfc3339</code>.</p>
+<h2 id="idioms">Idioms</h2>
+<p>Style recommendations for writing idiomatic Gad (beyond what the formatter enforces).</p>
+<ul>
+<li>**Access a property through its <code>.v</code> field, not an explicit call.** For a</li>
+</ul>
+<p>  <a href="lang-31_properties.html">property</a> <code>x</code>, prefer <code>x.v</code> / <code>x.v = n</code> over <code>x()</code> / <code>x(n)</code>.   It reads as a value rather than a call and costs the same — <code>.v</code> invokes the   same accessor with no extra call overhead (reads are even marginally cheaper;   see the benchmark in <a href="lang-31_properties.html">Properties</a>). Reserve   the call form for props with typed/overloaded setters that you dispatch by   argument type.</p>
+<p>  <code></code>`go   prop x { () =&gt; v; (n) { v = n } }</p>
+<p>  x.v = 10   // preferred   x.v        // preferred   // x(10) / x()  — equivalent, but call-style; avoid for plain value access   <code></code>`</p>
+<h2 id="code-layout">Code Layout</h2>
+<p>These rules describe the source layout the formatter produces.</p>
+<h3 id="declarations">Declarations</h3>
+<p>Declaration statements (<code>var</code>, <code>const</code>, <code>global</code>, <code>param</code>) share one layout.</p>
+<h4 id="single-declaration-no-parentheses">Single declaration: no parentheses</h4>
+<p>A declaration of a single spec is written <strong>without</strong> parentheses:</p>
+<pre><code class="language-gad">var x
+const Pi = 3.14159
+global state</code></pre>
+<p>Never <code>var (x)</code> — the formatter rewrites it to <code>var x</code>. This applies to every declaration keyword.</p>
+<h4 id="group-declaration-parentheses">Group declaration: parentheses</h4>
+<p>Two or more specs are grouped in parentheses. Short groups stay on one line:</p>
+<pre><code class="language-gad">var (x, y)
+var (x = 1, y = 2)
+const (Min = 0, Max = 10)</code></pre>
+<h4 id="grouping-order">Grouping order</h4>
+<p>When a group mixes specs with and without an initial value, put the value-less declarations <strong>first</strong>:</p>
+<pre><code class="language-gad">var (
+    // group declarations without value as first
+    a, b, c
+    d, e
+    f = 1
+    g = 2
+    r = 1, s = 2
+    t, u = 3, 4
+    v, w, x, y = expr      // destructuring
+    (a1, a2; a3, **r) = expr
+)</code></pre>
+<p>Avoid mixing alignment and irregular spacing:</p>
+<pre><code class="language-gad">// bad
+var ( a, b, c
+    d, e
+    f = 1,  g = 2
+)</code></pre>
+<h3 id="splitting-to-new-lines">Splitting to new lines</h3>
+<p>List-like constructs — declaration specs, call arguments, array items, dict items, key-value arrays and named parameters — are either kept inline or split one-per-line. The formatter chooses between two modes:</p>
+<ul>
+<li><strong>Force all to new lines</strong> — when the corresponding</li>
+</ul>
+<p>  <code>CodeWriteContextFlagFormat*InNewLine</code> flag is set (this is what <code>gad fmt</code>   uses via <code>CodeWriteContextFlagFormat</code>), every item goes on its own line:</p>
+<p>  <code></code><code>gad   var (       x       y   )   </code><code></code></p>
+<ul>
+<li>**Column-aware (<code>NEW_LINE_CALC</code>)** — items are wrapped only when the rendered</li>
+</ul>
+<p>  line would exceed <code>ctx.MaxColumns</code>; otherwise they stay inline (<code>var (x, y)</code>,   <code>[1, 2, 3]</code>). Short constructs are left compact.</p>
+<p>When items are split one per line, the newline <strong>is</strong> the separator: no comma is written between items (and none trails the last). Inline lists keep the <code>, </code> separator.</p>
+<pre><code class="language-gad">// inline: comma-separated
+x := [1, 2, 3]
+d := {a: 1, b: 2}
+
+// wrapped: newline-separated, no commas
+x := [
+    1
+    2
+    3
+]
+d := {
+    a: 1
+    b: 2
+}</code></pre>
+<h3 id="greedy-overflow-wrapping">Greedy overflow wrapping</h3>
+<p>Some constructs use the <strong>overflow rule</strong> instead of one-item-per-line under <code>NEW_LINE_CALC</code>: the items are <strong>packed greedily</strong> onto each line and continue on a new line only when the *next* item would overflow <code>ctx.MaxColumns</code>. A newline-separable item carries <strong>no comma</strong> at the break (commas still separate items that share a line). The constructs and whether their continuation lines get an extra indent level:</p>
+<table>
+<thead><tr><th>Construct</th><th>Separator</th><th>Extra indent on continuation</th></tr></thead>
+<tbody>
+<tr><td>array items</td><td><code>, </code></td><td>no</td></tr>
+<tr><td>key-value array items</td><td><code>, </code></td><td>no</td></tr>
+<tr><td>value-less declaration groups</td><td><code>, </code></td><td>no</td></tr>
+<tr><td>function header / call params</td><td><code>, </code></td><td>no</td></tr>
+<tr><td>named params / args</td><td><code>, </code></td><td>no</td></tr>
+<tr><td>type unions (params, returns)</td><td>` \</td><td>`</td><td>yes</td></tr>
+<tr><td>match arm conditions</td><td><code>, </code></td><td>yes</td></tr>
+</tbody>
+</table>
+<pre><code class="language-gad">// array / key-value array / value-less declaration: no extra indent
+x := [
+    1, 2, 3, 4
+    5, 6, 7, 8
+]
+var (
+    a, b, c, d, e
+    f, g, h
+)
+
+// function/call params pack greedily; `;` introduces the named section inline
+f(
+    aa, bb; xx=1
+    yy=2, zz=3, ww=4
+)</code></pre>
+<p>A type union keeps its <code>|</code> connector at the break (the newline cannot separate union members), so a wrapped union line ends with a trailing <code> |</code>. The named parameter section is introduced by <code>; </code>, which is preserved when it falls at a line break.</p>
+<h3 id="function-and-call-parameters">Function and call parameters</h3>
+<p>Function declaration parameters and call arguments wrap with the <a href="#greedy-overflow-wrapping">greedy overflow rule</a> (a comma is optional; the newline separates them), the named section introduced by <code>; </code>. Two extra rules apply:</p>
+<ul>
+<li>A <strong>typed parameter keeps its ident and type on the same line</strong> (<code>a int</code>).</li>
+</ul>
+<p>  <code>a</code> and <code>int</code> on separate lines are two parameters, not a typed one.</p>
+<ul>
+<li>A **type union is spaced around each <code>|</code>** when it stays on one line:</li>
+</ul>
+<p>  <code>a int | bool | string</code>. A single space always precedes the <code>|</code>; a trailing   space follows it <strong>only when the next type is on the same line</strong>.</p>
+<ul>
+<li>When a parameter's <strong>type union is too wide</strong> for the line, the types wrap</li>
+</ul>
+<p>  <strong>greedily</strong> (see <a href="#greedy-overflow-wrapping">Greedy overflow wrapping</a>): they   are packed onto the line and continue on the next line only when the next type   would overflow. A wrapped line ends with a trailing <code>|</code> (no space after it) and   the continuation is indented one extra level:</p>
+<p>  <code></code><code>gad   func(       verylongname int | boolean |           string | number       b int   )   </code><code></code></p>
+<h3 id="function-return-types">Function return types</h3>
+<p>A function's return-type list is written in angle brackets after the parameters: <code> &lt;T1, T2, ...&gt;</code>. Each return type follows the same <strong>union spacing</strong> rule as parameters — a space around each <code>|</code> when it stays on one line:</p>
+<pre><code class="language-gad">func() &lt;x int | bool, y str&gt; {
+    return 1
+}</code></pre>
+<h3 id="match-arms">Match arms</h3>
+<p>A <code>match</code> stays inline while it fits the line budget. When it overflows (column-aware <code>NEW_LINE_CALC</code>), or when the force flag is set, it switches to the multi-line layout:</p>
+<ul>
+<li><strong>One arm per line</strong>, separated by the newline — <strong>no comma between arms</strong>.</li>
+<li>Within an arm, the <strong>conditions wrap greedily</strong>: they are packed onto the line</li>
+</ul>
+<p>  and continue on a new line only when the next condition would overflow   <code>ctx.MaxColumns</code>. A continuation line is indented <strong>one extra level</strong> (<code>\t</code>)   and is <strong>not</strong> preceded by a comma; conditions sharing a line keep the <code>, </code>   separator. The arm's <code>: result</code> / <code>{ body }</code> follows the last condition.</p>
+<pre><code class="language-gad">match i {
+    1, 2, 3
+        4, 5, 6
+        7, 8 {}
+}</code></pre>
+<p>When <strong>every</strong> non-else arm's conditions are primitive literals of one comparable kind (all numeric, or all string), the formatter <strong>sorts</strong> them ascending — the conditions within each arm and the arms themselves — keeping the <code>else</code> arm last:</p>
+<pre><code class="language-gad">// match n { 3: "c", 1: "a", 2: "b", else: "z" }  formats as:
+match n { 1: "a", 2: "b", 3: "c", else: "z" }</code></pre>
+<p>Arms with non-primitive conditions (identifiers, expressions) keep their source order.</p>
+<h3 id="assign-to-type-operator">Assign-to-type operator (<code>::</code>)</h3>
+<p>Write <code>::</code> <strong>tightly</strong>, with no spaces around it, and <strong>without</strong> redundant grouping parentheses — it is left-associative, so a chain reads <code>v::A::B</code>, not <code>(v::A)::B</code>:</p>
+<pre><code class="language-gad">x := v::int              // not `v :: int`
+y := v::A::B             // not `(v::A)::B`</code></pre>
+<p>Keep parentheses only where they change meaning: around a lower-precedence left operand (<code>(a + b)::int</code>, since <code>::</code> binds tighter than <code>+</code>) and around a <code>::</code> expression used as the base of a <code>.</code>/<code>[]</code>/<code>()</code>/slice, which bind tighter still (<code>(v::T).method()</code>, not <code>v::T.method()</code>). The formatter applies these rules automatically.</p>
+<h2 id="doc-comments">Doc comments</h2>
+<p>Doc comments document an identifier, declaration, or <code>func</code>/<code>met</code>/<code>meti</code>/<code>prop</code> statement. Their contents are <strong>Markdown</strong> (safe HTML allowed). They differ from regular <code>//</code> and <code>/* */</code> comments: a doc comment is *attached* to an AST node's <code>Doc</code> field, while ordinary comments are only preserved for formatting.</p>
+<h3 id="forms">Forms</h3>
+<table>
+<thead><tr><th>Form</th><th>Syntax</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><code>SINGLE</code></td><td><code>/// text</code> on its own line</td><td><code>/// the pi value</code>&lt;br&gt;<code>pi = 3.14</code></td></tr>
+<tr><td><code>INLINE</code></td><td><code>IDENT /// text</code> (no value)</td><td><code>var pi /// the pi value</code></td></tr>
+<tr><td><code>INLINE_VALUE</code></td><td><code>IDENT = EXPR /// text</code></td><td><code>const pi = 3.14 /// the pi value</code></td></tr>
+<tr><td><code>BLOCK</code></td><td><code>/**</code> … <code>**/</code> fenced block</td><td><code>/**</code>&lt;br&gt;<code>the pi value</code>&lt;br&gt;<code>**/</code></td></tr>
+<tr><td><code>ROOT_BLOCK</code></td><td><code>/***</code> … <code>***/</code> fenced block</td><td><code>/***</code>&lt;br&gt;<code>module overview</code>&lt;br&gt;<code>***/</code></td></tr>
+</tbody>
+</table>
+<h3 id="attachment-rules">Attachment rules</h3>
+<ul>
+<li>A <code>SINGLE</code>/<code>BLOCK</code>/<code>ROOT_BLOCK</code> doc on the line <strong>directly above</strong> a target is its</li>
+</ul>
+<p>  *lead* doc and links to that target. Inside a <code>const (...)</code>/<code>var (...)</code> group it   links to the following <strong>spec/ident</strong> (<code>ValueSpec.Doc</code>); at statement level it   links to the <code>GenDecl</code>/<code>FuncExpr</code>.</p>
+<ul>
+<li>A <strong>blank line</strong> between the doc and the next statement <strong>detaches</strong> it (a</li>
+</ul>
+<p>  standalone <code>ROOT_BLOCK</code> documents the module/section, not the next statement).</p>
+<ul>
+<li><code>INLINE</code>/<code>INLINE_VALUE</code> docs trail the target on the <strong>same line</strong> and link to its</li>
+</ul>
+<p>  ident; they apply only when there is no lead doc.</p>
+<ul>
+<li>A doc trailing a multi-ident value-less spec (<code>f, g /// ...</code>) is invalid and is a</li>
+</ul>
+<p>  parser error.</p>
+<h3 id="format-rules-applied-by-writecode">Format rules (applied by <code>WriteCode</code>)</h3>
+<ul>
+<li>A <code>SINGLE</code> doc that is <strong>long</strong> (per <code>NEW_LINE_CALC</code>) is rewritten as a <code>BLOCK</code>.</li>
+<li>A <code>BLOCK</code> doc that is <strong>short</strong> (per <code>NEW_LINE_CALC</code>) is rewritten as <code>SINGLE</code>.</li>
+<li>Contents are auto-formatted with the Markdown formatter.</li>
+<li>When <code>SINGLE</code> or <code>BLOCK</code>, a newline is inserted <strong>after</strong> the target when needed</li>
+</ul>
+<p>  to separate it from following code.</p>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#naming">Naming</a><a href="#idioms">Idioms</a><a href="#code-layout">Code Layout</a><a href="#doc-comments">Doc comments</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>

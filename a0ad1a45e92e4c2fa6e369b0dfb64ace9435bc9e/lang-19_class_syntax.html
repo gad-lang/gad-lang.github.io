@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The class keyword · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links" id="headerLinks">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.6</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (..)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (in / ain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!? / !?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (prop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...) builtin)</a><a class="nav-link active" href="lang-19_class_syntax.html">The class keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">Hello, Gad</a><a class="nav-link" href="lang-25_method_resolution.html">Method Resolution</a><a class="nav-link" href="lang-30_assign_and_append.html">Assignment and Append</a><a class="nav-link" href="lang-32_raw_argv.html">Raw Arguments (argv)</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflect module</a><a class="nav-link" href="ref-stdlib-test.html">test module and gad test</a><a class="nav-link" href="ref-stdlib-strings.html">strings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmt module</a><a class="nav-link" href="ref-stdlib-json.html">json module</a><a class="nav-link" href="ref-stdlib-time.html">time module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-serving-http.html">Serving over HTTP</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="the-class-keyword">The <code>class</code> keyword</h1>
+<p>The <code>class</code> keyword is a readable block syntax that lowers to the <a href="lang-11_classes.html"><code>Class(...)</code> builtin</a>. A <code>class</code> block reads top to bottom: optional parent spreads (<code>*Parent</code>), bare fields, then <code>props {}</code>, <code>new</code> and <code>methods {}</code> groups (items separated by newlines or commas).</p>
+<p>The first parameter is inserted automatically — you do not write it: <code>this</code> for methods and property accessors, and <code>new</code> (the class initiator) for constructors. A method takes a typed <code>this cls</code> (so overloads dispatch on argument types); a <code>name = expr</code> entry in <code>props</code>/<code>methods</code> is shorthand for a zero-argument accessor <code>() =&gt; expr</code>. The statement form <code>class Name { … }</code> defines a const; there are also anonymous expression and <code>export class</code> forms. Everything else — field defaults, typed fields, inheritance, overloaded methods/constructors — works exactly as in the <code>Class(...)</code> builtin.</p>
+<p>Doc comments attach to the class and its members (<code>///</code>, <code>/** … **/</code>, <code>/*** … ***/</code>). The Example below is a runnable tour.</p>
+<h2 id="example--19-class-syntaxgad">Example — <code>19_class_syntax.gad</code></h2>
+<pre><code class="language-gad">/**
+A 2D point. Shows the statement form `class Name { … }`, which defines a
+constant. `this` is auto-inserted as the first parameter of methods, property
+accessors and constructors.
+**/
+class Point {
+    /// horizontal coordinate
+    x = 0
+    /// vertical coordinate
+    y = 0
+
+    new {
+        (; **f)  =&gt; new(; x=0, y=0, **f)   // named fields (defaults + extra)
+        (x, y)   =&gt; new(; x=x, y=y)         // positional
+    }
+
+    props {
+        /// distance from the origin
+        mag() =&gt; (this.x ** 2 + this.y ** 2) ** 0.5
+    }
+
+    methods {
+        /// dot product with another point
+        dot(o) =&gt; this.x * o.x + this.y * o.y
+    }
+}
+
+p := Point(3, 4)
+println("Point(3, 4).mag =", p.mag)          // 5
+println("Point().x       =", Point().x)      // 0
+println("p.dot(p)        =", p.dot(p))       // 25
+
+/// Tagger shows a typed field, a computed default and a method overloaded by
+/// argument type (a method takes a typed `this`, so overloads dispatch).
+class Tagger {
+    /// the tag prefix
+    name str = "?"
+    /// a fresh value per instance (here always 0)
+    seq = (= 0)
+
+    methods {
+        /// tag an int
+        tag(n int) =&gt; this.name + ":int:" + str(n)
+        /// tag a string
+        tag(s str) =&gt; this.name + ":str:" + s
+    }
+}
+t := Tagger(; name="t")
+println("tag(7)   =", t.tag(7))     // t:int:7
+println("tag(\"x\") =", t.tag("x"))   // t:str:x
+
+/// Box shows a property with a getter and typed setters, plus the `name = expr`
+/// getter shortcut.
+class Box {
+    /// the stored value
+    v
+    props {
+        /// the value, coerced on set by argument type
+        val {
+            ()        =&gt; this.v
+            (x)       { this.v = "any:" + str(x) }
+            (x int)   { this.v = "int:" + str(x) }
+        }
+        /// whether no value has been set (getter shortcut for `() =&gt; expr`)
+        empty = this.v == nil
+    }
+}
+b := Box()
+println("empty   =", b.empty)        // true
+b.val = "hi"
+println("box any =", b.val)          // any:hi
+b.val = 7
+println("box int =", b.val)          // int:7
+
+/// Animal is a base class with two methods.
+class Animal {
+    /// the animal's name
+    name str = "?"
+    methods {
+        /// the sound the animal makes
+        speak()    =&gt; this.name + " makes a sound"
+        /// a human-readable description
+        describe() =&gt; "I am " + this.name
+    }
+}
+
+/// Dog inherits Animal and overrides speak().
+class Dog {
+    *Animal
+    methods {
+        /// dogs bark
+        speak() =&gt; this.name + " barks"
+    }
+}
+d := Dog(; name="Rex")
+println("dog speak:   ", d.speak())     // Rex barks (override)
+println("dog describe:", d.describe())  // I am Rex (inherited)
+
+/// The expression form `X := class { … }` yields an anonymous, first-class
+/// class value.
+Counter := class {
+    /// current count
+    n = 0
+    methods {
+        /// advance and return the new value
+        next() { this.n++; return this.n }
+    }
+}
+c := Counter()
+c.next(); c.next()
+println("counter:", c.next())           // 3
+
+return p.mag</code></pre>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#example--19-class-syntaxgad">Example — 19_class_syntax.gad</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>
