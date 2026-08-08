@@ -138,7 +138,7 @@ return [x * multiplier for x in args]
 <ul>
 <li>**<code>Args.Values()</code> may alias.** As an allocation optimization it returns the</li>
 </ul>
-<p>  single argument group *directly* (no copy) when there is exactly one; the   result aliases the caller's data (possibly the stack). Use it only to read.   When you must mutate or retain the flattened values, use   **<code>Args.CopyValues()</code>** (or <code>Args.Copy()</code> for the groups), which always   allocate.</p>
+<p>  single argument group <em>directly</em> (no copy) when there is exactly one; the   result aliases the caller's data (possibly the stack). Use it only to read.   When you must mutate or retain the flattened values, use   **<code>Args.CopyValues()</code>** (or <code>Args.Copy()</code> for the groups), which always   allocate.</p>
 <pre><code class="language-go">// WRONG — mutates a borrowed (possibly stack-backed) argument, corrupting the VM.
 Value: func(c gad.Call) (gad.Object, error) {
     a := c.Args.Get(0).(gad.Array)
@@ -258,7 +258,7 @@ ret, err := gad.NewInvoker(vm, fn).WithContext(ctx).Invoke(gad.Args{args}, nil)
 if errors.Is(err, context.DeadlineExceeded) {
     // the function ran past the deadline and was aborted
 }</code></pre>
-<p>Because the abort cascades from the root, a deadline stops nested invocations at every level. A nil or non-cancellable context (the default) adds no goroutine and no overhead. The <code>Caller</code> path (<code>inv.Caller(...)</code>, a reusable <code>VMCaller</code>) honours the context the same way. For running a whole *script* under a deadline, <code>Eval.RunScript(ctx, …)</code> wires the same context-to-abort guard.</p>
+<p>Because the abort cascades from the root, a deadline stops nested invocations at every level. A nil or non-cancellable context (the default) adds no goroutine and no overhead. The <code>Caller</code> path (<code>inv.Caller(...)</code>, a reusable <code>VMCaller</code>) honours the context the same way. For running a whole <em>script</em> under a deadline, <code>Eval.RunScript(ctx, …)</code> wires the same context-to-abort guard.</p>
 <h2 id="modules-from-go">Modules from Go</h2>
 <p>To make modules importable, build a module map and pass it through the compile options. Builtin modules are `map<a href="lang-26_embed.html">string]Object<code>; any value implementing </code>Importable<code> can serve as a custom module. The CLI wires a file-system importer (</code>importers.FileImporter<code>) that resolves module files along </code>GADPATH` — see [Modules</a> for the script-side view.</p>
 <h3 id="source-modules-and-dialects">Source modules and dialects</h3>

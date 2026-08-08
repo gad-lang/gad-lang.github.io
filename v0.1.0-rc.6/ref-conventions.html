@@ -142,7 +142,7 @@ d := {
     b: 2
 }</code></pre>
 <h3 id="greedy-overflow-wrapping">Greedy overflow wrapping</h3>
-<p>Some constructs use the <strong>overflow rule</strong> instead of one-item-per-line under <code>NEW_LINE_CALC</code>: the items are <strong>packed greedily</strong> onto each line and continue on a new line only when the *next* item would overflow <code>ctx.MaxColumns</code>. A newline-separable item carries <strong>no comma</strong> at the break (commas still separate items that share a line). The constructs and whether their continuation lines get an extra indent level:</p>
+<p>Some constructs use the <strong>overflow rule</strong> instead of one-item-per-line under <code>NEW_LINE_CALC</code>: the items are <strong>packed greedily</strong> onto each line and continue on a new line only when the <em>next</em> item would overflow <code>ctx.MaxColumns</code>. A newline-separable item carries <strong>no comma</strong> at the break (commas still separate items that share a line). The constructs and whether their continuation lines get an extra indent level:</p>
 <table>
 <thead><tr><th>Construct</th><th>Separator</th><th>Extra indent on continuation</th></tr></thead>
 <tbody>
@@ -213,7 +213,7 @@ match n { 1: "a", 2: "b", 3: "c", else: "z" }</code></pre>
 y := v::A::B             // not `(v::A)::B`</code></pre>
 <p>Keep parentheses only where they change meaning: around a lower-precedence left operand (<code>(a + b)::int</code>, since <code>::</code> binds tighter than <code>+</code>) and around a <code>::</code> expression used as the base of a <code>.</code>/<code>[]</code>/<code>()</code>/slice, which bind tighter still (<code>(v::T).method()</code>, not <code>v::T.method()</code>). The formatter applies these rules automatically.</p>
 <h2 id="doc-comments">Doc comments</h2>
-<p>Doc comments document an identifier, declaration, or <code>func</code>/<code>met</code>/<code>meti</code>/<code>prop</code> statement. Their contents are <strong>Markdown</strong> (safe HTML allowed). They differ from regular <code>//</code> and <code>/* */</code> comments: a doc comment is *attached* to an AST node's <code>Doc</code> field, while ordinary comments are only preserved for formatting.</p>
+<p>Doc comments document an identifier, declaration, or <code>func</code>/<code>met</code>/<code>meti</code>/<code>prop</code> statement. Their contents are <strong>Markdown</strong> (safe HTML allowed). They differ from regular <code>//</code> and <code>/* */</code> comments: a doc comment is <em>attached</em> to an AST node's <code>Doc</code> field, while ordinary comments are only preserved for formatting.</p>
 <h3 id="forms">Forms</h3>
 <table>
 <thead><tr><th>Form</th><th>Syntax</th><th>Example</th></tr></thead>
@@ -229,7 +229,7 @@ y := v::A::B             // not `(v::A)::B`</code></pre>
 <ul>
 <li>A <code>SINGLE</code>/<code>BLOCK</code>/<code>ROOT_BLOCK</code> doc on the line <strong>directly above</strong> a target is its</li>
 </ul>
-<p>  *lead* doc and links to that target. Inside a <code>const (...)</code>/<code>var (...)</code> group it   links to the following <strong>spec/ident</strong> (<code>ValueSpec.Doc</code>); at statement level it   links to the <code>GenDecl</code>/<code>FuncExpr</code>.</p>
+<p>  <em>lead</em> doc and links to that target. Inside a <code>const (...)</code>/<code>var (...)</code> group it   links to the following <strong>spec/ident</strong> (<code>ValueSpec.Doc</code>); at statement level it   links to the <code>GenDecl</code>/<code>FuncExpr</code>.</p>
 <ul>
 <li>A <strong>blank line</strong> between the doc and the next statement <strong>detaches</strong> it (a</li>
 </ul>

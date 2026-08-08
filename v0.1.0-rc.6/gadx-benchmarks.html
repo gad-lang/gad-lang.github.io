@@ -48,9 +48,9 @@
   <main class="content"><h1 id="benchmarks">Benchmarks</h1>
 <p>This report covers two comparisons:</p>
 <ol>
-<li><strong>Old vs new implementation</strong> — the previous *streaming* render model (<code>main</code>,</li>
+<li><strong>Old vs new implementation</strong> — the previous <em>streaming</em> render model (<code>main</code>,</li>
 </ol>
-<p>   where every tag/text lowers to <code>write()</code> calls) against the new *tree* model    (tags build <code>Tag</code>/<code>Text</code> nodes returned as a tree), running <strong>identical</strong>    benchmarks on both branches: at the engine level    (<a href="../bench_test.go"><code>bench_test.go</code></a>) and per CMS request path    (<a href="../examples/cms/bench_test.go"><code>examples/cms/bench_test.go</code></a>).</p>
+<p>   where every tag/text lowers to <code>write()</code> calls) against the new <em>tree</em> model    (tags build <code>Tag</code>/<code>Text</code> nodes returned as a tree), running <strong>identical</strong>    benchmarks on both branches: at the engine level    (<a href="../bench_test.go"><code>bench_test.go</code></a>) and per CMS request path    (<a href="../examples/cms/bench_test.go"><code>examples/cms/bench_test.go</code></a>).</p>
 <ol>
 <li><strong>Engine vs full app</strong> — the gadx render engine against the CMS's full HTTP</li>
 </ol>
@@ -168,7 +168,7 @@
 <h2 id="engine-vs-full-request">Engine vs full request</h2>
 <p>Engine micro-benchmarks (<strong>root</strong>, teal) next to full CMS route latency (<strong>cms</strong>, orange), each ranked lightest→heaviest:</p>
 <p>!<a href="bench-suites.svg">Warm latency: engine vs CMS route</a></p>
-<p>The vertical gap is the per-request overhead outside the render engine — routing, the SQLite query and model assembly. The engine line stays in the ~150–420 µs band while the app line runs ~610–960 µs, so the render engine is a *fraction* of end-to-end route latency.</p>
+<p>The vertical gap is the per-request overhead outside the render engine — routing, the SQLite query and model assembly. The engine line stays in the ~150–420 µs band while the app line runs ~610–960 µs, so the render engine is a <em>fraction</em> of end-to-end route latency.</p>
 <h2 id="takeaways">Takeaways</h2>
 <ul>
 <li><strong>The tree model is a net win over streaming</strong> on the same benchmarks. At the</li>
@@ -177,7 +177,7 @@
 <ul>
 <li><strong>Warm render is the steady state.</strong> Compilation is a one-time cost the <code>Render</code></li>
 </ul>
-<p>  cache absorbs: it roughly doubles the *first* request (2.0–2.5×), then every   subsequent request runs only the render path.</p>
+<p>  cache absorbs: it roughly doubles the <em>first</em> request (2.0–2.5×), then every   subsequent request runs only the render path.</p>
 <ul>
 <li><strong>The engine is a minor share of a real request.</strong> A CMS page route (~610 µs)</li>
 </ul>

@@ -48,7 +48,7 @@
   <main class="content"><h1 id="error-handling">Error Handling</h1>
 <p>Gad reports failures with <strong>error values</strong> and the <code>throw</code> / <code>try</code> / <code>catch</code> / <code>finally</code> control flow, plus the concise <code>or</code> fallback operator.</p>
 <h2 id="error-values">Error values</h2>
-<p>An <code>error</code> value carries a <code>name</code> and a <code>message</code>. Create one with the <code>error</code> builtin (its first argument is converted to a string message) and inspect it with <code>.name</code> and <code>.message</code>. An error value is <strong>falsy</strong>, so it can be tested directly — but merely *holding* an error does not stop execution; only <code>throw</code> (or a failing operation) does.</p>
+<p>An <code>error</code> value carries a <code>name</code> and a <code>message</code>. Create one with the <code>error</code> builtin (its first argument is converted to a string message) and inspect it with <code>.name</code> and <code>.message</code>. An error value is <strong>falsy</strong>, so it can be tested directly — but merely <em>holding</em> an error does not stop execution; only <code>throw</code> (or a failing operation) does.</p>
 <pre><code class="language-gad">err := error("oops")
 [isError(err), err.name, err.message]
 // =&gt; [true, "error", "oops"]</code></pre>
@@ -92,7 +92,7 @@
 </tbody>
 </table>
 <h2 id="the-or-fallback-operator">The <code>or</code> fallback operator</h2>
-<p><code>expr or fallback</code> evaluates <code>expr</code>; if evaluating it <strong>throws</strong>, the thrown error is swallowed and <code>fallback</code> is used instead — a concise alternative to a <code>try/catch</code> for expression-level recovery. Inside the fallback the caught error is bound to <code>$err</code>, so it can be inspected or re-thrown. <code>or</code> triggers only on a *thrown* error, not on a value that merely *is* an error.</p>
+<p><code>expr or fallback</code> evaluates <code>expr</code>; if evaluating it <strong>throws</strong>, the thrown error is swallowed and <code>fallback</code> is used instead — a concise alternative to a <code>try/catch</code> for expression-level recovery. Inside the fallback the caught error is bound to <code>$err</code>, so it can be inspected or re-thrown. <code>or</code> triggers only on a <em>thrown</em> error, not on a value that merely <em>is</em> an error.</p>
 <pre><code class="language-gad">mayThrow := func() { throw "fail" }
 z := mayThrow() or 99             // swallow the throw, use the fallback
 ok := (2 * 3) or 0                // no throw -&gt; the left value

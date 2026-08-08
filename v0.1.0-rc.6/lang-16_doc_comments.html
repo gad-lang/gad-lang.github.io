@@ -46,7 +46,7 @@
     </div>
   </nav>
   <main class="content"><h1 id="doc-comments">Doc Comments</h1>
-<p>A <strong>doc comment</strong> documents the identifier, declaration, or <code>func</code> / <code>met</code> / <code>meti</code> / <code>prop</code> statement it is attached to. Unlike ordinary <code>//</code> and <code>/* … */</code> comments — which the formatter only preserves as-is — a doc comment is *linked to the node it documents*, so <code>gad fmt</code> keeps it with that node (even across declaration merges) and reflows its contents. Doc-comment contents are <strong>Markdown</strong> (safe inline HTML is allowed).</p>
+<p>A <strong>doc comment</strong> documents the identifier, declaration, or <code>func</code> / <code>met</code> / <code>meti</code> / <code>prop</code> statement it is attached to. Unlike ordinary <code>//</code> and <code>/* … */</code> comments — which the formatter only preserves as-is — a doc comment is <em>linked to the node it documents</em>, so <code>gad fmt</code> keeps it with that node (even across declaration merges) and reflows its contents. Doc-comment contents are <strong>Markdown</strong> (safe inline HTML is allowed).</p>
 <h2 id="forms">Forms</h2>
 <table>
 <thead><tr><th>Form</th><th>Syntax</th><th>Example</th></tr></thead>
@@ -100,7 +100,7 @@ meti differ {
 }</code></pre>
 <h2 id="attachment-rules">Attachment rules</h2>
 <ul>
-<li>A <code>SINGLE</code> / <code>BLOCK</code> on the line <strong>directly above</strong> a target is a *lead* doc and</li>
+<li>A <code>SINGLE</code> / <code>BLOCK</code> on the line <strong>directly above</strong> a target is a <em>lead</em> doc and</li>
 </ul>
 <p>  links to it. A <strong>blank line</strong> in between <strong>detaches</strong> it — a detached block (or   a block at end of file) is a module/section doc.</p>
 <ul>

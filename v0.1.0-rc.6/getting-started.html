@@ -92,7 +92,7 @@ if ln { println() }</code></pre>
 $ gad join.gad a b c --sep +    # a+b+c
 $ gad join.gad a b c --ln       # a,b,c\n</code></pre>
 <h3 id="raw-argument-passthrough--param-argv">Raw argument passthrough — <code>param (*argv)</code></h3>
-<p>When a script declares <strong>exactly one variadic positional parameter and no named parameters</strong> — <code>param (*argv)</code> — it opts into *raw* argument handling: every CLI argument is passed straight through as a string, with <strong>no</strong> <code>--name</code> parsing, and <code>argv[0]</code> is the module path used to invoke the script (like a C program's <code>argv</code>).</p>
+<p>When a script declares <strong>exactly one variadic positional parameter and no named parameters</strong> — <code>param (*argv)</code> — it opts into <em>raw</em> argument handling: every CLI argument is passed straight through as a string, with <strong>no</strong> <code>--name</code> parsing, and <code>argv[0]</code> is the module path used to invoke the script (like a C program's <code>argv</code>).</p>
 <pre><code class="language-gad">param (*argv)          // the name is up to you; the *shape* is what matters
 println(argv)</code></pre>
 <pre><code class="language-sh">$ gad a/b/script.gad x --y=1 -- z
@@ -146,7 +146,7 @@ gad ide main.gad       # open just one file</code></pre>
 <tr><td><code>--static DIR</code></td><td>Serve a pre-built web app from DIR instead of the bundled UI.</td></tr>
 </tbody>
 </table>
-<p>In the React UI, set breakpoints by clicking the editor's left gutter (next to the line numbers) and remove them with a double-click; the <strong>Breakpoints</strong> panel lists them grouped per file (with *Current file* and *All* tabs) and they are saved to <code>.gad/gad.yaml</code> under <code>ide.breakpoints</code>. While a debug session is paused, <strong>F9</strong> resumes to the next breakpoint, <strong>F8</strong> steps over, <strong>F7</strong> steps into and <strong>Shift+F8</strong> steps out — all remappable in the <strong>⌨ Keys</strong> panel (stored under <code>ide.keys</code>).</p>
+<p>In the React UI, set breakpoints by clicking the editor's left gutter (next to the line numbers) and remove them with a double-click; the <strong>Breakpoints</strong> panel lists them grouped per file (with <em>Current file</em> and <em>All</em> tabs) and they are saved to <code>.gad/gad.yaml</code> under <code>ide.breakpoints</code>. While a debug session is paused, <strong>F9</strong> resumes to the next breakpoint, <strong>F8</strong> steps over, <strong>F7</strong> steps into and <strong>Shift+F8</strong> steps out — all remappable in the <strong>⌨ Keys</strong> panel (stored under <code>ide.keys</code>).</p>
 <p>The command ships a build-free bundled UI. For the richer <strong>React + CodeMirror</strong> interface, build <code>web/app</code> and point <code>--static</code> at it (or use <code>make ide-react</code>):</p>
 <pre><code class="language-sh">make ide-react                                   # builds web/app and serves it
 gad ide --static web/app/dist samples            # equivalent, after a build</code></pre>
