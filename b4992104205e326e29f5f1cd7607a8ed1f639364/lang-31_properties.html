@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties (propprop) · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links" id="headerLinks">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.8</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmtgad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (....)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (inin / ainain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!?!? / !?=!?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link active" href="lang-31_properties.html">Properties (propprop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...)Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The classclass keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interfaceinterface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt.gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @@ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">Hello, Gad</a><a class="nav-link" href="lang-25_method_resolution.html">Method Resolution</a><a class="nav-link" href="lang-30_assign_and_append.html">Assignment and Append</a><a class="nav-link" href="lang-32_raw_argv.html">Raw Arguments (argv)</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflectreflect module</a><a class="nav-link" href="ref-stdlib-test.html">testtest module and gad testgad test</a><a class="nav-link" href="ref-stdlib-strings.html">stringsstrings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmtfmt module</a><a class="nav-link" href="ref-stdlib-json.html">jsonjson module</a><a class="nav-link" href="ref-stdlib-time.html">timetime module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-serving-http.html">Serving over HTTP</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="properties-prop">Properties (<code>prop</code>)</h1>
+<p>A <strong>property</strong> is a named, callable value introduced by the <code>prop</code> keyword. It
+holds a <em>getter</em> (a method with no parameters) and optional <em>setters</em> (a method
+with one parameter, dispatched by the argument type). A property behaves like a
+closure with an assignable value: you can call it, read/write its virtual <code>.v</code>
+field, or store it in a container where indexing delegates to it. Properties are
+also available through the <code>Prop</code> constructor for building them programmatically.</p>
+<h2 id="declaring-properties">Declaring properties</h2>
+<p>The <code>prop</code> statement declares a named property: the getter takes no params,
+setters take one and may be typed (dispatched by argument type). A
+single-accessor property may drop the braces (<code>prop pi() =&gt; 3.14</code>).</p>
+<pre><code class="language-gad">var stored
+prop value {
+    ()      =&gt; stored                // getter
+    (v)     { stored = v }           // setter (any value)
+    (v int) { stored = &quot;int: &quot; + v } // typed setter, dispatched by arg type
+}
+value(&quot;hello&quot;); a := value()         // setter, then getter
+value(42);      b := value()         // typed (int) setter
+println(&quot;value (str):&quot;, a)           // hello
+println(&quot;value (int):&quot;, b)           // int: 42
+
+prop pi() =&gt; 3.14159                 // read-only, braces dropped
+println(&quot;pi():      &quot;, pi())         // 3.14159
+</code></pre>
+<p><code>prop =&gt; expr</code> is a read-only property whose getter is <code>expr</code>. It reads <strong>live</strong>
+(re-evaluated on each access) and has no setter, so writing it is an error. It
+works anonymously or named (<code>prop y =&gt; _x</code>).</p>
+<pre><code class="language-gad">var _live = 1
+ro := prop =&gt; _live                  // anonymous, read-only, live
+_live = 42
+println(&quot;ro.v:      &quot;, ro.v)         // 42 (live)
+</code></pre>
+<h2 id="the-virtual-v-field">The virtual <code>.v</code> field</h2>
+<p>A property exposes a virtual <code>v</code> field for value access without an explicit
+call: <code>x.v</code> runs the getter (like <code>x()</code>) and <code>x.v = value</code> runs the matching
+setter (like <code>x(value)</code>). <strong>Prefer <code>.v</code></strong>: it invokes the same accessor as a
+call, adds no call overhead (a read through <code>.v</code> is even a touch cheaper than a
+call — the VM&rsquo;s index-get dispatch is lighter than its call dispatch), and reads
+clearer. <code>x.v = n</code> runs only the setter — it does not read the getter first.</p>
+<pre><code class="language-gad">value.v = 3                          // setter via .v (preferred over value(3))
+println(&quot;value.v:   &quot;, value.v)      // int: 3 (getter via .v)
+</code></pre>
+<h2 id="properties-as-container-members-computed-properties">Properties as container members (computed properties)</h2>
+<p>When a <code>prop</code> is stored at a container key, indexing that key <strong>delegates</strong> to
+it — reading runs its getter, assigning runs its matching setter — the
+computed-property (accessor) pattern, like a JavaScript getter/setter:</p>
+<pre><code class="language-gad">var (
+    celsius = 20,
+    temp = {
+        c: prop { () =&gt; celsius; (v) { celsius = v } },
+        f: prop { () =&gt; celsius * 9 / 5 + 32; (v) { celsius = (v - 32) * 5 / 9 } },
+    },
+)
+println(&quot;c =&quot;, temp.c)               // 20 — getter runs
+temp.c = 30                          // setter runs
+println(&quot;f =&quot;, temp.f)               // 86 — computed from celsius
+temp.f = 212                         // setter converts back
+println(&quot;c =&quot;, temp.c)               // 100
+</code></pre>
+<p>A <code>prop</code> declared with <code>prop</code> is a plain value: storing it at a key shares the
+<strong>same</strong> prop (both see one backing var). Delegation works on any container
+(dict, module, custom index getters) <strong>except <code>array</code> and class instances</strong>,
+whose access always returns the stored value verbatim. Chained access delegates
+at the leaf (<code>d.a.x</code>).</p>
+<pre><code class="language-gad">var n = 1
+prop counter { () =&gt; n; (v) { n = v } }
+d := {x: counter}                    // store the prop by reference
+d.x = 8                              // delegates -&gt; runs counter's setter
+println(&quot;d.x =&quot;, d.x, &quot;counter() =&quot;, counter()) // 8 8 (shared backing var)
+
+/// Arrays never delegate: a stored prop is the value itself.
+p := prop { () =&gt; 99 }
+println(&quot;array holds prop:&quot;, typeName([p][0])) // Prop
+</code></pre>
+<h2 id="raw-access-with-reflect">Raw access with <code>reflect</code></h2>
+<p>The <a href="lang-reflect.html"><code>reflect</code></a> module reads and writes a key <strong>without</strong> delegating
+to a stored prop — the functional analog of JavaScript <code>Reflect.get</code> /
+<code>Reflect.set</code>.</p>
+<pre><code class="language-gad">println(&quot;raw get:&quot;, typeName(reflect.get(temp, &quot;c&quot;))) // Prop (getter not run)
+reflect.set(temp, &quot;c&quot;, 5)                             // replaces the prop
+println(&quot;after raw set:&quot;, temp.c)                     // 5 (plain value now)
+</code></pre>
+<h2 id="exporting-properties-module-live-bindings">Exporting properties (module live bindings)</h2>
+<p><code>export prop name = init</code> declares a real module local <code>var name = init</code> and
+exports a read/write property over it — a <strong>live binding</strong>: writing <code>mod.name</code>
+from outside changes the module&rsquo;s <code>name</code>, and module functions closing over it
+observe the change. <code>export prop name =&gt; expr</code> exports a read-only live binding.
+See <a href="lang-26_embed.html">Modules</a> and <code>samples/modules/counter.gad</code>.</p>
+<pre><code class="language-gad">// counter.gad
+export prop x = 10
+export getX() =&gt; x
+// caller:  c := import(&quot;./counter.gad&quot;); c.x = 12; c.getX()  // 12
+</code></pre>
+<h2 id="example--31-propertiesgad">Example — <code>31_properties.gad</code></h2>
+<pre><code class="language-gad">var stored
+prop value {
+    ()      =&gt; stored                // getter
+    (v)     { stored = v }           // setter (any value)
+    (v int) { stored = &quot;int: &quot; + v } // typed setter, dispatched by arg type
+}
+value(&quot;hello&quot;); a := value()         // setter, then getter
+value(42);      b := value()         // typed (int) setter
+println(&quot;value (str):&quot;, a)           // hello
+println(&quot;value (int):&quot;, b)           // int: 42
+
+prop pi() =&gt; 3.14159                 // read-only, braces dropped
+println(&quot;pi():      &quot;, pi())         // 3.14159
+
+var _live = 1
+ro := prop =&gt; _live                  // anonymous, read-only, live
+_live = 42
+println(&quot;ro.v:      &quot;, ro.v)         // 42 (live)
+
+value.v = 3                          // setter via .v (preferred over value(3))
+println(&quot;value.v:   &quot;, value.v)      // int: 3 (getter via .v)
+
+var (
+    celsius = 20,
+    temp = {
+        c: prop { () =&gt; celsius; (v) { celsius = v } },
+        f: prop { () =&gt; celsius * 9 / 5 + 32; (v) { celsius = (v - 32) * 5 / 9 } },
+    },
+)
+println(&quot;c =&quot;, temp.c)               // 20 — getter runs
+temp.c = 30                          // setter runs
+println(&quot;f =&quot;, temp.f)               // 86 — computed from celsius
+temp.f = 212                         // setter converts back
+println(&quot;c =&quot;, temp.c)               // 100
+
+var n = 1
+prop counter { () =&gt; n; (v) { n = v } }
+d := {x: counter}                    // store the prop by reference
+d.x = 8                              // delegates -&gt; runs counter's setter
+println(&quot;d.x =&quot;, d.x, &quot;counter() =&quot;, counter()) // 8 8 (shared backing var)
+
+/// Arrays never delegate: a stored prop is the value itself.
+p := prop { () =&gt; 99 }
+println(&quot;array holds prop:&quot;, typeName([p][0])) // Prop
+
+println(&quot;raw get:&quot;, typeName(reflect.get(temp, &quot;c&quot;))) // Prop (getter not run)
+reflect.set(temp, &quot;c&quot;, 5)                             // replaces the prop
+println(&quot;after raw set:&quot;, temp.c)                     // 5 (plain value now)
+
+return value()
+</code></pre>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#declaring-properties">Declaring properties</a><a href="#the-virtual-v-field">The virtual .v.v field</a><a href="#properties-as-container-members-computed-properties">Properties as container members (computed properties)</a><a href="#raw-access-with-reflect">Raw access with reflectreflect</a><a href="#exporting-properties-module-live-bindings">Exporting properties (module live bindings)</a><a href="#example--31-propertiesgad">Example — 31_properties.gad31_properties.gad</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>
