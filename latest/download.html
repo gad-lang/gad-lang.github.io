@@ -15,7 +15,7 @@
   <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
   <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
   <nav class="header-links" id="headerLinks">
-    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.8</a>
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.9</a>
     <a href="playground/index.html">Playground</a>
     <a href="download.html">Download</a>
     <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
@@ -45,21 +45,17 @@
       <a class="nav-link active" href="download.html">Download</a>
     </div>
   </nav>
-  <main class="content"><div class="rel-hero"><div class="rel-badge">Release</div><h1 class="rel-name"><a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.8">v0.1.0-rc.8</a></h1><div class="rel-date">2026-08-08T19:24:42Z</div></div><section class="rel-notes"><h2>Release notes</h2><h2 id="changelog">Changelog</h2>
+  <main class="content"><div class="rel-hero"><div class="rel-badge">Release</div><h1 class="rel-name"><a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.9">v0.1.0-rc.9</a></h1><div class="rel-date">2026-08-08T22:29:57Z</div></div><section class="rel-notes"><h2>Release notes</h2><h2 id="changelog">Changelog</h2>
 <ul>
-<li>c019a2eb83e2ea1d6b611d29f9f7ca0c550dbfbe docs(samples): enums as function/interface parameter types</li>
-<li>ebbfb86c6315fec833d6d7663f32d991e6294e0e feat(doc): snippet execution contexts (<code>uses</code>) + expose snippets on the doc object</li>
-<li>d5bf51dc9aa5d2d6e2f77cd51b1511d4645df38c feat(gadbridge): render documentation to HTML via goldmark</li>
-<li>1e94d188f5df0744d39f431a48674aa85efa4690 feat(ide-react): doc-generation panel with the six doc modes</li>
-<li>9a7641098a3519d261d787395eab640f1716a8a3 feat(ide-vuetify): doc-generation in the Docs panel</li>
-<li>67ae2b71bcb443acdf18a28f25a5d1af8aad9bb7 feat(playground): toggleable Doc panel (Render/Markdown/HTML/JSON/YAML)</li>
-<li>1b61e81b91865425918fc6b402b3d7a22ee67435 feat(wasm): gadDocHTML + gadDocEncode for the doc panel</li>
-<li>967e769948b5f91db068a9904ab492882ecfaff4 refactor(website): render Markdown with goldmark</li>
-<li>54c412f6869cbaca2beadc28544168b77810abcc style(web): use ↩ for the result marker in the frontend apps</li>
+<li>9a4f56e6bccb413aaf513bd5ee3a3a9932c0b43a build(lint): pin GOTOOLCHAIN=go1.26.5 for staticcheck</li>
+<li>0951c2a26c20e93b4d613df42fb70afa9c9baa57 build: track .gitattributes (LF for source/embedded files)</li>
+<li>b4992104205e326e29f5f1cd7607a8ed1f639364 fix(lint): satisfy staticcheck (ST1003 initialisms, U1000 unused)</li>
+<li>e6e64f81686df65b94510cac319845ba87030dbf fix(parser): don&rsquo;t read past EOF on a trailing carriage return</li>
+<li>ba40bd2da3eef693ed546f5a83cabc35315018a1 fix(test): make TestGadPathFromEnv OS-aware (Windows separators)</li>
 </ul>
 <hr>
-<p>📖 <strong>Documentation:</strong> <a href="https://gad-lang.github.io/v0.1.0-rc.8/">https://gad-lang.github.io/v0.1.0-rc.8/</a> · <a href="https://gad-lang.github.io/latest/">latest</a></p>
-</section><h2>Assets</h2><div class="dl-table"><table><thead><tr><th>Platform</th><th>File</th><th>Description</th></tr></thead><tbody><tr><td>Linux (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.8/gad_0.1.0-rc.8_linux_amd64.tar.gz"><code>gad_0.1.0-rc.8_linux_amd64.tar.gz</code></a></td><td>64-bit Intel/AMD Linux</td></tr><tr><td>Linux (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.8/gad_0.1.0-rc.8_linux_arm64.tar.gz"><code>gad_0.1.0-rc.8_linux_arm64.tar.gz</code></a></td><td>64-bit ARM Linux</td></tr><tr><td>Windows (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.8/gad_0.1.0-rc.8_windows_amd64.zip"><code>gad_0.1.0-rc.8_windows_amd64.zip</code></a></td><td>64-bit Intel/AMD Windows</td></tr><tr><td>Windows (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.8/gad_0.1.0-rc.8_windows_arm64.zip"><code>gad_0.1.0-rc.8_windows_arm64.zip</code></a></td><td>64-bit ARM Windows</td></tr><tr><td>WebAssembly</td><td><a href="gad.wasm" download><code>gad.wasm</code></a></td><td>Browser/WASM module (run, format, diagnostics and the gadDebug* debugger)</td></tr><tr><td>Checksums</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.8/checksums.txt"><code>checksums.txt</code></a></td><td>SHA-256 checksums of the release assets</td></tr></tbody></table></div><p class="muted">All release assets are on the <a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.8">GitHub releases page</a>.</p></main>
+<p>📖 <strong>Documentation:</strong> <a href="https://gad-lang.github.io/v0.1.0-rc.9/">https://gad-lang.github.io/v0.1.0-rc.9/</a> · <a href="https://gad-lang.github.io/latest/">latest</a></p>
+</section><h2>Assets</h2><div class="dl-table"><table><thead><tr><th>Platform</th><th>File</th><th>Description</th></tr></thead><tbody><tr><td>Linux (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.9/gad_0.1.0-rc.9_linux_amd64.tar.gz"><code>gad_0.1.0-rc.9_linux_amd64.tar.gz</code></a></td><td>64-bit Intel/AMD Linux</td></tr><tr><td>Linux (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.9/gad_0.1.0-rc.9_linux_arm64.tar.gz"><code>gad_0.1.0-rc.9_linux_arm64.tar.gz</code></a></td><td>64-bit ARM Linux</td></tr><tr><td>Windows (amd64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.9/gad_0.1.0-rc.9_windows_amd64.zip"><code>gad_0.1.0-rc.9_windows_amd64.zip</code></a></td><td>64-bit Intel/AMD Windows</td></tr><tr><td>Windows (arm64)</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.9/gad_0.1.0-rc.9_windows_arm64.zip"><code>gad_0.1.0-rc.9_windows_arm64.zip</code></a></td><td>64-bit ARM Windows</td></tr><tr><td>WebAssembly</td><td><a href="gad.wasm" download><code>gad.wasm</code></a></td><td>Browser/WASM module (run, format, diagnostics and the gadDebug* debugger)</td></tr><tr><td>Checksums</td><td><a href="https://github.com/gad-lang/gad/releases/download/v0.1.0-rc.9/checksums.txt"><code>checksums.txt</code></a></td><td>SHA-256 checksums of the release assets</td></tr></tbody></table></div><p class="muted">All release assets are on the <a href="https://github.com/gad-lang/gad/releases/tag/v0.1.0-rc.9">GitHub releases page</a>.</p></main>
   
 </div>
 <footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
