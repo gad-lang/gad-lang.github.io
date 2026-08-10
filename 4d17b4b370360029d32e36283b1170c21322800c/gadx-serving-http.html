@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serving over HTTP · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links" id="headerLinks">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.9</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmtgad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (....)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (inin / ainain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!?!? / !?=!?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (propprop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...)Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The classclass keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interfaceinterface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt.gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @@ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">Hello, Gad</a><a class="nav-link" href="lang-25_method_resolution.html">Method Resolution</a><a class="nav-link" href="lang-30_assign_and_append.html">Assignment and Append</a><a class="nav-link" href="lang-32_raw_argv.html">Raw Arguments (argv)</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflectreflect module</a><a class="nav-link" href="ref-stdlib-test.html">testtest module and gad testgad test</a><a class="nav-link" href="ref-stdlib-strings.html">stringsstrings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmtfmt module</a><a class="nav-link" href="ref-stdlib-json.html">jsonjson module</a><a class="nav-link" href="ref-stdlib-time.html">timetime module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link active" href="gadx-serving-http.html">Serving over HTTP</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="serving-over-http">Serving over HTTP</h1>
+<p><code>gadx.Render</code> is a ready-to-use template engine: it compiles a <code>.gadx</code> file (or
+retrieves cached bytecode), runs it, and writes the rendered HTML to an
+<code>io.Writer</code>. Because an <code>http.ResponseWriter</code> <strong>is</strong> an <code>io.Writer</code>, a Gadx
+template renders straight into an HTTP response — making Gadx a natural frontend
+layer for a Go web app.</p>
+<pre><code class="language-go">func (r *Render) Render(out io.Writer, filePath string, globals gad.Dict) error
+</code></pre>
+<h2 id="minimal-server-handlerfunc">Minimal server (<code>HandlerFunc</code>)</h2>
+<p><code>Render.HandlerFunc</code> returns an <code>http.HandlerFunc</code> you hand straight to
+<code>http.HandleFunc</code> / <code>http.Handle</code>. Create one <code>*gadx.Render</code> for the whole
+process (it is safe for concurrent use and caches compiled bytecode across
+requests) and map each route to a template:</p>
+<pre><code class="language-go">package main
+
+import (
+    &quot;log&quot;
+    &quot;net/http&quot;
+
+    &quot;github.com/gad-lang/gad&quot;
+    &quot;github.com/gad-lang/gad/gadx&quot;
+)
+
+func main() {
+    // One engine, reused across requests. The workdir is where .gadx files and
+    // their @import siblings live.
+    r := gadx.NewRender(&quot;./templates&quot;)
+
+    // The model callback maps the request to the template globals; its Dict keys
+    // become global variables inside the template. Pass nil when a template needs
+    // no request data.
+    http.HandleFunc(&quot;/&quot;, r.HandlerFunc(&quot;index.gadx&quot;, func(req *http.Request) (gad.Dict, error) {
+        return gad.Dict{
+            &quot;Path&quot;:  gad.Str(req.URL.Path),
+            &quot;Query&quot;: gad.Str(req.URL.RawQuery),
+        }, nil
+    }))
+
+    log.Fatal(http.ListenAndServe(&quot;:8080&quot;, nil))
+}
+</code></pre>
+<p><code>templates/index.gadx</code>:</p>
+<pre><code class="language-gadx">@main
+    html
+        head
+            title Home
+        body
+            h1 Hello from Gadx
+            p You requested {= Path }
+</code></pre>
+<p><code>HandlerFunc</code> renders into a buffer first, so a model or render error becomes a
+clean <code>500</code> with no partial body, and a successful response is written with a
+<code>text/html; charset=utf-8</code> Content-Type.</p>
+<pre><code class="language-go">func (r *Render) HandlerFunc(filePath string, model func(*http.Request) (gad.Dict, error)) http.HandlerFunc
+</code></pre>
+<h2 id="custom-handlers-render">Custom handlers (<code>Render</code>)</h2>
+<p>For full control over status codes, streaming, headers or content type, call
+<code>Render</code> from your own handler. Streaming straight to the <code>ResponseWriter</code> is
+cheapest, but a template that fails <strong>after</strong> the first bytes are written cannot
+change the status — the client already began receiving <code>200 OK</code>. Buffer first
+when you need a correct error status (this is exactly what <code>HandlerFunc</code> does):</p>
+<pre><code class="language-go">func handle(r *gadx.Render, file string) http.HandlerFunc {
+    return func(w http.ResponseWriter, req *http.Request) {
+        var buf bytes.Buffer
+        globals := gad.Dict{&quot;Path&quot;: gad.Str(req.URL.Path)}
+        if err := r.Render(&amp;buf, file, globals); err != nil {
+            http.Error(w, &quot;template error&quot;, http.StatusInternalServerError)
+            log.Printf(&quot;render %s: %v&quot;, file, err)
+            return
+        }
+        w.Header().Set(&quot;Content-Type&quot;, &quot;text/html; charset=utf-8&quot;)
+        _, _ = buf.WriteTo(w)
+    }
+}
+</code></pre>
+<h2 id="passing-request-data-to-the-template">Passing request data to the template</h2>
+<p>Everything the template needs arrives through <code>globals</code>. Marshal path/query
+params, the authenticated user, a page model, etc. into a <code>gad.Dict</code>:</p>
+<pre><code class="language-go">globals := gad.Dict{
+    &quot;User&quot;:  gad.Str(currentUser(req)),
+    &quot;Page&quot;:  gad.Dict{&quot;Title&quot;: gad.Str(&quot;Dashboard&quot;)},
+    &quot;Items&quot;: items, // any gad.Object (e.g. a gad.Array of gad.Dict)
+}
+</code></pre>
+<p>Inside the template these are ordinary globals:</p>
+<pre><code class="language-gadx">@main
+    h1 {= Page.Title }
+    @if User
+        p Signed in as {= User }
+    ul
+        @for it in Items
+            li {= it.name }
+</code></pre>
+<h2 id="performance-across-requests">Performance across requests</h2>
+<ul>
+<li><strong>Bytecode cache</strong> — the first request for a template compiles it; later
+requests reuse the cached bytecode. A source change triggers a deferred
+recompile (<code>Render.TemplateDelay</code>, default 15s), so edits show up in dev
+without restarting.</li>
+<li><strong>Interface-satisfaction cache</strong> — each compiled template carries a
+<code>gad.InterfaceSatCache</code> that <code>Render</code> reuses across requests, so an
+<code>obj :: SomeInterface</code> check (or an interface parameter type) is validated
+once per value type instead of every render. See
+<a href="gadx-api.html">API › <code>(*Render) Render</code></a> for details.</li>
+</ul>
+<p>For a full application wiring routes, a database and Gadx components together,
+see the <a href="gadx-cms-example.html">CMS example</a>.</p>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#minimal-server-handlerfunc">Minimal server (HandlerFuncHandlerFunc)</a><a href="#custom-handlers-render">Custom handlers (RenderRender)</a><a href="#passing-request-data-to-the-template">Passing request data to the template</a><a href="#performance-across-requests">Performance across requests</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>

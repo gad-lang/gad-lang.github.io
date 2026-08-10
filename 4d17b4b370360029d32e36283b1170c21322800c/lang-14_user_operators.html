@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operators · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links" id="headerLinks">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.9</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmtgad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link active" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (....)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (inin / ainain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!?!? / !?=!?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (propprop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...)Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The classclass keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interfaceinterface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt.gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @@ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">Hello, Gad</a><a class="nav-link" href="lang-25_method_resolution.html">Method Resolution</a><a class="nav-link" href="lang-30_assign_and_append.html">Assignment and Append</a><a class="nav-link" href="lang-32_raw_argv.html">Raw Arguments (argv)</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflectreflect module</a><a class="nav-link" href="ref-stdlib-test.html">testtest module and gad testgad test</a><a class="nav-link" href="ref-stdlib-strings.html">stringsstrings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmtfmt module</a><a class="nav-link" href="ref-stdlib-json.html">jsonjson module</a><a class="nav-link" href="ref-stdlib-time.html">timetime module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-serving-http.html">Serving over HTTP</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="operators">Operators</h1>
+<p>This is the operators chapter. Focused runnable tours live in nearby samples:
+<a href="lang-13_ranges.html">ranges <code>..</code></a>, <a href="lang-15_in_operator.html">membership <code>in</code></a>,
+<a href="lang-17_unary_operators.html">unary</a> and
+<a href="lang-28_absent_coalescing.html">absent-coalescing <code>!?</code></a>. This sample demonstrates the
+<strong>user operators</strong> and <code>met gad.*</code> handlers (Example below).</p>
+<h2 id="unary">Unary</h2>
+<p><code>+</code> (identity), <code>-</code> (negation), <code>^</code> (bitwise complement), <code>!</code> (logical NOT, on
+any value&rsquo;s truthiness), and the prefix <code>++x</code> / <code>--x</code> which mutate a variable and
+yield the new value. On temporal types <code>++</code>/<code>--</code> step by the least-significant
+non-zero unit. Falsy values: <code>0</code>, <code>0u</code>, <code>0.0</code>, <code>&quot;&quot;</code>, empty collections, <code>nil</code>,
+<code>no</code>, <code>false</code>.</p>
+<h2 id="binary">Binary</h2>
+<p>Arithmetic <code>+ - * / % **</code>, bitwise <code>&amp; | ^ &amp;^ &lt;&lt; &gt;&gt;</code>, comparison
+<code>== != &lt; &lt;= &gt; &gt;=</code>, logical <code>&amp;&amp; ||</code> (short-circuit, return an operand). <code>+</code>
+concatenates strings and appends to arrays. <code>===</code>/<code>!==</code> are <strong>strict</strong> (same
+concrete type; object identity for non-primitives), customizable via
+<code>met gad.binOpSame</code>.</p>
+<h2 id="ranges-ternary-nullish">Ranges, ternary, nullish</h2>
+<p><code>from .. to</code> builds an inclusive iterable <code>Range</code> (step with <code>/</code> or the <code>step</code>
+arg; <code>..</code> binds tighter than <code>/</code>). <code>cond ? a : b</code> is the ternary. <code>??</code> returns
+the right operand only when the left is <code>nil</code>; <code>?.</code> is a nullish selector and
+<code>?.(args)</code> a nullish call (evaluate/call only when non-nil).</p>
+<h2 id="absent-coalescing---">Absent-coalescing (<code>!?</code> / <code>!?=</code>)</h2>
+<p>The <strong>existence-based</strong> counterparts of <code>??</code>/<code>??=</code>: they test whether a <em>key is
+present</em> (a present <code>nil</code> still counts). <code>a.b !? d</code> yields <code>a.b</code> when <code>b</code> exists,
+else <code>d</code>; <code>a.b !?= d</code> assigns only when absent (auto-creating missing
+intermediate dicts). See <a href="lang-28_absent_coalescing.html">28_absent_coalescing.gad</a>.</p>
+<h2 id="assignment-increment--array-append">Assignment, increment &amp; array append</h2>
+<p><code>+= -= *= /= %= **= &amp;= |= ^= &amp;^= &lt;&lt;= &gt;&gt;= ??=</code>, postfix <code>x++</code>/<code>x--</code> (statements).
+Array append has four forms: <code>arr + x</code> (append one, concatenating an iterable),
+<code>arr ++ it</code> (extend with an iterable), <code>arr += x</code> (append x as <strong>one</strong> element,
+in place), <code>arr ++= it</code> (extend in place). A single target with a comma list is
+an array literal (<code>x := 1, 2, 3</code>).</p>
+<h2 id="operator-handlers-and-the-gad-namespace">Operator handlers and the <code>gad</code> namespace</h2>
+<p>Operator behaviour is dispatched through per-operator functions in the global
+<code>gad</code> namespace (no import needed): <code>gad.binOp{Op}(l, r)</code>,
+<code>gad.selfAssignOp{Op}(l, r)</code> and <code>gad.unOp{Op}(v)</code>. A type customizes an operator
+by adding a typed method (<code>met gad.binOpAdd(a Vec, b Vec) { … }</code>); <code>met ~</code> with
+an override marker replaces an overload. They are callable directly
+(<code>gad.binOpAdd(1, 2)</code>).</p>
+<h2 id="user-operators">User operators</h2>
+<p>Three binary operators have <strong>no built-in meaning</strong> and exist purely for types:
+<code>&lt;&lt;&lt;</code>, <code>&gt;&gt;&gt;</code>, <code>%%</code> (self-assign <code>&lt;&lt;&lt;=</code>, <code>&gt;&gt;&gt;=</code>, <code>%%=</code>), at multiplicative
+precedence. Give them semantics with <code>gad.binOpTripleLess</code> /
+<code>gad.binOpTripleGreater</code> / <code>gad.binOpDoubleMod</code>. Using one without a handler is a
+runtime error.</p>
+<pre><code class="language-gad">/// Define `&lt;&lt;&lt;` and `&gt;&gt;&gt;` on ints as &quot;push&quot;/&quot;pop&quot;-ish helpers.
+met gad.binOpTripleLess(a int, b int) {
+    return a * 1000 + b           // pack two small ints
+}
+met gad.binOpTripleGreater(a int, b int) {
+    return [a / 1000, a % 1000]   // unpack
+}
+
+packed := 12 &lt;&lt;&lt; 345
+println(packed)                   // 12345
+println(packed &gt;&gt;&gt; 0)             // [12, 345]
+
+/// `%%` as a &quot;clamp into range&quot; operator.
+met gad.binOpDoubleMod(v int, hi int) {
+    return v &lt; 0 ? 0 : (v &gt; hi ? hi : v)
+}
+println(50 %% 10, -3 %% 10, 7 %% 10)   // 10 0 7
+
+/// The self-assign forms reuse the binary handler via gad.selfAssignOp's
+/// fallback: `x &lt;&lt;&lt;= y` is `x = x &lt;&lt;&lt; y`.
+acc := 1
+acc &lt;&lt;&lt;= 2
+println(acc)                      // 1002
+
+/// A dedicated gad.selfAssignOp handler can differ from the binary one.
+met gad.selfAssignOpDoubleMod(a int, b int) {
+    return a + b
+}
+n := 7
+n %%= 5
+println(n)                        // 12
+</code></pre>
+<h2 id="membership-assign-to-type-precedence">Membership, assign-to-type, precedence</h2>
+<p><code>A in B</code> tests membership (value/key/substring; also the for-in separator —
+parenthesize to use as an operator); <code>A ain B</code> is &ldquo;all in&rdquo;. <code>obj :: Type</code> checks
+assignability and returns <code>obj</code> (else raises <code>ErrIncompatibleAssign</code>), chaining
+<code>obj::T1::T2</code>. Precedence (higher binds tighter): <code>::</code> (11); <code>* ** / % &lt;&lt; &gt;&gt; &amp; &amp;^ &lt;&lt;&lt; &gt;&gt;&gt; %%</code> (5); <code>+ - | ^</code> (4); comparisons + <code>in</code>/<code>ain</code> (3); <code>&amp;&amp;</code> (2); <code>||</code> (1);
+unary tightest, ternary loosest. Read/write with <code>.name</code> (literal) and <code>[expr]</code>
+(computed); slice with <code>[start:end]</code> (negative indices count from the end).</p>
+<h2 id="example--14-user-operatorsgad">Example — <code>14_user_operators.gad</code></h2>
+<pre><code class="language-gad">/// Define `&lt;&lt;&lt;` and `&gt;&gt;&gt;` on ints as &quot;push&quot;/&quot;pop&quot;-ish helpers.
+met gad.binOpTripleLess(a int, b int) {
+    return a * 1000 + b           // pack two small ints
+}
+met gad.binOpTripleGreater(a int, b int) {
+    return [a / 1000, a % 1000]   // unpack
+}
+
+packed := 12 &lt;&lt;&lt; 345
+println(packed)                   // 12345
+println(packed &gt;&gt;&gt; 0)             // [12, 345]
+
+/// `%%` as a &quot;clamp into range&quot; operator.
+met gad.binOpDoubleMod(v int, hi int) {
+    return v &lt; 0 ? 0 : (v &gt; hi ? hi : v)
+}
+println(50 %% 10, -3 %% 10, 7 %% 10)   // 10 0 7
+
+/// The self-assign forms reuse the binary handler via gad.selfAssignOp's
+/// fallback: `x &lt;&lt;&lt;= y` is `x = x &lt;&lt;&lt; y`.
+acc := 1
+acc &lt;&lt;&lt;= 2
+println(acc)                      // 1002
+
+/// A dedicated gad.selfAssignOp handler can differ from the binary one.
+met gad.selfAssignOpDoubleMod(a int, b int) {
+    return a + b
+}
+n := 7
+n %%= 5
+println(n)                        // 12
+
+return packed
+</code></pre>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#unary">Unary</a><a href="#binary">Binary</a><a href="#ranges-ternary-nullish">Ranges, ternary, nullish</a><a href="#absent-coalescing---">Absent-coalescing (!?!? / !?=!?=)</a><a href="#assignment-increment--array-append">Assignment, increment &amp; array append</a><a href="#operator-handlers-and-the-gad-namespace">Operator handlers and the gadgad namespace</a><a href="#user-operators">User operators</a><a href="#membership-assign-to-type-precedence">Membership, assign-to-type, precedence</a><a href="#example--14-user-operatorsgad">Example — 14_user_operators.gad14_user_operators.gad</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>

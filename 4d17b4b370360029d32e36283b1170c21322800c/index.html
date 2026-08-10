@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gad Language · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links" id="headerLinks">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.9</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link active" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmtgad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (....)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (inin / ainain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!?!? / !?=!?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (propprop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...)Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The classclass keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interfaceinterface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt.gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @@ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">Hello, Gad</a><a class="nav-link" href="lang-25_method_resolution.html">Method Resolution</a><a class="nav-link" href="lang-30_assign_and_append.html">Assignment and Append</a><a class="nav-link" href="lang-32_raw_argv.html">Raw Arguments (argv)</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflectreflect module</a><a class="nav-link" href="ref-stdlib-test.html">testtest module and gad testgad test</a><a class="nav-link" href="ref-stdlib-strings.html">stringsstrings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmtfmt module</a><a class="nav-link" href="ref-stdlib-json.html">jsonjson module</a><a class="nav-link" href="ref-stdlib-time.html">timetime module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-serving-http.html">Serving over HTTP</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><div class="home-hero"><img class="home-hero-logo" src="gad.svg" alt="Gad logo" width="96" height="96"><div class="home-hero-text"><h1>Gad</h1><p class="tagline">A fast, dynamic scripting language embedded in Go — run it from the CLI, in the browser via WebAssembly, or embedded in your Go application. It shines as a <strong>frontend for Go apps</strong> (Gadx templates served with <code>gadx.Render</code>) and for <strong>generating reports and dynamic content</strong> — Markdown, LaTeX and more, driven by scripts.</p><div class="home-cta"><a class="btn btn-primary" href="getting-started.html">Get started</a><a class="btn btn-ghost" href="playground/index.html">Playground</a><a class="btn btn-ghost" href="download.html">Download</a><a class="btn btn-ghost" href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">GitHub</a></div></div></div><h2 class="qs-title">Quickstart</h2><p class="qs-sub">Three ways to run Gad — pick the one that fits your project.</p><div class="cards"><div class="card"><h3><span class="card-badge">⌘</span> Command line</h3><p>Download the <code>gad</code> binary from the releases, or install it with Go:</p><pre class="language-bash"><code class="language-bash">go install github.com/gad-lang/gad/cmd/gad@latest</code></pre><p>Run, format and document:</p><pre class="language-bash"><code class="language-bash">gad script.gad        # run a script
+gad fmt script.gad    # format in place
+gad doc               # generate workspace docs</code></pre><a class="card-link" href="download.html">Download &amp; run →</a></div><div class="card"><h3><span class="card-badge">◈</span> WebAssembly</h3><p>Grab <code>gad.wasm</code> + <code>wasm_exec.js</code> and run Gad in any browser:</p><pre class="language-markup"><code class="language-markup">&lt;script src=&#34;wasm_exec.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+  const go = new Go();
+  WebAssembly.instantiateStreaming(
+    fetch(&#34;gad.wasm&#34;), go.importObject
+  ).then(r =&gt; {
+    go.run(r.instance);
+    const res = JSON.parse(gadRun(&#34;return 6 * 7&#34;));
+    console.log(res.result); // &#34;42&#34;
+  });
+&lt;/script&gt;</code></pre><a class="card-link" href="wasm-embed.html">Embed the WASM →</a></div><div class="card"><h3><span class="card-badge">Go</span> Go module</h3><p>Embed the compiler and VM in your Go program:</p><pre class="language-bash"><code class="language-bash">go get github.com/gad-lang/gad</code></pre><pre class="language-go"><code class="language-go">builtins := gad.NewBuiltins()
+st := gad.NewSymbolTable(builtins.NameSet)
+cr, _ := gad.Compile(st, []byte(`return 6 * 7`), gad.CompileOptions{})
+ret, _ := gad.NewVM(builtins.Build(), cr.Bytecode).Run()
+fmt.Println(ret) // 42</code></pre><a class="card-link" href="embedding.html">Embedding guide →</a></div></div><p class="muted">Configure a workspace via the <a href="ref-workspace-config.html"><code>GAD_CONFIG_DIR</code> (<code>.gad/</code>)</a> directory.</p><h1 id="gad-language-documentation">Gad Language Documentation</h1>
+<p>Gad is a fast, dynamic scripting language designed to be embedded into Go
+applications. Source code is compiled to bytecode and run on a stack-based
+virtual machine written in native Go.</p>
+<p>The <strong>language-feature documentation lives inside the samples</strong>: each
+<code>samples/NN_topic.{gad,gadt,gadx}</code> carries its chapter as a doc comment and a
+runnable example, and <code>gad doc</code> generates the rendered pages under
+<a href="samples/"><code>doc/samples/</code></a> (index: <a href="lang-README.html">doc/samples/README.md</a>).
+Regenerate them with <code>make samples-doc</code>.</p>
+<h2 id="language-chapters-generated-from-the-samples">Language chapters (generated from the samples)</h2>
+<table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Rendered doc</th>
+<th>Sample source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Getting Started</td>
+<td><a href="getting-started.html">getting-started.md</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Values and Types</td>
+<td><a href="lang-02_values_and_types.html">02</a></td>
+<td><a href="lang-02_values_and_types.html"><code>samples/02_values_and_types.gad</code></a></td>
+</tr>
+<tr>
+<td>Variables and Scopes</td>
+<td><a href="lang-33_variables_and_scopes.html">33</a></td>
+<td><a href="lang-33_variables_and_scopes.html"><code>samples/33_variables_and_scopes.gad</code></a></td>
+</tr>
+<tr>
+<td>Operators</td>
+<td><a href="lang-14_user_operators.html">14</a></td>
+<td><a href="lang-14_user_operators.html"><code>samples/14_user_operators.gad</code></a> (+ <a href="lang-13_ranges.html">13</a>/<a href="lang-15_in_operator.html">15</a>/<a href="lang-17_unary_operators.html">17</a>/<a href="lang-28_absent_coalescing.html">28</a>)</td>
+</tr>
+<tr>
+<td>Control Flow</td>
+<td><a href="lang-06_control_flow.html">06</a></td>
+<td><a href="lang-06_control_flow.html"><code>samples/06_control_flow.gad</code></a> (+ <a href="lang-18_with.html">18 with</a>)</td>
+</tr>
+<tr>
+<td>Functions</td>
+<td><a href="lang-03_functions.html">03</a></td>
+<td><a href="lang-03_functions.html"><code>samples/03_functions.gad</code></a> (+ <a href="lang-10_functions_with_methods.html">10 methods</a>)</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td><a href="lang-31_properties.html">31</a></td>
+<td><a href="lang-31_properties.html"><code>samples/31_properties.gad</code></a></td>
+</tr>
+<tr>
+<td>Collections</td>
+<td><a href="lang-04_collections.html">04</a></td>
+<td><a href="lang-04_collections.html"><code>samples/04_collections.gad</code></a> (+ <a href="lang-05_comprehensions.html">05</a>/<a href="lang-22_key_value_array.html">22</a>/<a href="lang-27_destructuring.html">27</a>)</td>
+</tr>
+<tr>
+<td>Classes</td>
+<td><a href="lang-11_classes.html">11</a></td>
+<td><a href="lang-11_classes.html"><code>samples/11_classes.gad</code></a> (+ <a href="lang-19_class_syntax.html">19 class syntax</a>)</td>
+</tr>
+<tr>
+<td>Method Interfaces</td>
+<td><a href="lang-12_method_interfaces.html">12</a></td>
+<td><a href="lang-12_method_interfaces.html"><code>samples/12_method_interfaces.gad</code></a></td>
+</tr>
+<tr>
+<td>Interfaces</td>
+<td><a href="lang-24_interfaces.html">24</a></td>
+<td><a href="lang-24_interfaces.html"><code>samples/24_interfaces.gad</code></a></td>
+</tr>
+<tr>
+<td>Enums</td>
+<td><a href="lang-20_enum.html">20</a></td>
+<td><a href="lang-20_enum.html"><code>samples/20_enum.gad</code></a></td>
+</tr>
+<tr>
+<td>Strings, Bytes &amp; Regex</td>
+<td><a href="lang-08_strings_bytes_regex.html">08</a></td>
+<td><a href="lang-08_strings_bytes_regex.html"><code>samples/08_strings_bytes_regex.gad</code></a> (+ <a href="lang-21_heredocs.html">21 heredocs</a>)</td>
+</tr>
+<tr>
+<td>Error Handling</td>
+<td><a href="lang-07_error_handling.html">07</a></td>
+<td><a href="lang-07_error_handling.html"><code>samples/07_error_handling.gad</code></a></td>
+</tr>
+<tr>
+<td>Modules and Embedding</td>
+<td><a href="lang-26_embed.html">26</a></td>
+<td><a href="lang-26_embed.html"><code>samples/26_embed.gad</code></a></td>
+</tr>
+<tr>
+<td>Templates (mixed mode)</td>
+<td><a href="lang-09_template.html">09</a></td>
+<td><a href="lang-09_template.html"><code>samples/09_template.gad</code></a> (+ <a href="lang-23_template.html">23 .gadt</a>)</td>
+</tr>
+<tr>
+<td>Doc Comments</td>
+<td><a href="lang-16_doc_comments.html">16</a></td>
+<td><a href="lang-16_doc_comments.html"><code>samples/16_doc_comments.gad</code></a></td>
+</tr>
+<tr>
+<td>Special <code>@</code> Keywords</td>
+<td><a href="lang-29_special_keywords.html">29</a></td>
+<td><a href="lang-29_special_keywords.html"><code>samples/29_special_keywords.gad</code></a></td>
+</tr>
+<tr>
+<td>Metaprogramming</td>
+<td><a href="lang-34_metaprogramming.html">34</a></td>
+<td><a href="lang-34_metaprogramming.html"><code>samples/34_metaprogramming.gad</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference--tooling">Reference &amp; tooling</h2>
+<ul>
+<li><a href="getting-started.html">Getting Started</a> — install, run scripts, the REPL.</li>
+<li><a href="embedding.html">Embedding in Go</a> — compile and run Gad from Go, pass globals and
+arguments, expose Go functions and typed methods.</li>
+<li><a href="formatting.html">Formatting</a> — the <code>gad fmt</code> source formatter and the <code>.gad.yaml</code>
+config file.</li>
+<li><a href="workspace-config.html">Workspace Configuration</a> — <code>.gad/gad.yaml</code> / <code>ide.yaml</code>,
+the <code>env</code> section, <code>GADPATH</code>, and the <code>doc-templates</code> directory.</li>
+<li><a href="conventions.html">Conventions</a> — how primitive types, constants, modules and
+methods are cased, plus the layout the formatter produces.</li>
+<li><a href="builtins.html">Builtin Functions</a> — overview of the builtin library.</li>
+<li><a href="reflect.html"><code>reflect</code></a> — raw, delegation-free index access.</li>
+<li><a href="stdlib-test.html">Testing</a> — the <code>test</code> module and the <code>gad test</code> command.</li>
+<li><a href="tutorial.html">Tutorial</a> — a guided walk-through of the language.</li>
+<li>Generated standard-library references: <a href="stdlib-time.html"><code>time</code></a>,
+<a href="stdlib-fmt.html"><code>fmt</code></a>, <a href="stdlib-strings.html"><code>strings</code></a>, <a href="stdlib-json.html"><code>json</code></a>.</li>
+</ul>
+<h2 id="how-the-documentation-is-built">How the documentation is built</h2>
+<p>The docs are generated in two stages:</p>
+<ol>
+<li><strong>Samples → Markdown.</strong> <code>gad doc</code> extracts each sample&rsquo;s doc comment and its
+verified runnable example and renders a Markdown page (one per chapter) under
+<a href="samples/"><code>doc/samples/</code></a>, driven by the <code>doc-templates</code> (see
+<a href="workspace-config.html#documentation-templates">Workspace Configuration › Documentation templates</a>).
+Regenerate with <code>make samples-doc</code>.</li>
+<li><strong>Markdown → website.</strong> <code>cmd/build-website</code> assembles the static docs site
+(nav, search index, per-page table of contents, syntax highlighting) from the
+<code>doc/</code>, <code>doc/samples/</code> and <code>gadx/docs/</code> Markdown.</li>
+</ol>
+<p>The Markdown → HTML conversion in stage 2 is handled by
+<a href="https://github.com/yuin/goldmark"><strong>goldmark</strong></a> — a CommonMark-compliant,
+pure-Go parser/renderer — so the docs may use the full Markdown vocabulary:
+nested emphasis and links, fenced code with language info strings (highlighted
+with PrismJS), and everything the enabled extensions add.</p>
+<p><strong>Enabled goldmark extensions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Adds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFM</td>
+<td>tables, strikethrough (<code>~~x~~</code>), autolinks, task-list items</td>
+</tr>
+<tr>
+<td>Typographer</td>
+<td>smart quotes and dashes (<code>--</code> → –, <code>---</code> → —, <code>...</code> → …)</td>
+</tr>
+<tr>
+<td>Definition List</td>
+<td><code>Term</code> / <code>: definition</code> definition lists</td>
+</tr>
+<tr>
+<td>Footnote</td>
+<td><code>[^1]</code> references with a footnotes section</td>
+</tr>
+<tr>
+<td>Auto Heading ID</td>
+<td>stable <code>id</code> anchors on every heading (parser option)</td>
+</tr>
+</tbody>
+</table>
+<p>On top of goldmark the builder adds two site-specific passes: an AST transformer rewrites
+doc-relative links (<code>page.md</code> → <code>page.html</code>, <code>samples/NN.*</code> → the published
+<code>lang-NN.html</code> chapter) and headings are collected — with goldmark&rsquo;s
+auto-generated ids — into each page&rsquo;s on-this-page table of contents and the
+search index. The renderer lives in <code>cmd/build-website/markdown.go</code>.</p>
+<h3 id="snippets">Snippets</h3>
+<p>Rather than copy code into prose by hand (where it rots), a doc comment pulls in
+a <strong>snippet</strong>: a named region of the sample&rsquo;s own runnable source. <code>gad doc</code>
+replaces the <code>@snippet NAME</code> placeholder with a fenced code block holding that
+region, so the documented code is always real, compiling code.</p>
+<p>Delimit a region with <code>//snippet NAME</code> / <code>//endsnippet</code>, and reference it from
+the module prose or any <code>///</code> doc comment with <code>@snippet NAME</code>:</p>
+<pre><code class="language-gad">/**
+# Greetings
+
+@snippet greet
+**/
+
+//snippet greet
+greet := func(name) =&gt; &quot;hi &quot; + name
+greet(&quot;Gad&quot;)
+//endsnippet
+</code></pre>
+<p>A region may declare a <strong>result that is verified at generation time</strong> (a
+mismatch fails the build, so the docs cannot drift from the code):</p>
+<ul>
+<li><code>/**= EXPR **/</code> — the region&rsquo;s value must equal <code>EXPR</code>; the rendered block
+gains a <code>// =&gt; &lt;value&gt;</code> line.</li>
+<li><code>/**&lt; TEXT **/</code> — the region&rsquo;s STDOUT must equal <code>TEXT</code>; the block is followed
+by an <code>Output:</code> block.</li>
+</ul>
+<pre><code class="language-gad">//snippet greet
+greet := func(name) =&gt; &quot;hi &quot; + name
+greet(&quot;Gad&quot;)
+/**= &quot;hi Gad&quot; **/
+//endsnippet
+</code></pre>
+<p><strong>Reusing code across snippets — <code>uses</code>.</strong> A snippet runs standalone, so it must
+be self-contained. To reuse definitions from another snippet without repeating
+them, list it as an execution context on the open line:
+<code>//snippet NAME uses OTHER …</code> (several contexts allowed, resolved transitively).
+The context&rsquo;s code is prepended when the snippet runs — so the snippet can
+reference its definitions and its result still verifies — but the context is
+<strong>not</strong> rendered and its own result marker is ignored; the block shows only this
+snippet&rsquo;s code.</p>
+<pre><code class="language-gad">//snippet define
+enum Perm { Read, Write, Exec = 10, Delete }
+//endsnippet
+
+//snippet usage uses define
+// `Perm` comes from the `define` context; only these lines are shown.
+func isWrite(p Perm) =&gt; p == Perm.Write
+isWrite(Perm.Write)
+/**= true **/
+//endsnippet
+</code></pre>
+<p>The markers (<code>//snippet</code>, <code>//endsnippet</code>, <code>/**= **/</code>, <code>/**&lt; **/</code>) never appear in
+the rendered code, nor in the sample&rsquo;s own &ldquo;Example&rdquo; block. See
+<code>samples/16_doc_comments.gad</code> and <code>samples/20_enum.gad</code> for live uses.</p>
+<h2 id="gadx-templates">Gadx Templates</h2>
+<p>Gadx is an indentation-based HTML template language that embeds Gad, shipped in
+this repository as the <a href="../gadx"><code>gadx</code></a> submodule. <code>.gadx</code> files run and debug
+with the <code>gad</code> CLI and the IDE tooling. Its documentation lives in
+<a href="../gadx/docs"><code>gadx/docs</code></a>.</p>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#language-chapters-generated-from-the-samples">Language chapters (generated from the samples)</a><a href="#reference--tooling">Reference &amp; tooling</a><a href="#how-the-documentation-is-built">How the documentation is built</a><a href="#gadx-templates">Gadx Templates</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>
