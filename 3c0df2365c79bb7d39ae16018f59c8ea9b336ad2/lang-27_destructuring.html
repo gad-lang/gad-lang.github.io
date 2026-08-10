@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destructuring · Gad</title>
+<link rel="icon" type="image/svg+xml" href="gad.svg">
+<script>(function(){var s=localStorage.getItem("gad-theme");var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;})();</script>
+<script>window.SITE_BASE="";</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="nav-toggle" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="gad.svg" alt="" width="30" height="30"><span class="brand-name">Gad</span></a>
+  <div class="search"><input id="q" type="search" placeholder="Search docs…" autocomplete="off"><div id="results"></div></div>
+  <nav class="header-links" id="headerLinks">
+    <a class="rel-chip" href="download.html" title="Current release">v0.1.0-rc.10</a>
+    <a href="playground/index.html">Playground</a>
+    <a href="download.html">Download</a>
+    <a href="https://github.com/gad-lang/gad/issues" target="_blank" rel="noopener">Issues</a>
+    <a href="https://github.com/gad-lang/gad" target="_blank" rel="noopener">Repo</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="headerLinks" aria-expanded="false">⋯</button>
+  <button class="theme-toggle" id="theme" title="Toggle theme">◐</button>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-title">Guide</div>
+      <a class="nav-link" href="index.html">Gad Language</a><a class="nav-link" href="getting-started.html">Getting Started</a><a class="nav-link" href="builtins.html">Builtin Functions</a><a class="nav-link" href="formatting.html">Formatting with gad fmtgad fmt</a><a class="nav-link" href="embedding.html">Embedding Gad in Go</a>
+    </div><div class="nav-group"><div class="nav-title">Language</div>
+      <a class="nav-link" href="lang-README.html">Language chapters</a><a class="nav-link" href="lang-02_values_and_types.html">Values and Types</a><a class="nav-link" href="lang-33_variables_and_scopes.html">Variables and Scopes</a><a class="nav-link" href="lang-14_user_operators.html">Operators</a><a class="nav-link" href="lang-13_ranges.html">Ranges (....)</a><a class="nav-link" href="lang-15_in_operator.html">Membership (inin / ainain)</a><a class="nav-link" href="lang-17_unary_operators.html">Unary Operators</a><a class="nav-link" href="lang-28_absent_coalescing.html">Absent-Coalescing (!?!? / !?=!?=)</a><a class="nav-link" href="lang-06_control_flow.html">Control Flow</a><a class="nav-link" href="lang-18_with.html">With</a><a class="nav-link" href="lang-03_functions.html">Functions</a><a class="nav-link" href="lang-10_functions_with_methods.html">Functions with Methods</a><a class="nav-link" href="lang-31_properties.html">Properties (propprop)</a><a class="nav-link" href="lang-04_collections.html">Collections</a><a class="nav-link" href="lang-05_comprehensions.html">Comprehensions</a><a class="nav-link" href="lang-22_key_value_array.html">KeyValue Arrays</a><a class="nav-link active" href="lang-27_destructuring.html">Destructuring</a><a class="nav-link" href="lang-11_classes.html">Classes (the Class(...)Class(...) builtin)</a><a class="nav-link" href="lang-19_class_syntax.html">The classclass keyword</a><a class="nav-link" href="lang-12_method_interfaces.html">Func Headers and Method Interfaces</a><a class="nav-link" href="lang-24_interfaces.html">Interfaces (interfaceinterface)</a><a class="nav-link" href="lang-20_enum.html">Enums</a><a class="nav-link" href="lang-08_strings_bytes_regex.html">Strings, Bytes and Regex</a><a class="nav-link" href="lang-21_heredocs.html">Heredocs and Code Strings</a><a class="nav-link" href="lang-07_error_handling.html">Error Handling</a><a class="nav-link" href="lang-26_embed.html">Modules and Embedding</a><a class="nav-link" href="lang-09_template.html">Templates (mixed mode)</a><a class="nav-link" href="lang-23_template.html">Templates — a .gadt.gadt example</a><a class="nav-link" href="lang-16_doc_comments.html">Doc Comments</a><a class="nav-link" href="lang-29_special_keywords.html">Special @@ Keywords</a><a class="nav-link" href="lang-34_metaprogramming.html">Metaprogramming: parse, eval and Gadx</a><a class="nav-link" href="lang-01_hello.html">Hello, Gad</a><a class="nav-link" href="lang-25_method_resolution.html">Method Resolution</a><a class="nav-link" href="lang-30_assign_and_append.html">Assignment and Append</a><a class="nav-link" href="lang-32_raw_argv.html">Raw Arguments (argv)</a>
+    </div><div class="nav-group"><div class="nav-title">Reference</div>
+      <a class="nav-link" href="ref-tutorial.html">Gad Tutorial</a><a class="nav-link" href="ref-workspace-config.html">Workspace Configuration</a><a class="nav-link" href="ref-conventions.html">Conventions</a><a class="nav-link" href="ref-reflect.html">reflectreflect module</a><a class="nav-link" href="ref-stdlib-test.html">testtest module and gad testgad test</a><a class="nav-link" href="ref-stdlib-strings.html">stringsstrings module</a><a class="nav-link" href="ref-stdlib-fmt.html">fmtfmt module</a><a class="nav-link" href="ref-stdlib-json.html">jsonjson module</a><a class="nav-link" href="ref-stdlib-time.html">timetime module</a>
+    </div><div class="nav-group"><div class="nav-title">Gadx</div>
+      <a class="nav-link" href="gadx-getting-started.html">Getting Started</a><a class="nav-link" href="gadx-syntax.html">Template Syntax</a><a class="nav-link" href="gadx-components-and-slots.html">Components And Slots</a><a class="nav-link" href="gadx-examples.html">Examples Cookbook</a><a class="nav-link" href="gadx-embedding.html">Embedding In Go</a><a class="nav-link" href="gadx-serving-http.html">Serving over HTTP</a><a class="nav-link" href="gadx-api.html">API Reference</a><a class="nav-link" href="gadx-conventions.html">Conventions</a><a class="nav-link" href="gadx-source-positions.html">Source Positions</a><a class="nav-link" href="gadx-project-structure.html">Project Structure</a><a class="nav-link" href="gadx-benchmarks.html">Benchmarks</a><a class="nav-link" href="gadx-cms-example.html">CMS Example</a>
+    </div><div class="nav-group"><div class="nav-title">JS modules</div>
+      <a class="nav-link" href="js-modules/codemirror-gad.html">@gad-lang/codemirror-gad</a><a class="nav-link" href="js-modules/prism-gad.html">@gad-lang/prism-gad</a><a class="nav-link" href="js-modules/ide-react.html">@gad-lang/ide-react</a><a class="nav-link" href="js-modules/ide-vuetify.html">@gad-lang/ide-vuetify</a>
+    </div><div class="nav-group"><div class="nav-title">Integrate</div>
+      <a class="nav-link" href="wasm-embed.html">Embed the WASM</a>
+    </div><div class="nav-group"><div class="nav-title">Playground</div>
+      <a class="nav-link" href="playground/index.html">Playground</a>
+    </div><div class="nav-group"><div class="nav-title">Download</div>
+      <a class="nav-link" href="download.html">Download</a>
+    </div>
+  </nav>
+  <main class="content"><h1 id="destructuring">Destructuring</h1>
+<p>Bind several variables at once from arrays and named data. Gad has three
+destructuring shapes:</p>
+<ol>
+<li>arrays        <code>x, y := [1, 2]</code></li>
+<li>named <code>(; …)</code> <code>(; key: target, r = 2, **rest) := source</code>  (key on the left)</li>
+<li>named <code>{ … }</code> <code>{ key: target, r = 2, **rest } := source</code>  (TypeScript order)</li>
+</ol>
+<p>Forms 2 and 3 are the same feature with different brackets — both key-on-the-
+left. They work on any named data — dicts, modules, key-value arrays, named
+args — because the source is run through the default <code>dict()</code> constructor first.
+Part of the <a href="lang-04_collections.html">Collections</a> chapter. This whole sample is a
+runnable tour; the full listing is in the Example below.</p>
+<h2 id="example--27-destructuringgad">Example — <code>27_destructuring.gad</code></h2>
+<pre><code class="language-gad">// ── 1. Arrays ────────────────────────────────────────────────────────────────
+x, y := [10, 20]
+println(&quot;array:&quot;, x, y)                 // 10 20
+a, b, c := [1, 2]                        // missing element -&gt; nil
+println(&quot;array short:&quot;, a, b, c)        // 1 2 nil
+
+// `[a, b]` bracket form works too (even one element):
+[first, second] := [100, 200]
+println(&quot;bracket:&quot;, first, second)      // 100 200
+
+// a trailing `*rest` (last target) collects the remaining elements:
+head, next, *rest := [1, 2, 3, 4, 5]
+println(&quot;rest:&quot;, head, next, str(rest)) // 1 2 [3, 4, 5]
+
+// parallel multi-value assignment: several values on the right, no brackets:
+p, q, *tail := 1, 2, 3, 4
+println(&quot;parallel:&quot;, p, q, str(tail)) // 1 2 [3, 4]
+
+// `const` / `var` accept any pattern (immutable / mutable bindings):
+const {tls} = {host: &quot;h&quot;, tls: true}
+const [lo, hi, *more] = [1, 9, 10, 11]
+println(&quot;const:&quot;, tls, lo, hi, str(more)) // true 1 9 [10, 11]
+
+// ── 2. Named, `(; … )` form — key on the LEFT ────────────────────────────────
+d := {host: &quot;localhost&quot;, port: 8080, tls: true}
+(; host, port:p, timeout = 30, **extra) := d
+// host    &lt;- key &quot;host&quot;    (&quot;localhost&quot;)
+// p       &lt;- key &quot;port&quot;    (8080)      — rename, `key: target`
+// timeout &lt;- key &quot;timeout&quot; (30)        — default; key absent
+// extra   &lt;- remaining keys ({tls: true})
+println(&quot;(;):&quot;, host, p, timeout, str(extra))
+
+// ── 3. Named, `{ … }` form — TypeScript order, key on the LEFT ────────────────
+{ host, port: pt, timeout = 30, **rest } := d
+// host &lt;- key &quot;host&quot;; pt &lt;- key &quot;port&quot;; timeout default; rest = the remainder
+println(&quot;{}:&quot;, host, pt, timeout, str(rest))
+
+// `{ … }` collects **rest as a dict:
+{ host, **others } := d
+println(&quot;rest is a&quot;, typeName(others), str(others))
+
+// `=` assigns to variables that already exist (instead of declaring):
+var (h, po)
+{ host: h, port: po } = d
+println(&quot;assign:&quot;, h, po)
+
+// ── Any named data works (via the default dict() constructor) ─────────────────
+
+// a module
+strings := import(&quot;strings&quot;)
+{ toUpper, hasPrefix } := strings
+println(&quot;module:&quot;, toUpper(&quot;hi&quot;), hasPrefix(&quot;hello&quot;, &quot;he&quot;))
+
+// a key-value array (implements ToDictConverter)
+kva := (; a = 1, b = 2, c = 3)
+{ a, b: second, **krest } := kva
+println(&quot;kva:&quot;, a, second, str(krest))
+
+// named args inside a function
+connect := func(; **opts) {
+	{ host, port = 80 } := opts
+	return host + &quot;:&quot; + str(port)
+}
+println(&quot;named args:&quot;, connect(; host = &quot;example.com&quot;))
+
+// ── Mixed positional + named ──────────────────────────────────────────────────
+// A MixedParams value (`(values… ; name=value…)`) carries BOTH positional and
+// named parts, so it uses the full `( positional ; named )` pattern — the
+// positional side takes a trailing `*rest` (a single star, like a variadic
+// parameter `func(a, *rest)`) and the named side a trailing `**rest`, e.g.
+//
+//     mp := (1, 2, *[3]; user = &quot;ann&quot;, role = &quot;admin&quot;)
+//     (a, b, *rest_pos; user, role:r, **rest_named) := mp
+//
+// For just the named side of any value, use `(; … )` or `{ … }` on it.
+</code></pre>
+</main>
+  <aside class="toc"><div class="nav-title">On this page</div><a href="#example--27-destructuringgad">Example — 27_destructuring.gad27_destructuring.gad</a></aside>
+</div>
+<footer class="site-footer">Gad — a fast, dynamic scripting language embedded in Go. Built with <code>cmd/build-website</code>.</footer>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+<script src="search.js"></script>
+<script src="prism.js" defer></script>
+</body>
+</html>
