@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./gad.svg" />
+    <title>Gad — a fast, dynamic scripting language embedded in Go</title>
+    <script>
+      // Pick up the stored/system theme before paint to avoid a flash.
+      (function () {
+        var s = localStorage.getItem("gad-theme");
+        var t = s === "light" || s === "dark" ? s
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = t;
+      })();
+      // The app's base is the directory that serves index.html (a version dir like
+      // /latest/ on deploy, or / locally).
+      window.__BASE__ = location.pathname;
+      // Decode a 404.html SPA redirect (`<base>/?/docs/x`). The route is stashed
+      // for the app to navigate to AFTER it mounts — we must NOT rewrite the URL
+      // here, or the module script's relative `./assets/…` would resolve against
+      // the (deeper) route path and 404 before the app can load.
+      (function (l) {
+        if (l.search[1] === "/") {
+          window.__SPA_REDIRECT__ = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) { return s.replace(/~and~/g, "&"); })
+            .join("?") + l.hash;
+        }
+      })(window.location);
+    </script>
+    <script type="module" crossorigin src="./assets/index-DiBBGQ22.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C8ZZpVQ9.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
